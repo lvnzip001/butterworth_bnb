@@ -27,6 +27,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/reservation.css" rel="stylesheet">
@@ -79,10 +80,10 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero-room" class="d-flex align-items-center">
+  <section id="hero-standard_room" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row center-items d-flex justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.158); border-radius: 15px; padding: 10px; width: 100%;">
-        <h1 class="text-center m-0">Accomodation</h1>
+        <h1 class="text-center m-0">Standard Room</h1>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -135,284 +136,129 @@
           </div>
         </section>
 
+<!-- Room Details Section -->
+<section class="l-section l-section--room-details">
+  <div class="l-wrapper container">
+    <div class="row">
+      <!-- Main Content -->
+      <div class="l-main col-lg-8">
+        <!-- Description -->
+        <section class="l-section l-section--details-description">
+          <div class="details-description">
+            <h1 class="room-title">Standard Room</h1>
+            <p>A cozy 32m² retreat at Bibby's BnB, featuring an en-suite bathroom with a spacious shower and a modern kitchenette. This room boasts an extra-length king-size bed, ample wardrobe space, and a 32" UHD TV with Netflix and uncapped Wi-Fi. Enjoy personalized comfort with a wall-to-wall wooden headboard, individual reading lights, and multi-adaptor USB ports on each side of the bed. Fully air-conditioned with heating and cooling, the room offers elegant laminated flooring and blackout curtains overlooking a serene courtyard.</p>
+            <!-- Placeholder for 3D Tour (optional) -->
+            <p><iframe src="https://my.matterport.com/show/?m=ZBd22iqfykY" frameborder="0" scrolling="no" width="100%" height="480" class="mt-3"></iframe></p>
+          </div>
+        </section>
 
-        
-        <!-- ======= Rooms Listing Section ======= -->
-<section class="l-section l-section--rooms-listing">
-  <div class="rooms-listing__controls mb-4">
-    <label for="sort-options">Sort by:</label>
-    <select id="sort-options" class="form-select">
-      <option value="price-low">Price: Low to High</option>
-      <option value="price-high">Price: High to Low</option>
-      <option value="popularity">Most Popular</option>
-    </select>
-  </div>
-
-  <div class="l-wrapper">
-    <div class="rooms-listing__wrap">
-      <div class="rooms-listing js-filter__load-box">
-      
-
-        <!-- Rooms Listing Holder -->
-        <div class="rooms-listing__holder row">
-          <!-- Room Item 1 -->
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="standard_room.html" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/room5.jpg" alt="Standard Room" class="room-item-card__img">
-                  </picture>
+        <!-- Gallery (Combined with Thumbnail Slider) -->
+        <section class="l-section l-section--details-gallery">
+          <div class="details-gallery">
+            <!-- Main Slider -->
+            <div class="swiper main-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="assets/img/room5.jpg" class="details-gallery__img img-fluid" alt="Standard Room - Bed">
                 </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 867</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">Standard Room</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">32 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 2 pers.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
-                  </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/room6.jpg" class="details-gallery__img img-fluid" alt="Standard Room - Kitchenette">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/room7.webp" class="details-gallery__img img-fluid" alt="Standard Room - Bathroom">
                 </div>
               </div>
-            </a>
-          </div>
-
-          <!-- Room Item 2 -->
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="standard_room.html" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/roomHome.png" alt="Deluxe Suite" class="room-item-card__img">
-                  </picture>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <!-- Thumbnail Slider -->
+            <div class="swiper thumbnail-slider mt-3">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="assets/img/room5.jpg" class="thumbnail-img img-fluid" alt="Thumbnail - Bed">
                 </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 1,100.50</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">Double Room</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">50 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 2 pers.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
-                  </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/room6.jpg" class="thumbnail-img img-fluid" alt="Thumbnail - Kitchenette">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/room7.webp" class="thumbnail-img img-fluid" alt="Thumbnail - Bathroom">
                 </div>
               </div>
-            </a>
+            </div>
           </div>
+        </section>
 
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="standard_room.html" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/gallery/double_room.jpg" alt="Double Bed" class="room-item-card__img">
-                  </picture>
+        <!-- Amenities -->
+        <section class="l-section l-section--room-facilities">
+          <div class="room-facilities">
+            <h2 class="room-facilities__title">Amenities</h2>
+            <ul class="room-facilities__list row">
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-kitchen text-primary me-2"></i>Kitchenette</li>
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-cup-hot text-primary me-2"></i>Tea & Coffee Set</li>
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-tv text-primary me-2"></i>32" UHD TV</li>
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-lock text-primary me-2"></i>Safe</li>
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-shower text-primary me-2"></i>Bathroom with Shower</li>
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-towel text-primary me-2"></i>Towels</li>
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-snow text-primary me-2"></i>Air Conditioning</li>
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-hair-dryer text-primary me-2"></i>Hairdryer</li>
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-wifi text-primary me-2"></i>Uncapped Wi-Fi</li>
+              <li class="room-facilities__item col-6 col-md-4"><i class="bi bi-display text-primary me-2"></i>Netflix & YouTube</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Policies -->
+        <section class="l-section l-section--policies">
+          <div class="policies">
+            <h2 class="policies__main-title">Important Information</h2>
+            <div class="policies__inner row">
+              <div class="policies__col col-md-6">
+                <div class="policies__schedule">
+                  <i class="bi bi-clock text-primary me-2"></i>
+                  <div style="color: black;"><strong>Arrival:</strong> From 14:00</div>
                 </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 1,200.00</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">2 Double Bed Room</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">45 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 5 pers.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
-                  </div>
+                <div class="policies__schedule">
+                  <i class="bi bi-clock text-primary me-2"></i>
+                  <div style="color: black;"><strong>Departure:</strong> Until 11:00</div>
                 </div>
               </div>
-            </a>
-          </div>
-
-          <!-- Room Item 2 -->
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="standard_room.html" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/room6.jpg" alt="Superior Room" class="room-item-card__img">
-                  </picture>
-                </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 1,319.88</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">Superior Room</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">45 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 4 pers.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
-                  </div>
-                </div>
+              <div class="policies__col col-md-6" style="color: black;">
+                <div class="policies__row"><strong>Pets:</strong> Not allowed.</div>
+                <div class="policies__row"><strong>Parking:</strong> Free for guests; reservation required.</div>
+                <div class="policies__row"><strong>Children:</strong> Welcome; baby cot available on request.</div>
               </div>
-            </a>
+            </div>
           </div>
+        </section>
+      </div>
 
-          <!-- Room Item 3 -->
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="#" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/room7.webp" alt="Deluxe Suite" class="room-item-card__img">
-                  </picture>
-                </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 1,400.50</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">Deluxe Suite</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">50 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 2 pers.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </a>
+      <!-- Sidebar -->
+      <div class="l-sidebar col-lg-4">
+        <div class="booking-box-container">
+          <div class="booking-box" id="bookingBox">
+            <h3 class="booking-box__title">Book Your Stay</h3>
+            <div class="booking-box__price">
+              <span class="from">from</span>
+              <span class="value">R 850</span>
+              <span class="rate">/night</span>
+            </div>
+            <button class="btn btn-primary w-100 mb-3">Book Now</button>
+            <div class="details-info">
+              <div class="details-info__item"><i class="bi bi-person me-2"></i>Max. 2 persons</div>
+              <div class="details-info__item"><i class="bi bi-rulers me-2"></i>32 m²</div>
+              <div class="details-info__item"><i class="bi bi-bed me-2"></i>Extra King Size Bed</div>
+            </div>
+            <div class="details-panel__item-list">
+              <div><i class="bi bi-check-circle me-2"></i>Best Price Guarantee</div>
+              <div><i class="bi bi-shield-lock me-2"></i>Secure Transaction</div>
+            </div>
           </div>
-
-        
-
-
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End Rooms Listing Section -->
+        
 
 
 
@@ -596,6 +442,7 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
 
   <!-- Template Main JS File -->

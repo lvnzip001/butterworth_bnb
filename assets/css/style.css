@@ -365,6 +365,15 @@ h6 {
   font-family: "Poppins";
 }
 
+#hero-standard_room {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/room5.jpg") top center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+
 
 /*--------------------------------------------------------------
 # Portfolio Details Section
@@ -404,6 +413,7 @@ h6 {
   visibility: visible;
   opacity: 1;
 }
+
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -1326,11 +1336,273 @@ h6 {
   100% { opacity: 1; }
 }
 
+/*--------------------------------------------------------------
+# Room Details Section
+--------------------------------------------------------------*/
+/* Room Details Section */
+.l-section--room-details {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.l-wrapper {
+  max-width: 1200px;
+}
+
+/* Main Content */
+.l-main {
+  padding-right: 20px;
+}
+
+/* Description */
+.l-section--details-description {
+  margin-bottom: 40px;
+}
+
+.room-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.details-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Gallery */
+.l-section--details-gallery {
+  margin-bottom: 40px;
+}
+
+.details-gallery {
+  position: relative;
+}
+
+.main-slider .swiper-slide {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.details-gallery__img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.main-slider .swiper-slide:hover .details-gallery__img {
+  transform: scale(1.05);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #007bff;
+  background: rgba(255, 255, 255, 0.8);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 16px;
+}
+
+.thumbnail-slider {
+  margin-top: 15px;
+}
+
+.thumbnail-slider .swiper-slide {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thumbnail-slider .swiper-slide-thumb-active {
+  opacity: 1;
+  border: 2px solid #007bff; /* Highlight active thumbnail */
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+/* Amenities */
+.l-section--room-facilities {
+  margin-bottom: 40px;
+}
+
+.room-facilities__title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.room-facilities__list {
+  list-style: none;
+  padding: 0;
+}
+
+.room-facilities__item {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Policies */
+.l-section--policies {
+  margin-bottom: 40px;
+}
+
+.policies__main-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.policies__schedule {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.policies__row {
+  margin-bottom: 15px;
+}
+
+.policies__row strong {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Sidebar */
+.l-sidebar {
+  padding-left: 20px;
+}
+
+.booking-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.booking-box__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.booking-box__price {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+}
+
+.booking-box__price .from,
+.booking-box__price .rate {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.booking-box__price .value {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.details-info__item {
+  font-size: 1rem;
+  color: #005e5e;
+  margin-bottom: 10px;
+}
+
+.details-panel__item-list div {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .l-main, .l-sidebar {
+    padding: 0;
+  }
+  .l-sidebar {
+    margin-top: 40px;
+  }
+  .details-gallery__img {
+    height: 300px;
+  }
+  .thumbnail-img {
+    height: 80px;
+  }
+}
+
+/* Sidebar */
+.l-sidebar {
+  padding-left: 20px;
+}
+
+.booking-box-container {
+  position: relative; /* Container for positioning context */
+}
+
+.booking-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: top 0.3s ease; /* Smooth movement */
+}
+
+/* Sticky behavior */
+.booking-box.sticky {
+  position: fixed;
+  top: 20px; /* Distance from top when fixed */
+  width: 100%; /* Match container width */
+  max-width: 360px; /* Match col-lg-4 width approximately */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .l-sidebar {
+    padding-left: 0;
+    margin-top: 40px;
+  }
+  .booking-box.sticky {
+    position: relative; /* Disable fixed positioning on smaller screens */
+    top: 0;
+    max-width: 100%; /* Full width on mobile */
+  }
+}
 
 
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
+
+
+
+
+
 section {
   padding: 60px 0;
   overflow: hidden;

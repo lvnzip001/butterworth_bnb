@@ -277,3 +277,60 @@
   });
 
 })()
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Existing Swiper initialization
+  const thumbSlider = new Swiper('.thumbnail-slider', {
+    spaceBetween: 10,
+    slidesPerView: 3,
+    freeMode: true,
+    watchSlidesProgress: true,
+  });
+
+  const mainSlider = new Swiper('.main-slider', {
+    loop: true,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    thumbs: {
+      swiper: thumbSlider,
+    },
+  });
+
+  // Sticky Sidebar Logic
+  const bookingBox = document.getElementById('bookingBox');
+  const sidebar = document.querySelector('.l-sidebar');
+  const footer = document.querySelector('footer'); // Assume there's a footer; adjust if needed
+  const initialTop = bookingBox.getBoundingClientRect().top + window.scrollY;
+
+  function updateSidebarPosition() {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const bookingBoxHeight = bookingBox.offsetHeight;
+    const footerTop = footer ? footer.getBoundingClientRect().top + scrollPosition : Infinity;
+    const sidebarWidth = sidebar.offsetWidth;
+
+    if (scrollPosition >= initialTop) {
+      bookingBox.classList.add('sticky');
+      bookingBox.style.width = `${sidebarWidth}px`; // Match sidebar width
+
+      // Stop at footer or bottom of content
+      const maxTop = footerTop - bookingBoxHeight - 20; // 20px buffer
+      const newTop = Math.min(scrollPosition + 100, maxTop);
+      bookingBox.style.top = `${newTop - scrollPosition}px`;
+    } else {
+      bookingBox.classList.remove('sticky');
+      bookingBox.style.width = ''; // Reset width
+      bookingBox.style.top = ''; // Reset top
+    }
+  }
+
+  // Update position on scroll and resize
+  window.addEventListener('scroll', updateSidebarPosition);
+  window.addEventListener('resize', updateSidebarPosition);
+
+  // Initial call to set position
+  updateSidebarPosition();
+});
