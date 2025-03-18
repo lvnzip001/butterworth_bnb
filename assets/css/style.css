@@ -1141,7 +1141,7 @@ portfolio-wrap {display: flex;
   font-family: "Poppins";
 }
 
-#hero h1 span {
+/* #hero h1 span {
   color: #6AAAAA;
 }
 
@@ -1179,71 +1179,6 @@ portfolio-wrap {display: flex;
 
 #hero .btn-book {
   margin-left: 15px;
-}
-
-#hero .play-btn {
-  width: 94px;
-  height: 94px;
-  background: radial-gradient(#6AAAAA 50%, rgba(205, 164, 94, 0.4) 52%);
-  border-radius: 50%;
-  display: block;
-  position: relative;
-  overflow: hidden;
-}
-
-#hero .play-btn::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-40%) translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #fff;
-  z-index: 100;
-  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
-
-#hero .play-btn::before {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  animation-delay: 0s;
-  animation: pulsate-btn 2s;
-  animation-direction: forwards;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps;
-  opacity: 1;
-  border-radius: 50%;
-  border: 5px solid rgba(205, 164, 94, 0.7);
-  top: -15%;
-  left: -15%;
-  background: rgba(198, 16, 0, 0);
-}
-
-#hero .play-btn:hover::after {
-  border-left: 15px solid #6AAAAA;
-  transform: scale(20);
-}
-
-#hero .play-btn:hover::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-40%) translateY(-50%);
-  width: 0;
-  height: 0;
-  border: none;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #fff;
-  z-index: 200;
-  animation: none;
-  border-radius: 0;
 }
 
 @media (min-width: 1024px) {
@@ -1291,7 +1226,209 @@ portfolio-wrap {display: flex;
     transform: scale(1, 1);
     opacity: 0;
   }
+} */
+
+/*--------------------------------------------------------------
+# Room Section
+--------------------------------------------------------------*/
+.img-room{
+
+    width: auto;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  /* Rooms Listing Section */
+.l-section--rooms-listing {
+  padding: 80px 0; /* Increased for more breathing room */
+  background-color: #f8f9fa; /* Soft gray for elegance */
 }
+
+.rooms-listing__wrap {
+  max-width: 1600px; /* Standard container width */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.rooms-listing {
+  position: relative; /* For potential loader positioning */
+}
+
+/* Room Card */
+.room-item-card {
+  display: block;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none; /* Remove underline from <a> */
+}
+
+.room-item-card:hover {
+  transform: translateY(-8px); /* Subtle lift */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
+}
+
+.room-item-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.room-item-card:hover {
+  transform: translateY(-5px); /* Slight lift */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+}
+
+.room-item-card__inner {
+  flex-direction: row; /* Default horizontal layout */
+}
+
+/* Image Box */
+.room-item-card__img-box {
+  flex: 0 0 50%; /* Half width */
+  overflow: hidden;
+}
+
+.room-item-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures consistent image scaling */
+  height: 350px; /* Consistent height */
+  transition: transform 0.3s ease;
+}
+
+.room-item-card:hover .room-item-card__img {
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+/* Text Box */
+.room-item-card__text-box {
+  flex: 0 0 50%; /* Half width */
+  padding: 25px; /* More padding for elegance */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Price */
+.room-item-card__price-hld {
+  margin-bottom: 12px;
+}
+
+.room-item-card__price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.room-item-card__price .from,
+.room-item-card__price .rate {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #777;
+}
+
+.room-item-card__price .value {
+  color: #007bff; /* Matches Bootstrap primary */
+}
+
+/* Location */
+.room-item-card__room-location-hld {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.room-item-card__room-location-value {
+  margin: 0;
+}
+
+/* Title */
+.room-item-card__title-hld {
+  margin-bottom: 15px;
+}
+
+.room-item-card__title {
+  font-size: 1.75rem; /* Slightly smaller for balance */
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+/* Special Info */
+.room-item-card__special-info {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Buttons */
+.room-item-card__booking-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px; /* Softer corners */
+  transition: all 0.3s ease;
+}
+
+.room-item-card__booking-btn--details.btn-arrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.room-item-card__booking-btn--book {
+  font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .room-item-card__inner {
+    flex-direction: column; /* Stack on smaller screens */
+  }
+
+  .room-item-card__img-box,
+  .room-item-card__text-box {
+    flex: 1 0 100%; /* Full width */
+  }
+
+  .room-item-card__img-box {
+    border-radius: 15px 15px 0 0; /* Adjust for stacked layout */
+  }
+}
+
+.room-item-card__booking-btn:hover {
+  background-color: #0056b3; /* Slightly darker shade of your primary color */
+  transform: scale(1.03); /* Tiny enlarge */
+  transition: all 0.2s ease;
+}
+.rooms-listing__controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.form-select {
+  max-width: 200px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.room-item-card.loading .room-item-card__img {
+  background: #e0e0e0;
+  height: 200px; /* Match image height */
+}
+.room-item-card.loading .room-item-card__title,
+.room-item-card.loading .room-item-card__price {
+  background: #e0e0e0;
+  height: 20px;
+  width: 80%;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
 
 
 /*--------------------------------------------------------------
