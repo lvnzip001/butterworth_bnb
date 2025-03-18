@@ -1,0 +1,134 @@
+/* General styling for the reservation section */
+.reservationsection {
+    background-color: #00000033; /* Light gray background for a clean look */
+    padding: 20px 0;
+  }
+
+  .reservationsection .btn-book {
+    font-weight: 200;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 0px 10px 0 10px;
+    border-radius: 50px;
+    transition: 0.3s;
+    line-height: 1;
+    color: #ffffff;
+    background: #005e5e;
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+    
+  }
+  
+  .reservationsection .btn-book:hover {
+    color: #ffffff;
+    background: #be8118;
+    border: 2px solid #ffffff;
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+  }
+  
+  
+  .our-rooms .box:hover {
+    background: #6AAAAA;
+    padding: 30px 30px 70px 30px;
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+  }
+  
+  .limiter {
+    max-width: 1200px; /* Limits form width for better readability */
+    margin: 0 auto;
+    padding: 0 20px; /* Adds horizontal padding */
+  }
+  
+  /* Flexbox for horizontal layout */
+  #reservations {
+    display: flex;
+    align-items: center; /* Vertically centers items */
+  }
+  
+  /* Styling for each form item */
+  .form-item {
+    flex: 1; /* Allows items to grow equally */
+    margin-right: 10px; /* Space between items */
+    position: relative; /* For positioning the calendar icon */
+  }
+  
+  .form-item:last-child {
+    margin-right: 0; /* Removes margin from the last item */
+  }
+  
+  .form-item.submit {
+    flex: 0 0 auto; /* Prevents the button from stretching */
+  }
+  
+  /* Input and select styling */
+  input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Includes padding in width */
+    font-size: 16px; /* Readable text size */
+  }
+  
+  input[type="text"] {
+    padding-right: 30px; /* Space for the calendar icon */
+  }
+  
+  select {
+    appearance: none; /* Removes default dropdown arrow for custom styling if desired */
+    background-color: white;
+  }
+  
+  /* Calendar icon positioning */
+  .icon-calendar {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999; /* Gray icon color */
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Professional blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Placeholder styling */
+  ::placeholder {
+    color: #999; /* Light gray for placeholders */
+  }
+  
+  /* Focus states for accessibility and interaction */
+  input:focus, select:focus {
+    border-color: #007bff; /* Matches button color */
+    outline: none; /* Removes default outline */
+  }
+  
+  /* Media query for responsiveness on smaller screens */
+  @media (max-width: 768px) {
+    #reservations {
+      flex-direction: column;
+    }
+    .form-item {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    .form-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  
