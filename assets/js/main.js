@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bookingBox.style.width = `${sidebarWidth}px`; // Match sidebar width
 
       // Stop at footer or bottom of content
-      const maxTop = footerTop - bookingBoxHeight - 20; // 20px buffer
+      const maxTop = footerTop - bookingBoxHeight - 1000; // 20px buffer
       const newTop = Math.min(scrollPosition + 100, maxTop);
       bookingBox.style.top = `${newTop - scrollPosition}px`;
     } else {
