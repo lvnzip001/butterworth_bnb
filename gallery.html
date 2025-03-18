@@ -65,9 +65,9 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto" href="index.html">Home</a></li>
-          <li><a class="nav-link scrollto active" href="rooms.html">Our Rooms</a></li>
+          <li><a class="nav-link scrollto" href="rooms.html">Our Rooms</a></li>
           <li><a class="nav-link scrollto" href="#about1">Attractions</a></li>
-          <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
+          <li><a class="nav-link scrollto active" href="gallery.html">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
           <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
         </ul>
@@ -79,10 +79,10 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero-room" class="d-flex align-items-center">
+  <section id="hero-portfolio" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row center-items d-flex justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.158); border-radius: 15px; padding: 10px; width: 100%;">
-        <h1 class="text-center m-0">Accomodation</h1>
+        <h1 class="text-center m-0">Gallery</h1>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -138,280 +138,180 @@
 
         
         <!-- ======= Rooms Listing Section ======= -->
-<section class="l-section l-section--rooms-listing">
-  <div class="rooms-listing__controls mb-4">
-    <label for="sort-options">Sort by:</label>
-    <select id="sort-options" class="form-select">
-      <option value="price-low">Price: Low to High</option>
-      <option value="price-high">Price: High to Low</option>
-      <option value="popularity">Most Popular</option>
-    </select>
-  </div>
+        <section id="portfolio" class="portfolio section">
 
-  <div class="l-wrapper">
-    <div class="rooms-listing__wrap">
-      <div class="rooms-listing js-filter__load-box">
-      
-
-        <!-- Rooms Listing Holder -->
-        <div class="rooms-listing__holder row">
-          <!-- Room Item 1 -->
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="#" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/room5.jpg" alt="Standard Room" class="room-item-card__img">
-                  </picture>
-                </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 867</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">Standard Room</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">32 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 2 pers.</span>
-                      </div>
+          <!-- Section Title -->
+          <div class="container section-title" data-aos="fade-up">
+            <h2>Gallery</h2>
+            <h3>WE LOVE OUR SPACE, SO YOU CAN ENJOY YOURSELF</h3>
+     
+          </div><!-- End Section Title -->
+    
+          <div class="container">
+            <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+              <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+          
+                <!-- Pool Area -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/guestHouse_bibby.jpg" class="img-fluid" alt="Relaxing Pool Area">
+                    <div class="portfolio-info">
+                      <h4>Relaxing Pool Area</h4>
+                      <p>Unwind by our serene pool, perfect for a refreshing dip or lounging under the sun.</p>
+                      <a href="assets/img/gallery/guestHouse_bibby.jpg" title="Relaxing Pool Area" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
                     </div>
                   </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- Cozy Room 1 -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/room1.jpg" class="img-fluid" alt="Cozy Double Room">
+                    <div class="portfolio-info">
+                      <h4>Beautiful View</h4>
+                      <p>Enjoy a comfortable stay in our modern Villa.</p>
+                      <a href="assets/img/gallery/room1.jpg" title="Cozy Double Room" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </a>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- Elegant Room 2 -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/room2.jpg" class="img-fluid" alt="Elegant Suite">
+                    <div class="portfolio-info">
+                      <h4>Elegant Suite</h4>
+                      <p>Experience luxury in our elegantly designed suite with modern amenities.</p>
+                      <a href="assets/img/gallery/room2.jpg" title="Elegant Suite" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- Family Room -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/room3.jpg" class="img-fluid" alt="Family-Friendly Room">
+                    <div class="portfolio-info">
+                      <h4>Family-Friendly Room</h4>
+                      <p>Perfect for families, this room offers ample space and comfort for everyone.</p>
+                      <a href="assets/img/gallery/room3.jpg" title="Family-Friendly Room" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- Deluxe Room -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/room5.jpg" class="img-fluid" alt="Deluxe Room">
+                    <div class="portfolio-info">
+                      <h4>Deluxe Room</h4>
+                      <p>Indulge in our deluxe room, featuring premium bedding and stunning views.</p>
+                      <a href="assets/img/gallery/room5.jpg" title="Deluxe Room" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- King Bed Room -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/room6.jpg" class="img-fluid" alt="King Bed Room">
+                    <div class="portfolio-info">
+                      <h4>King Bed Room</h4>
+                      <p>Relax in style with a luxurious king-sized bed and elegant decor.</p>
+                      <a href="assets/img/gallery/room6.jpg" title="King Bed Room" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- Outdoor Patio -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/outside_1.jpg" class="img-fluid" alt="Outdoor Patio">
+                    <div class="portfolio-info">
+                      <h4>Outdoor Patio</h4>
+                      <p>Enjoy our beautifully landscaped patio, perfect for morning coffee or evening relaxation.</p>
+                      <a href="assets/img/gallery/outside_1.jpg" title="Outdoor Patio" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- Queen Bed Room -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/room8.jpg" class="img-fluid" alt="Queen Bed Room">
+                    <div class="portfolio-info">
+                      <h4>Queen Bed Room</h4>
+                      <p>Unwind in our cozy queen bed room, designed for comfort and relaxation.</p>
+                      <a href="assets/img/gallery/room8.jpg" title="Queen Bed Room" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- Double Room -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/double_room.jpg" class="img-fluid" alt="Double Room">
+                    <div class="portfolio-info">
+                      <h4>Double Room</h4>
+                      <p>Perfect for couples, our double room offers a cozy and intimate setting.</p>
+                      <a href="assets/img/gallery/double_room.jpg" title="Double Room" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- King Bed Suite -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/king_bed.jpg" class="img-fluid" alt="King Bed Suite">
+                    <div class="portfolio-info">
+                      <h4>King Bed Suite</h4>
+                      <p>Experience ultimate comfort in our spacious king bed suite.</p>
+                      <a href="assets/img/gallery/king_bed.jpg" title="King Bed Suite" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- Queen Bed Suite -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/queen_bed.jpg" class="img-fluid" alt="Queen Bed Suite">
+                    <div class="portfolio-info">
+                      <h4>Queen Bed Suite</h4>
+                      <p>Relax in our queen bed suite, featuring elegant decor and modern amenities.</p>
+                      <a href="assets/img/gallery/queen_bed.jpg" title="Queen Bed Suite" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+                <!-- Garden View -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+                  <div class="portfolio-content h-100">
+                    <img src="assets/img/gallery/outside_2.jpg" class="img-fluid" alt="Garden View">
+                    <div class="portfolio-info">
+                      <h4>Garden View</h4>
+                      <p>Enjoy the tranquility of our lush garden, perfect for a peaceful retreat.</p>
+                      <a href="assets/img/gallery/outside_2.jpg" title="Garden View" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
+                    </div>
+                  </div>
+                </div><!-- End Portfolio Item -->
+          
+              </div><!-- End Portfolio Container -->
+            </div>
           </div>
-
-          <!-- Room Item 2 -->
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="#" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/roomHome.png" alt="Deluxe Suite" class="room-item-card__img">
-                  </picture>
-                </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 1,100.50</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">Double Room</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">50 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 2 pers.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="#" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/gallery/double_room.jpg" alt="Double Bed" class="room-item-card__img">
-                  </picture>
-                </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 1,200.00</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">2 Double Bed Room</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">45 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 5 pers.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Room Item 2 -->
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="#" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/room6.jpg" alt="Superior Room" class="room-item-card__img">
-                  </picture>
-                </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 1,319.88</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">Superior Room</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">45 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 4 pers.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Room Item 3 -->
-          <div class="col-12 col-lg-6 mb-4" style="padding: 20px;">
-            <a href="#" class="room-item-card room-item-card--listing js-filter__load-item">
-              <div class="room-item-card__inner d-flex">
-                <div class="room-item-card__img-box">
-                  <picture class="room-item-card__img-hld">
-                    <img src="assets/img/room7.webp" alt="Deluxe Suite" class="room-item-card__img">
-                  </picture>
-                </div>
-                <div class="room-item-card__text-box">
-                  <div class="room-item-card__text-box-inner">
-                    <div class="room-item-card__price-hld">
-                      <div class="room-item-card__price">
-                        <span class="from">from</span>
-                        <span class="value text-primary">R 1,400.50</span>
-                        <span class="rate">/night</span>
-                      </div>
-                    </div>
-                    <div class="room-item-card__room-location-hld text-muted">
-                      <span class="bi bi-geo-alt me-2"></span>
-                      <p class="room-item-card__room-location-value">Butterwork BnB</p>
-                    </div>
-                    <div class="room-item-card__title-hld">
-                      <h2 class="room-item-card__title">Deluxe Suite</h2>
-                    </div>
-                    <div class="room-item-card__special-info d-flex">
-                      <div class="room-item-card__special-info-item me-3">
-                        <span class="bi bi-rulers me-2"></span>
-                        <span class="text">50 m<sup>2</sup></span>
-                      </div>
-                      <div class="room-item-card__special-info-item">
-                        <span class="bi bi-person me-2"></span>
-                        <span class="text">max. 2 pers.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="room-item-card__buttons d-flex gap-2">
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--details btn btn-outline-dark btn-arrow">
-                      <span class="text">Details</span>
-                      <span class="bi bi-arrow-right ms-2"></span>
-                    </button>
-                    <button class="room-item-card__booking-btn room-item-card__booking-btn--book btn btn-success">
-                      <span class="text">Book</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-        
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    
+        </section><!-- /Portfolio Section -->
 <!-- End Rooms Listing Section -->
 
 
