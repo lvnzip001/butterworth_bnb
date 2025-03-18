@@ -1944,18 +1944,6 @@ section {
   text-align: left; 
 }
 
-.our-rooms h3 {
-  font-size: 26px;
-  font-weight: 200;
-  padding: 10px 0px 40px 0px;
-  line-height: 1px;
-  margin: 0 0 5px 0;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #000000;
-  font-family: 'Poppins', serif;
-  text-align: left; 
-}
 
 .our-rooms h4 {
   font-size: 24px;
@@ -1966,6 +1954,55 @@ section {
   color: rgba(255, 255, 255, 0.8);
 }
 
+.our-rooms h3 {
+  font-size: 26px;
+  font-weight: 200;
+  padding: 10px 0 40px 0; /* Simplified shorthand */
+  line-height: 1.5; /* Increased for readability and spacing */
+  margin: 0 0 5px 0;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #000000;
+  font-family: 'Poppins', serif;
+  text-align: left;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .our-rooms h3 {
+      font-size: 20px; /* Smaller for mobile */
+      padding: 10px 0 20px 0; /* Reduced bottom padding */
+      line-height: 1.3; /* Still readable, avoids overlap */
+      letter-spacing: 2px; /* Slightly reduced for fit */
+  }
+}
+
+@media (max-width: 991px) {
+  .section-title h3 {
+    font-size: 20px; /* Smaller for mobile */
+    padding: 10px 0 20px 0; /* Reduced bottom padding */
+    line-height: 1.3; /* Still readable, avoids overlap */
+    letter-spacing: 2px; /* Slightly reduced for fit */
+  }
+}
+
+@media (max-width: 991px) {
+  .our-rooms h2  {
+    font-size: 40px; /* Smaller for mobile */
+    padding: 10px 0 20px 0; /* Reduced bottom padding */
+    letter-spacing: 3px;
+   
+  }
+}
+
+@media (max-width: 991px) {
+  .section-title h2  {
+    font-size: 40px; /* Smaller for mobile */
+    padding: 10px 0 20px 0; /* Reduced bottom padding */
+    letter-spacing: 3px;
+   
+  }
+}
 
 
 .our-rooms  p {
