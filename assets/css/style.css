@@ -574,7 +574,7 @@ portfolio-wrap {display: flex;
   border-bottom: 1px solid rgba(12, 11, 9, 0.6);
   transition: all 0.5s;
   z-index: 997;
-  padding: 15px 0;
+  padding: 5px 0;
   top: 40px;
 }
 
@@ -585,7 +585,7 @@ portfolio-wrap {display: flex;
 }
 
 #header .logo {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -595,12 +595,30 @@ portfolio-wrap {display: flex;
   font-family: "Poppins", sans-serif;
 }
 
+#header .header-img {
+  max-width: 100%;
+  height: 100%;
+}
+
 #header .logo a {
   color: #fff;
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 50px;
+}
+
+@media (min-width: 1400px) {
+  #header .container-fluid {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .phone-off {
+    display: none;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -688,8 +706,16 @@ portfolio-wrap {display: flex;
   color: #fff;
   white-space: nowrap;
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 16px;
 }
+
+@media (min-width: 1600px) {
+  .navbar a,
+  .navbar a:focus {
+    padding: 10px 0 10px 50px;
+  }
+}
+
 
 .navbar a i,
 .navbar a:focus i {
@@ -901,9 +927,12 @@ portfolio-wrap {display: flex;
   padding-top: 110px;
 }
 
-@media (max-width: 992px) {
-  #hero .container {
-    padding-top: 98px;
+
+
+@media (min-width: 1300px) {
+  #hero .container-fluid {
+    margin-left: 98px;
+    margin-right: 98px;
   }
 }
 
@@ -1073,6 +1102,11 @@ portfolio-wrap {display: flex;
 --------------------------------------------------------------*/
 section {
   padding: 60px 0;
+  overflow: hidden;
+}
+
+ .section-contact {
+  padding: 60px 0px 20px 0px;
   overflow: hidden;
 }
 
@@ -1349,7 +1383,7 @@ section {
 # Our Rooms 
 --------------------------------------------------------------*/
 
- @media (min-width: 1500px) {
+ @media (min-width: 1300px) {
   .container {
     margin-left: 100px;
     margin-right: 100px;
@@ -2236,24 +2270,24 @@ section {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
-  background: #0c0b09;
+  background: #6AAAAA;
   border-color: #625b4b;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .contact .php-email-form input::-moz-placeholder,
 .contact .php-email-form textarea::-moz-placeholder {
-  color: #a49b89;
+  color: rgb(0, 0, 0);
 }
 
 .contact .php-email-form input::placeholder,
 .contact .php-email-form textarea::placeholder {
-  color: #a49b89;
+  color: rgb(0, 0, 0);
 }
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus {
-  border-color: #6AAAAA;
+  border-color: #013147;
 }
 
 .contact .php-email-form input {
@@ -2274,7 +2308,8 @@ section {
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #d3af71;
+  background: #013147;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 @keyframes animate-loading {
@@ -2322,9 +2357,20 @@ section {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Poppins", serif;
   color: #fff;
+  letter-spacing: 2px;
+  text-align: left; 
 }
+.our-rooms  p {
+  color: #005e5e;
+  font-size: 20px;
+  margin: 0;
+  padding: 0px 0px 40px 0px;
+  letter-spacing: 2px;
+  text-align: left; 
+}
+
 
 #footer .footer-top .social-links a {
   font-size: 18px;
