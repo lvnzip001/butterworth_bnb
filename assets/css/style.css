@@ -1993,15 +1993,20 @@ section {
     letter-spacing: 3px;
    
   }
-}
 
-@media (max-width: 991px) {
   .section-title h2  {
     font-size: 40px; /* Smaller for mobile */
     padding: 10px 0 20px 0; /* Reduced bottom padding */
     letter-spacing: 3px;
+    white-space: normal; /* Ensure wrapping */
+        word-wrap: break-word; /* Break words if necessary */
+        overflow-wrap: break-word; /* Modern alternative to word-wrap */
    
   }
+}
+
+@media (max-width: 991px) {
+  
 }
 
 
