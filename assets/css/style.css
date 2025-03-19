@@ -420,6 +420,20 @@ h6 {
   }
 }
 
+/* standard room things */
+.policies__schedule,
+.policies__row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.policies__schedule div,
+.policies__row div {
+  color: black;
+}
+.icon-color {
+  color: #005e5e;
+}
 
 /*--------------------------------------------------------------
 # Portfolio Details Section
