@@ -381,6 +381,45 @@ h6 {
   padding: 0;
 }
 
+#hero-standard_room:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero-standard_room.container {
+  padding-top: 110px;
+}
+
+
+
+@media (min-width: 1300px) {
+  #hero-standard_room .container-fluid {
+    margin-left: 98px;
+    margin-right: 98px;
+  }
+}
+
+#hero-standard_room h1 {
+  margin: 0;
+  font-size: 58px;
+  font-weight: 300;
+  line-height: 56px;
+  color: #fff;
+  font-family: "Poppins";
+}
+
+@media (max-width: 768px) {
+  #hero-standard_room h1 {
+      font-size: 44px;
+      line-height: 36px;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Portfolio Details Section
