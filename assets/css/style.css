@@ -1087,6 +1087,20 @@ h6 {
   }
 }
 
+/* phone */
+@media (min-width: 991px) {
+  .isphone {
+    display: none !important; /* Stack on smaller screens */
+  }
+}
+
+@media (max-width: 991px) {
+  .ispc {
+    display: none !important; /* Stack on smaller screens */
+  }
+}
+
+
 /*--------------------------------------------------------------
 # Hero Room Section
 --------------------------------------------------------------*/
