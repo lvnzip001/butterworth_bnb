@@ -15,12 +15,12 @@
 //   };
 
 //   // 2. Generate HashCheck
-//   const privateKey = 'b15f477b60dc4374991493b6a0d8f5a3';  // Your test Private Key
+//   const privateKey = 'REDACTED';  // Your test Private Key
 //   paymentData.hashCheck = generateOzowSignature(paymentData, privateKey);
 //   console.log('Generated HashCheck:', paymentData.hashCheck);
 
 //   // 3. API Request Options
-//   const apiKey = '4951cd35ef734aa9b4d2c460ef8262fe';  // Replace with your actual test API Key
+//   const apiKey = 'REDACTED';  // Replace with your actual test API Key
 
 //   const options = {
 //       method: 'POST',
@@ -89,12 +89,12 @@ function generateOzowSignature(data, privateKey) {
 //   };
 
 //   // 2. Generate HashCheck (FIXED)
-//   const privateKey = 'b15f477b60dc4374991493b6a0d8f5a3';
+//   const privateKey = 'REDACTED';
 //   paymentData.hashCheck = generateOzowSignature(paymentData, privateKey);
 //   console.log('Generated HashCheck:', paymentData.hashCheck);
 
 //   // 3. API Request Options (FIXED)
-//   const apiKey = '4951cd35ef734aa9b4d2c460ef8262fe';
+//   const apiKey = 'REDACTED';
 //   const options = {
 //     method: 'POST',
 //     headers: {
@@ -172,12 +172,12 @@ function generateOzowSignature(data, privateKey) {
 //   };
 
 //   // 2. Generate HashCheck
-//   const privateKey = 'b15f477b60dc4374991493b6a0d8f5a3';  // Your test Private Key
+//   const privateKey = 'REDACTED';  // Your test Private Key
 //   paymentData.HashCheck = generateOzowSignature(paymentData, privateKey);
 //   console.log('Generated HashCheck:', paymentData.HashCheck);
 
 //   // 3. API Request Options
-//   const apiKey = '4951cd35ef734aa9b4d2c460ef8262fe';  // Replace with your actual test API Key
+//   const apiKey = 'REDACTED';  // Replace with your actual test API Key
 
 //   const options = {
 //       method: 'POST',
@@ -232,12 +232,12 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 
       // 2. Generate HashCheck
-      const privateKey = 'b15f477b60dc4374991493b6a0d8f5a3';
+      const privateKey = 'REDACTED';
       paymentData.hashCheck = generateOzowSignature(paymentData, privateKey);
       console.log('Generated HashCheck:', paymentData.hashCheck);
 
       // 3. API Request Options (corrected headers)
-      const apiKey = '4951cd35ef734aa9b4d2c460ef8262fe';
+      const apiKey = 'REDACTED';
       const options = {
           method: 'POST',
           headers: {
