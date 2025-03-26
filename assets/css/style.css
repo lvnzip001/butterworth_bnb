@@ -485,6 +485,45 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Whatsapp button Section
+--------------------------------------------------------------*/
+
+
+.whatsapp-chat {
+  position: fixed;
+  /* visibility: hidden; */
+  opacity: 1;
+  left: 0px;
+  bottom: 15px;
+  z-index: 996;
+  width: 46px;
+  height: 46px;
+  /* border-radius: 50px; */
+  transition: all 0.4s;
+  background-color: #005e5e;
+}
+
+.whatsapp-chat i {
+  font-size: 28px;
+  color: #ffffff;
+  line-height: 0;
+}
+
+.whatsapp-chat:hover {
+  background: #3dc100;
+}
+
+.whatsapp-chat:hover i {
+  color: #ffffff;
+}
+
+.whatsapp-chat.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/*--------------------------------------------------------------
 # Portfolio Details Section
 --------------------------------------------------------------*/
 
