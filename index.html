@@ -95,9 +95,9 @@
           <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-      <a href="rooms.html" class="view-products-btn scrollto d-none d-lg-flex">Book A Room</a>
-
+  
+      <!-- <a href="https://api.whatsapp.com/send/?phone=27728801902&text&app_absent=0" class="view-products-btn scrollto d-none d-lg-flex">Chat on Whatsapp</a> -->
+    </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
 
@@ -521,9 +521,44 @@
   </footer><!-- End Footer -->
 
   <!-- <div id="preloader"></div> -->
+  <a href="https://api.whatsapp.com/send/?phone=27639119193&text&app_absent=0" 
+   class="whatsapp-chat d-flex align-items-center justify-content-center" 
+   data-bs-toggle="tooltip" 
+   data-bs-placement="top" 
+   title="Chat on WhatsApp">
+   <i class="bi bi-whatsapp"></i>
+</a>
+
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+   <!--Start of the Booking Widget script-->
+<script type="text/javascript">
+  window.$bnbFormsBookingWidget || (
+      function(d,s){
+          window.$bnbBookingWidgetConfig = {
+              uid:"2896",
+              src:" https://bnbforms.com/102896/accommodation/double-room/",
+              lang:"en_US",
+              button:{
+                  bgColor:"#005e5e",
+                  text:"Book Now",
+                  position:"top-right",
+                  tOffset:"100px"
+              }
+          };
+          var src = "https://cdn.bnbforms.com/v1/main.js";
+          var $=d.createElement(s),
+          e=d.getElementsByTagName(s)[0];
+          $.async=true;
+          $.setAttribute("charset","utf-8");
+          $.src=src;
+          $.type="text/javascript";
+          e.parentNode.insertBefore($,e)
+      }
+  )(document,"script");
+  </script>
+
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
