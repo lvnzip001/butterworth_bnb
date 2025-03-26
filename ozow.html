@@ -1,0 +1,127 @@
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Payment Error | Bibby’s BNB</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="Oops! There was an issue processing your payment at Bibby’s BNB. Please try again or contact support for assistance.">
+
+  <!-- Keywords -->
+  <meta name="keywords" content="Payment Error, Bibby's BNB, Booking Issue, Payment Failed">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Payment Error | Bibby’s BNB">
+  <meta property="og:description" content="Oops! There was an issue processing your payment at Bibby’s BNB. Please try again or contact support for assistance.">
+  <meta property="og:image" content="assets/img/icons/bibbys-logo-small.png">
+  <meta property="og:url" content="URL_OF_YOUR_WEBSITE">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Payment Error | Bibby’s BNB">
+  <meta name="twitter:description" content="Oops! There was an issue processing your payment at Bibby’s BNB. Please try again or contact support for assistance.">
+  <meta name="twitter:image" content="assets/img/icons/bibbys-logo-small.png">
+
+  <!-- Author -->
+  <meta name="author" content="Bibby’s BNB">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicons -->
+  <link href="assets/img/icons/bibbys-logo-small.png" rel="icon">
+  <link href="assets/img/icons/bibbys-logo-small.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Playfair+Display:400,500,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .error-container {
+      text-align: center;
+      padding: 50px 15px;
+    }
+    .error-icon {
+      font-size: 100px;
+      color: #dc3545;
+    }
+    .error-message {
+      font-size: 24px;
+      margin: 20px 0;
+    }
+    .error-actions a {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"><span> info@bibbys.co.za</span></i>
+      </div>
+      <div class="languages d-none d-md-flex align-items-center">
+        <ul>
+          <li>Payment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo me-auto me-lg-0">
+        <img src="assets/img/icons/bibbys-logo-small.png" alt="Bibby’s BNB Logo" class="img-fluid">
+      </a>
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">BIBBY’S BnB</a></h1>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="rooms.html">Our Rooms</a></li>
+          <li><a class="nav-link" href="attractions.html">Attractions</a></li>
+          <li><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li><a class="nav-link" href="contact.html">Contact Us</a></li>
+          <li><a class="nav-link" href="faq.html">FAQ</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+      <a href="rooms.html" class="book-a-room-btn">Book A Room</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <section id="about" class="our-rooms">
+      <div class="container text-center py-5" data-aos="fade-up" style="max-width: 500px; background: #f8f9fa; padding: 30px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+        <h1 class="mb-3">Checkout</h1>
+        <p class="fs-5 fw-semibold">Amount: <span class="text-success">R100.00</span></p>
+        <button id="payWithOzow" class="btn btn-success btn-lg w-100">Pay with Ozow</button>
+      </div>
+    </section>
+  </main>
+  
+    <!-- <script src="assets/js//signature.js"></script> -->
+    <!-- Load payment initiation logic -->
+    <script src="assets/js//ozow-payment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  
+</body>
+
+  </html>
