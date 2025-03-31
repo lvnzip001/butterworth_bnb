@@ -66,7 +66,7 @@
         <ul>
           <li><a class="nav-link scrollto" href="index.html">Home</a></li>
           <li><a class="nav-link scrollto" href="rooms.html">Our Rooms</a></li>
-          <li><a class="nav-link scrollto" href="#about1">Attractions</a></li>
+          <!--li><a class="nav-link scrollto" href="#about1">Attractions</a></li-->
           <li><a class="nav-link scrollto active" href="gallery.html">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
           <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
@@ -180,7 +180,7 @@
                 <!-- Elegant Room 2 -->
                 <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                   <div class="portfolio-content h-100">
-                    <img src="assets/img/gallery/bibby's3.jpg" class="img-fluid" alt="Elegant Suite">
+                    <img src="assets\img\bibby's17.jpg" class="img-fluid" alt="Elegant Suite">
                     <div class="portfolio-info">
                       <h4>Elegant Suite</h4>
                       <p>Experience luxury in our elegantly designed suite with modern amenities.</p>
@@ -310,8 +310,46 @@
               </div><!-- End Portfolio Container -->
             </div>
           </div>
+
+          <!--div class="slideshow-container w-full h-full">
+            <img class="slide active" src="assets\img\guestHouse_bibby.jpg" alt="BnB Room 1">
+            <img class="slide" src="assets\img\room8.jpg" alt="BnB Room 2">
+            <img class="slide" src="assets\img\bibby's19.jpg" alt="BnB Room 3">
+            <img class="slide" src="assets\img\room2.jpg" alt="BnB Room 3">
+            <img class="slide" src="assets\img\bibby's16.jpg" alt="BnB Room 3">
+            <img class="slide" src="assets\img\bibby's15.jpg" alt="BnB Room 3">
+            <img class="slide" src="assets\img\bibby's13.jpg" alt="BnB Room 3">
+            <img class="slide" src="assets/img/bibby's14.jpg" alt="BnB Room 3">
+            <img class="slide" src="assets/img/IMG-20250324-WA0036 - Copy.jpg" alt="BnB Room 3">
+            <img class="slide" src="assets\img\bibby's18.jpg" alt="BnB Room 3">
+            <img class="slide" src="assets/img/bibby's17.jpg" alt="BnB Room 3">
+            <img class="slide" src="assets\img\bibby's14.jpg" alt="BnB Room 3">
+        
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        
+        <script>
+            let slideIndex = 0;
+            const slides = document.querySelectorAll(".slide");
+        
+            function showSlides() {
+                slides.forEach((slide, index) => {
+                    slide.style.display = index === slideIndex ? "block" : "none";
+                });
+            }
+        
+            function changeSlide(step) {
+                slideIndex += step;
+                if (slideIndex >= slides.length) slideIndex = 0;
+                if (slideIndex < 0) slideIndex = slides.length - 1;
+                showSlides();
+            }
+        
+            setInterval(() => changeSlide(1), 3000); // Auto change slides every 3 seconds
+        </script>
     
-        </section><!-- /Portfolio Section -->
+        </section><-- /Portfolio Section -->
 <!-- End Rooms Listing Section -->
 
 
