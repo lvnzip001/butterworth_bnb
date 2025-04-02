@@ -672,6 +672,59 @@ h6 {
 
 @media (max-width: 1200px) {
   .phone-off {
+    display: none !important;
+  }
+}
+
+/* Mobile first approach */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align logo to left */
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-nav-toggle {
+  margin-left: auto; /* Push toggle to right */
+  display: block !important; /* Ensure it's visible */
+  color: #000;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .container-fluid {
+    justify-content: space-between !important;
+  }
+  
+  .nav-container {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+  
+  .logo-text {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
+
+/* Hide logo text on mobile if needed */
+@media (max-width: 991px) {
+  .phone-off {
+    display: none;
+  }
+  
+  .navbar ul {
     display: none;
   }
 }

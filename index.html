@@ -78,28 +78,70 @@
   </div>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-cente">
-    <div class="container-fluid d-flex align-items-center justify-content-lg-between">
-      <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/icons/bibbys-logo-small.png" style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px;padding: 2px;" alt="" class="header-img"></a>
-      <h1 class="logo me-auto me-lg-0 phone-off"><a href="index.html">BIBBY’S BnB</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="rooms.html">Our Rooms</a></li>
-          <!--li><a class="nav-link scrollto" href="#about1">Attractions</a></li-->
-          <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
-          <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+  <!-- <header id="header" class="fixed-top d-flex align-items-center">
   
-      <!-- <a href="https://api.whatsapp.com/send/?phone=27728801902&text&app_absent=0" class="view-products-btn scrollto d-none d-lg-flex">Chat on Whatsapp</a> -->
-    </nav><!-- .navbar -->
+    <div class="container-fluid d-flex  align-items-center justify-content-lg-between">
+  
+      <div class="col-lg-1 d-flex flex-column align-items-center justify-content-center">
+        <a href="index.html" class="logo me-auto me-lg-0">
+          <img src="assets/img/icons/bibbys-logo-small.png"
+            style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px;padding: 2px;" alt=""
+            class="header-img">
+        </a>
+        <h4 class="logo me-auto me-lg-0 phone-off" style="font-size: 12px; margin-top:5px;">
+          <a href="index.html">BIBBY’S BnB</a>
+        </h4>
+      </div>
+  
+      <div class="col-lg-11 d-flex flex-column align-items-center justify-content-center w-100">
+  
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="rooms.html">Our Rooms</a></li>
+            <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+            <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+  
+        </nav>
+      </div>
     </div>
-  </header><!-- End Header -->
+  </header> -->
+
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <!-- Logo on the left -->
+      <div class="logo-container d-flex flex-column align-items-center">
+        <a href="index.html" class="logo me-auto me-lg-0">
+          <img src="assets/img/icons/bibbys-logo-small.png"
+            style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px;padding: 2px;" alt=""
+            class="header-img">
+        </a>
+        <h4 class="logo-text phone-off">
+          <a href="index.html">BIBBY'S BnB</a>
+        </h4>
+      </div>
+  
+      <!-- Navbar and toggle -->
+      <div class="nav-container">
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="rooms.html">Our Rooms</a></li>
+            <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+            <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
+          </ul>
+        </nav>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </div>
+    </div>
+  </header>
+  
+  <!-- End Header -->
 
     <!-- Loader (optional, simplified) -->
     <div class="loader">
@@ -114,13 +156,13 @@
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row"  style="background-color: rgba(0, 0, 0, 0.555); border-radius: 15px ; padding: 10px;">
         <div class="col-lg-2">
-          <img src="assets/img/icons/bibbys-logo-small.png" style="background-color: rgba(253, 253, 253, 0.699); border-radius: 15px;padding: 2px; height: 80%; z-index: 1000;" alt="" >
+          <img src="assets/img/icons/bibbys-logo-small.png" style="background-color: rgba(253, 253, 253, 0.699); border-radius: 15px;padding: 2px; height: 65%; z-index: 1000;" alt="" >
         </div>
       
         <div class="col-lg-8">
 
           <h1>Welcome to <span>BIBBY’S</span> BnB</h1>
-          <h2> For Your <span style="color:#6AAAAA">Comfort, Relaxation. </span> Your Home Away.</h2>
+          <h2> For Your <span style="color:#6AAAAA">Your Home, </span> away from Home.</h2>
 
           <div class="btns">
             <a href="#map" class="btn-menu animated fadeInUp scrollto">See Our Location</a>
@@ -544,7 +586,7 @@
                   bgColor:"#005e5e",
                   text:"Book Now",
                   position:"top-right",
-                  tOffset:"100px"
+                  tOffset:"125px"
               }
           };
           var src = "https://cdn.bnbforms.com/v1/main.js";
