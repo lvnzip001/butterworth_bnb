@@ -34,7 +34,7 @@
 .btn-get-started {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #005e5e;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -42,7 +42,9 @@
 }
 
 .btn-get-started:hover {
-  background-color: #0056b3;
+  background-color: #6AAAAA;
+  color: #fff;
+  border: 1px solid #005e5e;
 }
 
 
@@ -3104,7 +3106,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #013147;
+  background: #005e5e;
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
