@@ -87,6 +87,11 @@ h6 {
   font-size: 34px;
 }
 
+.faq .container-faq {
+  padding:20px;
+  margin-right:10px
+}
+
 .faq .content h4 {
   font-size: 20px;
   font-weight: 100;
@@ -121,7 +126,7 @@ h6 {
   line-height: 24px;
   color: var(--color-default);
   text-align: left;
-  background: #1f9191;
+  background: #6AAAAA;
   box-shadow: none;
   border-radius: 10px;
 }
@@ -146,12 +151,13 @@ h6 {
 }
 
 .faq .accordion-body {
-  padding: 0 40px 30px 45px;
-  border: 0;
-  border-radius: 0px;
-  background: #40a2a2;
-  box-shadow: none;
-  color: white;
+  padding: 20px 40px 30px 45px; /* Adjusted top padding for consistency */
+  background: #005e5e; /* Matches your teal */
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  border-radius: 0 0 10px 10px; /* Rounded bottom corners */
 }
 
 
