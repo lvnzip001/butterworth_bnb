@@ -56,33 +56,32 @@
   </div>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
-      <!-- Logo on the left -->
-      <div class="logo-container d-flex flex-column align-items-center">
-        <a href="index.html" class="logo me-auto me-lg-0">
-          <img src="assets/img/icons/bibbys-logo-small.png"
-            style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px;padding: 2px;" alt=""
-            class="header-img">
-        </a>
-        <h4 class="logo-text phone-off">
-          <a href="index.html">BIBBY'S BnB</a>
-        </h4>
-      </div>
-  
-      <!-- Navbar and toggle -->
-      <div class="nav-container">
-        <nav id="navbar" class="navbar order-last order-lg-0">
-          <ul>
-            <li><a class="nav-link scrollto" href="index.html">Home</a></li>
-            <li><a class="nav-link scrollto active" href="rooms.html">Our Rooms</a></li>
-            <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
-            <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
-            <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
-          </ul>
-        </nav>
+  <header id="header" class="fixed-top d-flex align-items-cente">
+    <div class="container-fluid d-flex align-items-center justify-content-lg-between">
+      <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/icons/bibbys-logo-small.png" style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px;padding: 2px;" alt="" class="header-img"></a>
+      <h1 class="logo me-auto me-lg-0 phone-off"><a href="index.html">BIBBY’S BnB</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+          <!--li><a class="nav-link scrollto" href="rooms.html">Our Rooms</a></li-->
+          <li class="dropdown"><a href="rooms.html"><span>Rooms</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="room_standard.html">standard</a></li>
+              <li><a href="room_shared.html">shared</a></li>
+              <li><a href="room_family.html">Family</a></li>
+            </ul>  
+          <!--li><a class="nav-link scrollto" href="#about1">Attractions</a></li-->
+          <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+          <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
+        </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </div>
+      </nav><!-- .navbar -->
+      <a href="index.html#create_booking" class="view-products-btn scrollto d-none d-lg-flex">Book online</a>
+
     </div>
   </header><!-- End Header -->
 
