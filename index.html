@@ -607,6 +607,32 @@
 
   <!-- Vendor JS Files -->
    <!--Start of the Booking Widget script-->
+      <!--Start of the Booking Widget script-->
+<script type="text/javascript">
+  window.$bnbFormsBookingWidget || (
+      function(d,s){
+          window.$bnbBookingWidgetConfig = {
+              uid:"2896",
+              src:" https://bnbforms.com/102896/",
+              lang:"en_US",
+              button:{
+                  bgColor:"#005e5e",
+                  text:"Book Now",
+                  position:"top-right",
+                  tOffset:"125px"
+              }
+          };
+          var src = "https://cdn.bnbforms.com/v1/main.js";
+          var $=d.createElement(s),
+          e=d.getElementsByTagName(s)[0];
+          $.async=true;
+          $.setAttribute("charset","utf-8");
+          $.src=src;
+          $.type="text/javascript";
+          e.parentNode.insertBefore($,e)
+      }
+  )(document,"script");
+  </script>
 
 
   <script src="assets/vendor/aos/aos.js"></script>
