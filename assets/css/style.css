@@ -704,7 +704,7 @@ h6 {
   background: rgba(12, 11, 9, 0.6);
   border-bottom: 1px solid rgba(12, 11, 9, 0.6);
   transition: all 0.5s;
-  z-index: 997;
+  z-index: 9999999;
   padding: 5px 0;
   top: 40px;
 }
