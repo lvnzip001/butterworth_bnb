@@ -56,15 +56,24 @@
   
       <!-- Navbar and toggle -->
       <div class="nav-container">
-        <nav id="navbar" class="navbar order-last order-lg-0">
-          <ul>
-            <li><a class="nav-link scrollto" href="index.html">Home</a></li>
-            <li><a class="nav-link scrollto active" href="rooms.html">Our Rooms</a></li>
-            <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
-            <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
-            <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
-          </ul>
-        </nav>
+        <div class="nav-container">
+          <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+              <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+              <li class="dropdown active"><a href="rooms.html"><span>Our Rooms</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="room_standard.html">Standard Room</a></li>
+                  <li><a href="room_shared.html">Sharing Room</a></li>
+                  <li><a href="room_family.html">Family Room</a></li>
+                </ul>  
+              <!--li><a class="nav-link scrollto" href="#about1">Attractions</a></li-->
+              <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
+              <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+              <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
+            </ul>
+          </nav>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </div>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </div>
     </div>
@@ -73,7 +82,7 @@
   <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero-standard_room" class="d-flex align-items-center">
+  <section id="hero-family_room" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start center-items d-flex justify-content-center " data-aos="zoom-in" data-aos-delay="100">
       <div class="row center-items d-flex justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.158); border-radius: 15px; padding: 10px; width: 100%;">
         <h1 class="text-center m-0">Family Room</h1>

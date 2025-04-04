@@ -381,14 +381,36 @@ h6 {
   }
 }
 
-#hero-standard_room {
+#hero-family_room {
   width: 100%;
   height: 100vh;
-  background: url("../img/bibby's12.jpg") top center;
+  background: url("../img/pexels-curtis-adams-1694007-8031934.jpg") top center;
   background-size: cover;
   position: relative;
   padding: 0;
 }
+
+
+
+
+#hero-shared_room {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/pexels-jx588-14465265.jpg") top center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+
+#hero-family_room {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/two-double-bed-hero.jpg") top center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+
 
 #hero-standard_room:before {
   content: "";
@@ -429,17 +451,7 @@ h6 {
   }
 }
 
-/* Double Room Hero */
-#hero-double_room {
-  width: 100%;
-  height: 100vh;
-  background: url("../img/roomHome.png") top center;
-  background-size: cover;
-  position: relative;
-  padding: 0;
-}
-
-#hero-double_room:before {
+#hero-shared_room:before {
   content: "";
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -449,20 +461,20 @@ h6 {
   right: 0;
 }
 
-#hero-double_room.container {
+#hero-shared_room.container {
   padding-top: 110px;
 }
 
 
 
 @media (min-width: 1300px) {
-  #hero-double_room .container-fluid {
+  #hero-shared_room .container-fluid {
     margin-left: 98px;
     margin-right: 98px;
   }
 }
 
-#hero-double_room h1 {
+#hero-shared_room h1 {
   margin: 0;
   font-size: 58px;
   font-weight: 300;
@@ -472,11 +484,53 @@ h6 {
 }
 
 @media (max-width: 768px) {
-  #hero-double_room h1 {
+  #hero-shared_room h1 {
       font-size: 44px;
       line-height: 36px;
   }
 }
+
+
+
+#hero-family_room:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero-family_room.container {
+  padding-top: 110px;
+}
+
+
+
+@media (min-width: 1300px) {
+  #hero-family_room .container-fluid {
+    margin-left: 98px;
+    margin-right: 98px;
+  }
+}
+
+#hero-family_room h1 {
+  margin: 0;
+  font-size: 58px;
+  font-weight: 300;
+  line-height: 56px;
+  color: #fff;
+  font-family: "Poppins";
+}
+
+@media (max-width: 768px) {
+  #hero-family_room h1 {
+      font-size: 44px;
+      line-height: 36px;
+  }
+}
+
 
 /* standard room things */
 .policies__schedule,
