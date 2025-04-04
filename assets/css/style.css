@@ -805,6 +805,18 @@ h6 {
   }
 }
 
+
+
+
+@media (max-width: 991px) {
+  /* Increase touch area for chevron */
+  .navbar .dropdown > a .bi-chevron-down {
+    position: relative;
+    padding: 20px; /* Larger clickable area */
+    margin: -20px -10px -20px 0; /* "Cancel out" extra space */
+  }
+}
+
 /*--------------------------------------------------------------
 # Book a table button Menu
 --------------------------------------------------------------*/
