@@ -128,10 +128,15 @@
    */
   on('click', '.navbar .dropdown > a', function(e) {
     if (select('#navbar').classList.contains('navbar-mobile')) {
-      e.preventDefault()
-      this.nextElementSibling.classList.toggle('dropdown-active')
+      // Check if the click is on the chevron icon
+      const chevron = this.querySelector('.bi-chevron-down');
+      if (chevron && chevron.contains(e.target)) {
+        e.preventDefault();
+        this.nextElementSibling.classList.toggle('dropdown-active');
+      }
+      // If not the chevron, allow default link behavior
     }
-  }, true)
+  }, true);
 
   /**
    * Scrool with ofset on links with a class name .scrollto
