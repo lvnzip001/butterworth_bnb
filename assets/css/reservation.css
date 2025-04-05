@@ -132,3 +132,88 @@
   }
 
   
+
+
+  .bnb-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  .booking-form {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .date-picker {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Availability Results Grid */
+.availability-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.room-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.room-header {
+  margin-bottom: 1rem;
+}
+
+.room-type {
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+}
+
+.price {
+  color: #48bb78;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.availability-dates {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.date-range {
+  background: #f7fafc;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #cbd5e0;
+}
+
+.loading-message {
+  text-align: center;
+  color: #718096;
+  padding: 2rem;
+}
+
+/* Booking Details Section */
+#booking-details {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.selected-dates {
+  margin-bottom: 1.5rem;
+}
+
+.selected-dates p {
+  margin: 0.5rem 0;
+  color: #4a5568;
+}

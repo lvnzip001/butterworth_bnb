@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BnB Booking</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/reservation.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="bnb-container">
+    <h1 id="bnb-name">Loading BnB...</h1>
+    <div id="bnb-description"></div>
+    
+    <div class="booking-form">
+      <div class="date-picker">
+        <input type="date" id="checkin" required>
+        <input type="date" id="checkout" required>
+        <button onclick="checkAvailability()">Check Availability</button>
+      </div>
+      
+      <!-- Updated Availability Results Section -->
+      <div id="availability-results" class="availability-grid">
+        <!-- Dynamic content will be inserted here -->
+        <div class="loading-message">Select dates to check availability</div>
+      </div>
+      
+      <!-- Booking Form -->
+      <div id="booking-details" style="display: none;">
+        <h3>Selected Booking Details</h3>
+        <div class="selected-dates">
+          <p>Check-in: <span id="display-checkin"></span></p>
+          <p>Check-out: <span id="display-checkout"></span></p>
+        </div>
+        <form id="guest-info">
+          <input type="text" id="guest-name" placeholder="Full Name" required>
+          <input type="email" id="guest-email" placeholder="Email Address" required>
+          <button type="button" onclick="submitBooking()">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/assets/js/supabase-client.js"></script>
+  <script type="module" src="/assets/js/booking.js"></script>
+</body>
+</html>
