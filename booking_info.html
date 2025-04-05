@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Bibby’s BnB - Booking Confirmation</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom CSS for Professional Layout -->
+  <style>
+    #bookingDetails {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    #bookingDetails h3 {
+      color: #005e5e;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .booking-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .booking-card {
+      flex: 1;
+      min-width: 250px;
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #e9ecef;
+    }
+    .booking-card h4 {
+      color: #333;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #005e5e;
+      padding-bottom: 5px;
+    }
+    .booking-card p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+    .booking-card strong {
+      color: #005e5e;
+    }
+    .payment-box {
+      background: #e9f7ef;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px dashed #005e5e;
+    }
+    .payment-box h5 {
+      color: #005e5e;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+    .payment-box p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+    .btn-get-started {
+      background: #005e5e;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: background 0.3s;
+    }
+    .btn-get-started:hover {
+      background: #004848;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- ======= Header ======= -->
+  <!-- <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <div class="logo-container d-flex flex-column align-items-center">
+        <a href="index.html" class="logo me-auto me-lg-0">
+          <img src="assets/img/icons/bibbys-logo-small.png" style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px;padding: 2px;" alt="" class="header-img">
+        </a>
+        <h4 class="logo-text phone-off">
+          <a href="index.html">BIBBY'S BnB</a>
+        </h4>
+      </div>
+      <div class="nav-container">
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+            <li><a class="nav-link scrollto" href="rooms.html">Our Rooms</a></li>
+            <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+            <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
+          </ul>
+        </nav>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </div>
+    </div>
+  </header> -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="overflow-y: auto;">
+    <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+      <div class="card">
+        <h2 style="color: #005e5e;">Booking Request Submitted Successfully</h2>
+        <h2 style="color: rgb(0, 0, 0);">A team member from Bibby's BnB will reach out to you soon</h2>
+
+        <!-- Booking Details Section -->
+        <div id="bookingDetails" class="mt-4">
+          <h3>Your Booking Confirmation</h3>
+          <div class="booking-grid">
+            <div class="booking-card">
+              <h4>Guest Information</h4>
+              <p><strong>Name:</strong> <span id="thankYouName"></span></p>
+              <p><strong>Email:</strong> <span id="thankYouEmail"></span></p>
+              <p><strong>Phone:</strong> <span id="thankYouPhone"></span></p>
+            </div>
+            <div class="booking-card">
+              <h4>Stay Details</h4>
+              <p><strong>Room Type:</strong> <span id="thankYouRoomType"></span></p>
+              <p><strong>Check-in:</strong> <span id="thankYouCheckin"></span></p>
+              <p><strong>Check-out:</strong> <span id="thankYouCheckout"></span></p>
+            </div>
+            <div class="booking-card">
+              <h4>Summary</h4>
+              <p><strong>Adults:</strong> <span id="thankYouAdults"></span></p>
+              <p><strong>Children:</strong> <span id="thankYouChildren"></span></p>
+              <p><strong>Total Cost:</strong> R<span id="thankYouTotalCost"></span></p>
+              <p><strong>Booking ID:</strong> <span id="thankYouBookingId"></span></p>
+            </div>
+          </div>
+          <div class="payment-box">
+            <h5>Payment Instructions</h5>
+            <p>Please transfer the total amount within 24 hours to secure your booking:</p>
+            <p><strong>Bank:</strong> Example Bank</p>
+            <p><strong>Account Number:</strong> 123456789</p>
+            <p><strong>Account Name:</strong> Butterwork BnB</p>
+            <p><strong>Reference:</strong> Booking-<span id="thankYouBookingIdRepeat"></span></p>
+            <p><em>Your booking will be confirmed upon receipt of payment.</em></p>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center mt-4">
+          <div class="d-flex-thankyou">
+            <div class="logo-container d-flex flex-column align-items-center">
+              <a href="index.html" class="logo me-auto me-lg-0">
+                <img src="assets/img/icons/bibbys-logo-small.png" style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px;padding: 2px;" alt="" class="header-img">
+              </a>
+              <a href="index.html" class="btn-get-started scrollto">Back to Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section><!-- End Hero -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Script to Display Booking Details -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo'));
+      console.log('Retrieved bookingInfo:', bookingInfo);
+      if (bookingInfo) {
+        document.getElementById('thankYouName').textContent = bookingInfo.name || 'Not provided';
+        document.getElementById('thankYouEmail').textContent = bookingInfo.email || 'Not provided';
+        document.getElementById('thankYouPhone').textContent = bookingInfo.phone || 'Not provided';
+        document.getElementById('thankYouRoomType').textContent = bookingInfo.roomType || 'Not provided';
+        document.getElementById('thankYouCheckin').textContent = bookingInfo.checkin || 'Not provided';
+        document.getElementById('thankYouCheckout').textContent = bookingInfo.checkout || 'Not provided';
+        document.getElementById('thankYouAdults').textContent = bookingInfo.adults || 'Not provided';
+        document.getElementById('thankYouChildren').textContent = bookingInfo.children || 'Not provided';
+        document.getElementById('thankYouTotalCost').textContent = bookingInfo.totalCost || 'Not provided';
+        document.getElementById('thankYouBookingId').textContent = bookingInfo.bookingId || 'Not provided';
+        document.getElementById('thankYouBookingIdRepeat').textContent = bookingInfo.bookingId || 'Not provided';
+
+        localStorage.removeItem('bookingInfo');
+      } else {
+        document.getElementById('bookingDetails').innerHTML = '<p class="text-danger text-center">No booking information found. Please contact us if you believe this is an error.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
