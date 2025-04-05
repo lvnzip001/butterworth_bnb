@@ -153,12 +153,11 @@
                 </select>
               </div>
               <div class="form-item submit">
-                <button class="btn-book" type="submit">Book Online</button>
+                <button class="btn-book" type="submit" data-room-type="">Book Online</button>
               </div>
             </form>
           </div>
         </section>
-
 
         
         <!-- ======= Rooms Listing Section ======= -->
@@ -618,55 +617,10 @@
    <!--Start of the Booking Widget script-->
 
 <!--    
-   <script>
-    // Place this in assets/js/reservation.js
-    document.getElementById('reservations').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var roomSelectionModal = new bootstrap.Modal(document.getElementById('roomSelectionModal'));
-      roomSelectionModal.show();
-    });
-  
-    document.querySelectorAll('.room-item-card__booking-btn--book').forEach(function(button) {
-      button.addEventListener('click', function() {
-        var roomType = this.getAttribute('data-room-type');
-        var roomPrice = this.getAttribute('data-room-price');
-        var checkin = document.getElementById('checkin').value;
-        var checkout = document.getElementById('checkout').value;
-        var adults = document.querySelector('select[name="adults"]').value;
-        var children = document.querySelector('select[name="children"]').value;
-  
-        // Calculate total cost
-        var checkinDate = new Date(checkin);
-        var checkoutDate = new Date(checkout);
-        var nights = (checkoutDate - checkinDate) / (1000 * 60 * 60 * 24);
-        var totalCost = nights * parseFloat(roomPrice);
-  
-        // Populate confirmation form
-        document.getElementById('confirmCheckin').value = checkin;
-        document.getElementById('confirmCheckout').value = checkout;
-        document.getElementById('confirmAdults').value = adults;
-        document.getElementById('confirmChildren').value = children;
-        document.getElementById('confirmRoomType').value = roomType;
-        document.getElementById('confirmRoomPrice').value = roomPrice;
-        document.getElementById('confirmTotalCost').value = totalCost.toFixed(2);
-  
-        // Open confirmation modal
-        var bookingConfirmationModal = new bootstrap.Modal(document.getElementById('bookingConfirmationModal'));
-        bookingConfirmationModal.show();
-      });
-    });
-    </script>
+
    -->
     <!-- JavaScript for main.js (Flatpickr initialization) -->
-    <script>
-    // Place this in assets/js/main.js
-    flatpickr('#checkin', {
-      dateFormat: 'Y-m-d',
-    });
-    flatpickr('#checkout', {
-      dateFormat: 'Y-m-d',
-    });
-    </script>
+
 
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -678,7 +632,8 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/reservation.js"></script>
-  <script src="assets/js/standard-room.js"></script>
+  <script src="assets/js/all-rooms.js"></script>
+  
   <script src="assets/js/loader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 

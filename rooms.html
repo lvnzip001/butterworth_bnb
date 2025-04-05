@@ -141,7 +141,7 @@
 
         <section class="reservationsection">
           <div class="limiter">
-            <form id="reservations" action="https://book.nightsbridge.com/28231" method="get" target="_blank" rel="nofollow noreferrer">
+            <form id="reservations" method="get">
               <div class="form-item">
                 <input type="text" id="checkin" name="startdate" placeholder="Check in" aria-label="Check in date" class="flatpickr-input" readonly>
                 <i class="icon-calendar fas fa-calendar-alt"></i>
@@ -167,7 +167,7 @@
                 </select>
               </div>
               <div class="form-item submit">
-                <button class="btn-book" type="submit">Book Online</button>
+                <button class="btn-book" type="submit" data-room-type="">Book Online</button>
               </div>
             </form>
           </div>
@@ -687,6 +687,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/reservation.js"></script>
+  <script src="assets/js/all-rooms.js"></script>
   <script src="assets/js/loader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 

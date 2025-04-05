@@ -111,7 +111,7 @@
 
         <section class="reservationsection">
           <div class="limiter">
-            <form id="reservations" action="https://book.nightsbridge.com/28231" method="get" target="_blank" rel="nofollow noreferrer">
+            <form id="reservations" method="get">
               <div class="form-item">
                 <input type="text" id="checkin" name="startdate" placeholder="Check in" aria-label="Check in date" class="flatpickr-input" readonly>
                 <i class="icon-calendar fas fa-calendar-alt"></i>
@@ -137,7 +137,7 @@
                 </select>
               </div>
               <div class="form-item submit">
-                <button class="btn-book" type="submit">Book Online</button>
+                <button class="btn-book" type="submit" data-room-type="Family Room">Book Online</button>
               </div>
             </form>
           </div>
@@ -268,7 +268,7 @@
               <span class="value">R800</span>
               <span class="rate">/night</span>
             </div>
-            <button class="btn btn-primary w-100 mb-3" onclick="window.location.href='https://bnbforms.com/102896/accommodation/family-room/'">Book Now</button>
+            
             <div class="details-info">
               <div class="details-info__item"><i class="bi bi-person me-2"></i>Max. 4 persons</div>
               <div class="details-info__item"><i class="bi bi-rulers me-2"></i>60 m²</div>
@@ -486,31 +486,7 @@
 
   <!-- Vendor JS Files -->
    <!--Start of the Booking Widget script-->
-<script type="text/javascript">
-  window.$bnbFormsBookingWidget || (
-      function(d,s){
-          window.$bnbBookingWidgetConfig = {
-              uid:"2896",
-              src:" https://bnbforms.com/102896/accommodation/family-room",
-              lang:"en_US",
-              button:{
-                  bgColor:"#005e5e",
-                  text:"Book Now",
-                  position:"top-right",
-                  tOffset:"165px"
-              }
-          };
-          var src = "https://cdn.bnbforms.com/v1/main.js";
-          var $=d.createElement(s),
-          e=d.getElementsByTagName(s)[0];
-          $.async=true;
-          $.setAttribute("charset","utf-8");
-          $.src=src;
-          $.type="text/javascript";
-          e.parentNode.insertBefore($,e)
-      }
-  )(document,"script");
-  </script>
+
 
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -522,6 +498,9 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/reservation.js"></script>
+  <script src="assets/js/loader.js"></script>
+  <script src="assets/js/all-rooms.js"></script>
+
   <script src="assets/js/loader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
