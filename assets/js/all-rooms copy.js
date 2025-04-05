@@ -277,7 +277,7 @@ const bookingConfirmationModalHTML = `
             <input type="hidden" id="confirmAdults" name="adults">
             <input type="hidden" id="confirmChildren" name="children">
             <input type="hidden" id="confirmTotalCost" name="totalCost">
-            <input type="hidden" name="_next" value="http://127.0.0.1:5501/booking_info.html">
+            <input type="hidden" name="_next" value="https://butterworth-bnb-sandy.vercel.app/booking_info.html">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="box">
             <p><strong>Room Type:</strong> <span id="displayRoomType"></span></p>
