@@ -10,9 +10,9 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
     display: inline-block;
-    padding: 12px 30px;
+    padding: 15px 40px;
     margin: 0px 10px 0 10px;
-    border-radius: 50px;
+    border-radius: 4px;
     transition: 0.3s;
     line-height: 1;
     color: #ffffff;
@@ -103,7 +103,7 @@
   }
   
   button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #6AAAAA; /* Darker blue on hover */
   }
   
   /* Placeholder styling */
@@ -132,3 +132,63 @@
   }
 
   
+  .custom-modal {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  .custom-modal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+  .custom-modal .modal-title {
+    font-weight: 600;
+    color: #343a40;
+  }
+  .custom-input {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+  }
+  .custom-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  .custom-button {
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 500;
+    background-color: #6AAAAA;
+    border-color: #005e5e;
+    transition: background-color 0.3s ease;
+  }
+  .custom-button:hover {
+    background-color: #6AAAAA;
+    border-color: #005e5e;
+  }
+
+  .carousel-item img {
+    max-height: 395px;
+    object-fit: cover;
+  }
+  /* .room-item-card__inner {
+    align-items: center;
+  }
+  .room-item-card__text-box {
+    padding-left: 20px;
+  } */
+
+  .custom-room-modal-content {
+    background-color: #c7cccce4;
+    border: 2px solid #005e5e;
+  }
+  
+  .custom-room-modal-content .modal-header {
+    border-bottom: 1px solid #005e5e;
+  }
+
+  .room-item-card__amenities {
+
+    color: #005e5e !important;
+
+}
