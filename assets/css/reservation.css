@@ -192,3 +192,11 @@
     color: #005e5e !important;
 
 }
+
+.room-item-card__padding {
+    padding: 10px 0px 10px 0px !important;
+}
+
+.room-item-card__padding-rooms {
+  padding: 20px;
+}

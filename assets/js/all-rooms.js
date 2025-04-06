@@ -35,7 +35,7 @@ const roomsData = [
 // Function to generate room card HTML
 function generateRoomCard(room, index) {
   return `
-    <div class="col-12 col-lg-12 mb-4" style="padding: 20px;">
+    <div class="col-12 col-lg-12 mb-4 room-item-card__padding">
       <div class="room-item-card room-item-card--listing js-filter__load-item">
         <div class="room-item-card__inner d-flex">
           <div class="room-item-card__img-box">
