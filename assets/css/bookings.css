@@ -1,0 +1,65 @@
+.availability-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .room-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .room-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .date-range {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  
+  .price {
+    color: #2ecc71;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+  
+  .book-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+  }
+  
+  .book-btn:hover {
+    background: #2980b9;
+  }
+  
+  .sold-out {
+    color: #e74c3c;
+    text-align: center;
+    padding: 0.8rem;
+    background: #fdedec;
+    border-radius: 5px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+  }
+  
+  .error {
+    color: #c0392b;
+    background: #f9e6e5;
+    padding: 1rem;
+    border-radius: 5px;
+  }

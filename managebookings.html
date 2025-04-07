@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BnB Admin Dashboard</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/managebookings.css">
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container d-flex flex-column align-items-center">
+      <a href="index.html" class="logo me-auto me-lg-0">
+        <img src="assets/img/icons/bibbys-logo-small.png"
+          style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px; padding: 2px;" alt="Bibby's BnB Logo"
+          class="header-img">
+      </a>
+      <h4 class="logo-text phone-off">
+        <a href="index.html">BIBBY'S BnB</a>
+      </h4>
+    </div>
+  </header>
+  <main class="bnb-container">
+    <section class="dashboard-section">
+      <h1>Manage Bookings</h1>
+      <div class="kpi-container">
+        <div class="kpi-card">
+          <h3>Monthly Revenue</h3>
+          <p id="monthly-revenue">$0</p>
+        </div>
+        <div class="kpi-card">
+          <h3>Days Booked</h3>
+          <p id="days-booked">0</p>
+        </div>
+      </div>
+      <h2>Accommodation Usage</h2>
+      <table id="accommodation-stats" class="elegant-table">
+        <thead>
+          <tr>
+            <th>Accommodation Type</th>
+            <th>Days Booked</th>
+          </tr>
+        </thead>
+        <tbody id="accommodation-body"></tbody>
+      </table>
+    </section>
+    <hr class="divider">
+    <section class="dashboard-section">
+      <h2>Booking List</h2>
+      <div class="col-lg-12">
+        <table id="bookings-table" class="elegant-table">
+          <thead>
+            <tr>
+              <th>Guest Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Check-in</th>
+              <th>Check-out</th>
+              <th>Accommodation Type</th>
+              <th>Total Cost</th>
+              <th>Status</th>
+              <th>Date Created</th>
+              <th>Time</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bookings-body"></tbody>
+        </table>
+      </div>
+    </section>
+    <hr class="divider">
+    <section class="dashboard-section">
+      <h2>Booking Calendar</h2>
+      <div id="calendar" class="calendar-container"></div>
+    </section>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </main>
+
+  <script type="module" src="/assets/js/supabase-client.js"></script>
+  <script type="module" src="/assets/js/admin.js"></script>
+</body>
+</html>

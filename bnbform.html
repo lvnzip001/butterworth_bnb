@@ -7,7 +7,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-  <div class="bnb-container">
+  <div class="bnb-container" color="black">
     <h1 id="bnb-name">Loading BnB...</h1>
     <div id="bnb-description"></div>
     
@@ -24,16 +24,19 @@
         <div class="loading-message">Select dates to check availability</div>
       </div>
       
-      <!-- Booking Form -->
-      <div id="booking-details" style="display: none;">
+      <!-- Booking Form with Total Price -->
+      <div id="booking-details" style="color:black;">
         <h3>Selected Booking Details</h3>
         <div class="selected-dates">
           <p>Check-in: <span id="display-checkin"></span></p>
           <p>Check-out: <span id="display-checkout"></span></p>
+          <p>Total Price: R<span id="display-price"></span></p>
         </div>
         <form id="guest-info">
-          <input type="text" id="guest-name" placeholder="Full Name" required>
+          <input type="text" id="guest-name" placeholder="Full Name" required style="margin-bottom: 10px;">
+      
           <input type="email" id="guest-email" placeholder="Email Address" required>
+          <br><br>
           <button type="button" onclick="submitBooking()">Confirm Booking</button>
         </form>
       </div>
