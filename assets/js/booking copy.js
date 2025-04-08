@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     if (error) throw error;
     
-    document.getElementById('bnb-name').textContent = data?.name || 'No BnB Found';
+    document.getElementById('bnb-name').textContent = data?.accomodation_type || 'No BnB Found';
     document.getElementById('bnb-description').textContent = data?.description || '';
     
   } catch (error) {
@@ -41,7 +41,7 @@ window.checkAvailability = async () => {
       .select(`
         *,
         bnb_room_type (
-          name,
+          accomodation_type,
           price_per_night
         )
       `)
@@ -80,7 +80,7 @@ window.checkAvailability = async () => {
 
     if (isAvailable) {
       resultsDiv.innerHTML = `
-        <p>The ${roomType.name} is available for your selected dates.</p>
+        <p>The ${roomType.accomodation_type} is available for your selected dates.</p>
         <p>Total price: R${totalPrice} for ${numberOfNights} night${numberOfNights > 1 ? 's' : ''}.</p>
       `;
       document.getElementById('display-checkin').textContent = checkin;

@@ -49,6 +49,24 @@ body {
     margin-bottom: 20px;
     padding: 20px 0px;
   }
+
+  #calendar {
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .fc-button {
+    background-color: #005e5e !important;
+    border: none !important;
+    padding: 6px 12px !important;
+  }
+  .fc-button:hover {
+    background-color: #004d4d !important;
+  }
+  .fc-daygrid-day-number {
+    font-weight: bold;
+  }
   
   .calendar-container {
     background-color: white;
@@ -111,6 +129,20 @@ body {
   button:hover, select:hover {
     background-color: #004d4d;
   }
+
+    select.pending-status {
+    background-color: orange;
+    }
+    select.pending-status:hover {
+    background-color: #e59400; /* Darker orange */
+    }
+    select.complete-status {
+    background-color: #005e5e;
+    }
+    select.complete-status:hover {
+    background-color: #004d4d;
+    }
+  
   
   .logout-btn {
     display: block;
@@ -163,6 +195,7 @@ body {
     color: #005e5e;
     font-size: 1.2rem;
     margin-bottom: 10px;
+    font-family: "Poppins",sans-serif ;
   }
   
   .kpi-card p {

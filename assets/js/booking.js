@@ -1,31 +1,34 @@
 import supabase from './supabase-client.js';
 
-const BNB_ID = '1b523c66-72c4-4a13-a6fa-3ed2531de7a2';
-
-// Load BnB data on page load
+// Load all BnBs on page load
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    console.log('Fetching BnB data...');
+    console.log('Fetching all BnB data...');
     const { data, error } = await supabase
       .from('bnb')
-      .select('*')
-      .eq('id', BNB_ID)
-      .single();
+      .select('*');
 
-    console.log('BnB Data:', data);
-    
     if (error) throw error;
+
+    console.log('All BnB Data:', data);
+
+    const bnbContainer = document.getElementById('bnb-name');
+    if (data && data.length > 0) {
+      bnbContainer.innerHTML = '<h2>Available BnBs</h2>';
+      // Initially, we won’t display details until availability is checked
+    } else {
+      bnbContainer.textContent = 'No BnBs Found';
+    }
     
-    document.getElementById('bnb-name').textContent = data?.accomodation_type || 'No BnB Found';
-    document.getElementById('bnb-description').textContent = data?.description || '';
-    
+    document.getElementById('bnb-description').textContent = 'Select dates to see available BnBs.';
+
   } catch (error) {
     console.error('BnB Load Error:', error);
-    document.getElementById('bnb-name').textContent = 'Error Loading BnB';
+    document.getElementById('bnb-name').textContent = 'Error Loading BnBs';
   }
 });
 
-// Check availability function
+// Check availability across all BnBs
 window.checkAvailability = async () => {
   const checkin = document.getElementById('checkin').value;
   const checkout = document.getElementById('checkout').value;
@@ -35,21 +38,25 @@ window.checkAvailability = async () => {
   try {
     resultsDiv.innerHTML = '<p class="loading">Checking availability...</p>';
 
-    // Fetch availability with related room type data
+    // Fetch availability with related room type and BnB data
     const { data, error } = await supabase
       .from('availability')
       .select(`
         *,
         bnb_room_type (
           accomodation_type,
-          price_per_night
+          price_per_night,
+          bnb_id
+        ),
+        bnb (
+          id,
+          name
         )
       `)
-      .eq('bnb_id', BNB_ID)
       .gte('date', checkin)
-      .lt('date', checkout); // Nights are from checkin to checkout-1
+      .lt('date', checkout);
 
-    console.log('Availability Query:', { BNB_ID, checkin, checkout });
+    console.log('Availability Query:', { checkin, checkout });
     console.log('Availability Data:', data);
 
     if (error) throw error;
@@ -60,36 +67,69 @@ window.checkAvailability = async () => {
       return;
     }
 
-    // Calculate number of nights and total price
-    const roomType = data[0].bnb_room_type;
-    const pricePerNight = roomType.price_per_night;
+    // Group availability by BnB and room type
+    const availabilityByBnb = {};
+    data.forEach(item => {
+      const bnbId = item.bnb_room_type.bnb_id;
+      const roomType = item.bnb_room_type.accomodation_type;
+      const bnbName = item.bnb.name;
+      const key = `${bnbId}-${roomType}`;
+      if (!availabilityByBnb[bnbId]) {
+        availabilityByBnb[bnbId] = {
+          bnbName,
+          rooms: {}
+        };
+      }
+      if (!availabilityByBnb[bnbId].rooms[roomType]) {
+        availabilityByBnb[bnbId].rooms[roomType] = {
+          pricePerNight: item.bnb_room_type.price_per_night,
+          dates: []
+        };
+      }
+      availabilityByBnb[bnbId].rooms[roomType].dates.push({
+        date: item.date,
+        available: item.available_quantity > 0
+      });
+
+      console.log('My Check:',   bnbName);
+    });
+
+    
+
+    // Calculate number of nights
     const startDate = new Date(checkin);
     const endDate = new Date(checkout);
     const numberOfNights = (endDate - startDate) / (1000 * 60 * 60 * 24);
-    const totalPrice = pricePerNight * numberOfNights;
-
-    // Generate list of required dates
     const datesNeeded = [];
     for (let d = new Date(startDate); d < endDate; d.setDate(d.getDate() + 1)) {
       datesNeeded.push(d.toISOString().split('T')[0]);
     }
 
-    // Check availability for all required dates
-    const availableDates = new Set(data.filter(item => item.available_quantity > 0).map(item => item.date));
-    const isAvailable = datesNeeded.every(date => availableDates.has(date));
+    // Generate availability results
+    let resultsHtml = '';
+    Object.entries(availabilityByBnb).forEach(([bnbId, bnbData]) => {
+      resultsHtml += `<h3>${bnbData.bnbName}</h3>`;
+      Object.entries(bnbData.rooms).forEach(([roomType, roomData]) => {
+        const isAvailable = datesNeeded.every(date => 
+          roomData.dates.some(d => d.date === date && d.available)
+        );
+        if (isAvailable) {
+          const totalPrice = roomData.pricePerNight * numberOfNights;
+          resultsHtml += `
+            <div class="room-option">
+              <p>${roomType} - Available</p>
+              <p>Total Price: R${totalPrice} for ${numberOfNights} night${numberOfNights > 1 ? 's' : ''}</p>
+              <button onclick="selectRoom('${bnbId}', '${roomData.pricePerNight}', '${totalPrice}')">Book Now</button>
+            </div>
+          `;
+        }
+      });
+    });
 
-    if (isAvailable) {
-      resultsDiv.innerHTML = `
-        <p>The ${roomType.accomodation_type} is available for your selected dates.</p>
-        <p>Total price: R${totalPrice} for ${numberOfNights} night${numberOfNights > 1 ? 's' : ''}.</p>
-      `;
-      document.getElementById('display-checkin').textContent = checkin;
-      document.getElementById('display-checkout').textContent = checkout;
-      document.getElementById('display-price').textContent = totalPrice;
-      bookingDetails.style.display = 'block';
-      // document.getElementById('booking-details').style.display = 'none';
+    if (resultsHtml) {
+      resultsDiv.innerHTML = resultsHtml;
     } else {
-      resultsDiv.innerHTML = '<p class="no-rooms">The room is not available for the entire stay.</p>';
+      resultsDiv.innerHTML = '<p class="no-rooms">No rooms available for the entire stay.</p>';
       bookingDetails.style.display = 'none';
     }
 
@@ -100,17 +140,27 @@ window.checkAvailability = async () => {
   }
 };
 
+// Function to handle room selection
+window.selectRoom = (bnbId, pricePerNight, totalPrice) => {
+  document.getElementById('display-checkin').textContent = document.getElementById('checkin').value;
+  document.getElementById('display-checkout').textContent = document.getElementById('checkout').value;
+  document.getElementById('display-price').textContent = totalPrice;
+  window.selectedBnbId = bnbId;
+  window.selectedRoomPrice = pricePerNight; // Store for room type lookup if needed
+  document.getElementById('booking-details').style.display = 'block';
+};
+
 // Submit booking function
 window.submitBooking = async () => {
   const guestName = document.getElementById('guest-name').value;
   const guestEmail = document.getElementById('guest-email').value;
+  const guestPhone = document.getElementById('guest-phone').value;
   const checkinDate = document.getElementById('checkin').value;
   const checkoutDate = document.getElementById('checkout').value;
-  const totalCost = Number(document.getElementById('display-price').textContent); // Get from span, convert to number
-  const roomTypeId = 'e6cc4a87-8cee-48f0-9263-9d7956338714'; // From your data
+  const totalCost = Number(document.getElementById('display-price').textContent);
 
   // Basic validation
-  if (!guestName || !guestEmail || !checkinDate || !checkoutDate) {
+  if (!guestName || !guestEmail || !guestPhone || !checkinDate || !checkoutDate) {
     alert('Please fill in all required fields.');
     return;
   }
@@ -125,20 +175,36 @@ window.submitBooking = async () => {
     return;
   }
 
+  if (!window.selectedBnbId) {
+    alert('No BnB selected. Please check availability and select a room.');
+    return;
+  }
+
   try {
+    // Fetch room_type_id based on bnb_id and price_per_night (assuming unique per BnB)
+    const { data: roomData, error: roomError } = await supabase
+      .from('bnb_room_type')
+      .select('id')
+      .eq('bnb_id', window.selectedBnbId)
+      .eq('price_per_night', window.selectedRoomPrice)
+      .single();
+
+    if (roomError) throw roomError;
+
     const { data, error } = await supabase
       .from('bookings')
       .insert([{
-        bnb_id: BNB_ID,
-        room_type_id: roomTypeId,
+        bnb_id: window.selectedBnbId,
+        room_type_id: roomData.id,
         checkin_date: checkinDate,
         checkout_date: checkoutDate,
         guest_name: guestName,
         guest_email: guestEmail,
-        total_cost: totalCost, // Use corrected variable name
-        status: 'pending' // Default value, can omit since table sets it
+        guest_phone: guestPhone,
+        total_cost: totalCost,
+        status: 'pending'
       }])
-      .select(); // Return inserted row for confirmation
+      .select();
 
     if (error) throw error;
 

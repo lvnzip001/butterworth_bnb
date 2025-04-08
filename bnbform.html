@@ -12,7 +12,7 @@
     <div id="bnb-description"></div>
     
     <div class="booking-form">
-      <div class="date-picker">
+      <div class="date-picker" >
         <input type="date" id="checkin" required>
         <input type="date" id="checkout" required>
         <button onclick="checkAvailability()">Check Availability</button>
@@ -34,9 +34,8 @@
         </div>
         <form id="guest-info">
           <input type="text" id="guest-name" placeholder="Full Name" required style="margin-bottom: 10px;">
-      
-          <input type="email" id="guest-email" placeholder="Email Address" required>
-          <br><br>
+          <input type="email" id="guest-email" placeholder="Email Address" required style="margin-bottom: 10px;">
+          <input type="tel" id="guest-phone" placeholder="Phone Number" required style="margin-bottom: 10px;">
           <button type="button" onclick="submitBooking()">Confirm Booking</button>
         </form>
       </div>
