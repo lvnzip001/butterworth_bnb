@@ -26,7 +26,7 @@ const roomsData = [
     location: "Butterwork BnB",
     size: "60 m²",
     capacity: "max. 6 pers.",
-    amenities: ["Free Wi-Fi", "Mini Kitchen", "TV"],
+    amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
     images: ["assets/img/gallery/double_room.jpg", "assets/img/gallery/king_bed.jpg"],
     detailsLink: "room_family.html"
   }
