@@ -4,10 +4,10 @@ const roomsData = [
     type: "Standard Room",
     price: 600,
     location: "Butterwork BnB",
-    size: "35 m²",
+    size: "40 m²",
     capacity: "max. 2 pers.",
     amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
-    images: ["assets/img/bibby's1.jpg", "assets/img/bibby's2.jpg"],
+    images: ["assets/img/standard_room.jpeg","assets/img/bibby's1.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
     detailsLink: "room_standard.html"
   },
   {
@@ -17,7 +17,7 @@ const roomsData = [
     size: "45 m²",
     capacity: "max. 4 pers.",
     amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
-    images: ["assets/img/bibby's3.jpg", "assets/img/bibby's16.jpg"],
+    images: ["assets/img/two_single_bed.jpeg", "assets/img/bibby's19.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
     detailsLink: "room_shared.html"
   },
   {
@@ -25,9 +25,9 @@ const roomsData = [
     price: 800,
     location: "Butterwork BnB",
     size: "60 m²",
-    capacity: "max. 6 pers.",
+    capacity: "max. 5 pers.",
     amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
-    images: ["assets/img/gallery/double_room.jpg", "assets/img/gallery/king_bed.jpg"],
+    images: ["assets/img/gallery/double_room.jpg", "assets/img/gallery/king_bed.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
     detailsLink: "room_family.html"
   }
 ];
