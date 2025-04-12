@@ -4,6 +4,10 @@
   <title>BnB Booking</title>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/reservation.css">
+  <!-- Add Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -12,20 +16,50 @@
     <div id="bnb-description"></div>
     
     <div class="booking-form">
-      <div class="date-picker" >
-        <input type="date" id="checkin" required>
-        <input type="date" id="checkout" required>
-        <button onclick="checkAvailability()">Check Availability</button>
-      </div>
+      <!-- Integrated Reservation Form -->
+      <section class="reservationsection">
+        <div class="limiter">
+          <!-- <form id="reservations" action="https://book.nightsbridge.com/28231" method="get" target="_blank" rel="nofollow noreferrer"> -->
+          <!-- Example outcome https://book.nightsbridge.com/28231?startdate=2025-04-17&enddate=2025-04-18&adults=1&children=0 -->
+          <form id="reservations"  method="get" target="_blank" rel="nofollow noreferrer">
+            <div class="form-item">
+              <input type="text" id="checkin" name="startdate" placeholder="Check in" aria-label="Check in date" class="flatpickr-input" readonly>
+              <i class="icon-calendar fas fa-calendar-alt"></i>
+            </div>
+            <div class="form-item">
+              <input type="text" id="checkout" name="enddate" placeholder="Check out" aria-label="Check out date" class="flatpickr-input" readonly>
+              <i class="icon-calendar fas fa-calendar-alt"></i>
+            </div>
+            <div class="form-item">
+              <select name="adults" aria-label="Number of adults">
+                <option value="1">1 Adult</option>
+                <option value="2">2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <select name="children" aria-label="Number of children">
+                <option value="0">0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+                <option value="3">3 Children</option>
+              </select>
+            </div>
+            <div class="form-item submit">
+              <button class="btn-book" type="button" onclick="checkAvailability()">Check Availability</button>
+            </div>
+          </form>
+        </div>
+      </section>
       
-      <!-- Updated Availability Results Section -->
+      <!-- Availability Results Section -->
       <div id="availability-results" class="availability-grid">
-        <!-- Dynamic content will be inserted here -->
         <div class="loading-message">Select dates to check availability</div>
       </div>
       
-      <!-- Booking Form with Total Price -->
-      <div id="booking-details" style="color:black;">
+      <!-- Booking Details Form -->
+      <div id="booking-details" style="color:black; display: none;">
         <h3>Selected Booking Details</h3>
         <div class="selected-dates">
           <p>Check-in: <span id="display-checkin"></span></p>
@@ -44,5 +78,7 @@
 
   <script type="module" src="/assets/js/supabase-client.js"></script>
   <script type="module" src="/assets/js/booking.js"></script>
+  <!-- Add Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>
