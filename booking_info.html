@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Bibby’s B&B - Booking Confirmation</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/reservation.css" rel="stylesheet">
+
+  <!-- Custom CSS for Professional Layout -->
+</head>
+<body>
+  <!-- ======= Header ======= -->
+  <!-- <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <div class="logo-container d-flex flex-column align-items-center">
+        <a href="index.html" class="logo me-auto me-lg-0">
+          <img src="assets/img/icons/bibbys-logo-small.png" style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px;padding: 2px;" alt="" class="header-img">
+        </a>
+        <h4 class="logo-text phone-off">
+          <a href="index.html">BIBBY'S BnB</a>
+        </h4>
+      </div>
+      <div class="nav-container">
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+            <li><a class="nav-link scrollto" href="rooms.html">Our Rooms</a></li>
+            <li><a class="nav-link scrollto" href="gallery.html">Gallery</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+            <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
+          </ul>
+        </nav>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </div>
+    </div>
+  </header> -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="overflow-y: auto;">
+    <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+      <div class="card">
+        <h2 style="color: #005e5e;">Booking Request Submitted Successfully</h2>
+        <h2 style="color: rgb(0, 0, 0);">A team member from Bibby's BnB will reach out to you soon</h2>
+
+        <!-- Booking Details Section -->
+        <div id="bookingDetails" class="mt-4">
+          <h3>Your Booking Confirmation</h3>
+          <div class="booking-grid">
+            <div class="booking-card">
+              <h4>Guest Information</h4>
+              <p><strong>Name:</strong> <span id="thankYouName"></span></p>
+              <p><strong>Email:</strong> <span id="thankYouEmail"></span></p>
+              <p><strong>Phone:</strong> <span id="thankYouPhone"></span></p>
+            </div>
+            <div class="booking-card">
+              <h4>Stay Details</h4>
+              <p><strong>Room Type:</strong> <span id="thankYouRoomType"></span></p>
+              <p><strong>Check-in:</strong> <span id="thankYouCheckin"></span></p>
+              <p><strong>Check-out:</strong> <span id="thankYouCheckout"></span></p>
+            </div>
+            <div class="booking-card">
+              <h4>Summary</h4>
+              <p><strong>Adults:</strong> <span id="thankYouAdults"></span></p>
+              <p><strong>Children:</strong> <span id="thankYouChildren"></span></p>
+              <p><strong>Total Cost:</strong> R<span id="thankYouTotalCost"></span></p>
+              <p><strong>Booking ID:</strong> <span id="thankYouBookingId"></span></p>
+            </div>
+          </div>
+          <div class="payment-box">
+            <h5>Payment Instructions</h5>
+            <p style="color: rgb(222, 41, 0);">Please transfer the total amount within 24 hours to secure your booking:</p>
+            <p><strong>Bank:</strong> Standard Bank</p>
+            <p><strong>Account Number:</strong> 54257552</p>
+            <p><strong>Account Name:</strong> Bibby's BnB</p>
+            <p><strong>Reference:</strong> Booking-<span id="thankYouBookingIdRepeat"></span></p>
+            <p style="color: rgb(229, 152, 0);"><em>Your booking will be confirmed upon receipt of payment.</em></p>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center mt-4">
+          <div class="d-flex-thankyou">
+            <div class="logo-container d-flex flex-column align-items-center">
+              <a href="index.html" class="logo me-auto me-lg-0">
+                <img src="assets/img/icons/bibbys-logo-small.png" style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px; padding: 2px;" alt="" class="header-img">
+              </a>
+              <a href="index.html" class="btn-get-started scrollto mt-3">Back to Home</a>
+              <button type="button" class="btn-get-started scrollto mt-3" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section><!-- End Hero -->
+
+<!-- Terms and Conditions Modal -->
+<div class="modal fade terms-modal" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="assets/img/icons/bibbys-logo-small.png" alt="Bibby's Logo" class="logo-in-modal">
+        <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Welcome to Bibby's BnB.</strong> By booking with us, you agree to the following terms and conditions. Please read them carefully.</p>
+
+        <h5>1. Booking and Payment</h5>
+        <ul>
+          <li>All reservations must be secured with a valid credit or debit card.</li>
+          <li>Full payment is due at the time of booking unless otherwise specified.</li>
+          <li>Prices are quoted in South African Rand (ZAR) and include applicable taxes unless stated otherwise.</li>
+        </ul>
+
+        <h5>2. Check-In and Check-Out</h5>
+        <ul>
+          <li>Check-in time is from 2:00 PM. Early check-in is subject to availability.</li>
+          <li>Check-out time is by 10:00 AM. Late check-out may incur additional fees.</li>
+          <li>Guests must present valid identification upon arrival.</li>
+        </ul>
+
+        <h5>3. Property Rules</h5>
+        <ul>
+          <li>No smoking is allowed indoors. Designated outdoor areas are provided.</li>
+          <li>Pets are not permitted unless explicitly agreed upon in writing.</li>
+          <li>Guests are responsible for any damage to property caused by themselves or their party, and repair costs will be charged.</li>
+        </ul>
+
+        <h5>4. Liability</h5>
+        <ul>
+          <li>Bibby's BnB is not responsible for loss or damage to personal belongings.</li>
+        </ul>
+
+        <h5>5. Cancellation Policy</h5>
+        <div class="cancellation-section">
+          <p>We understand plans may change. Our cancellation policy is designed to balance flexibility with operational needs:</p>
+          <ul>
+            <li><strong>Full Refund:</strong> Cancellations made 2 days (48 hours) or more before the check-in date are eligible for a 100% refund of the booking amount.</li>
+            <li><strong>No Refund:</strong> Cancellations within 48 hours of the check-in date are non-refundable.</li>
+          </ul>
+          <p>To cancel, please contact us at <a href="mailto:bibbys.gh@gmail.com">bibbys.gh@gmail.com</a> or call +27 47 491 0299 with your booking ID. Refunds, where applicable, will be processed within 5 business days.</p>
+        </div>
+
+        <h5>6. Force Majeure</h5>
+        <ul>
+          <li>Bibby's BnB is not liable for cancellations or delays due to events beyond our control (e.g., natural disasters, government restrictions). In such cases, we will offer a rescheduling option or credit, subject to availability.</li>
+        </ul>
+
+        <h5>7. Privacy</h5>
+        <ul>
+          <li>Personal information provided during booking is handled in accordance with our Privacy Policy and applicable data protection laws.</li>
+        </ul>
+
+        <h5>8. Amendments</h5>
+        <ul>
+          <li>Bibby's BnB reserves the right to update these terms. The version in effect at the time of booking applies.</li>
+        </ul>
+        <p><em>Last Updated: April, 2025</em></p>
+
+        <button type="button" class="btn btn-dark mt-3" data-bs-dismiss="modal" aria-label="Close">I Agree, and Close</button>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script>
+    // Auto-open modal on page load (after payment confirmation)
+    document.addEventListener('DOMContentLoaded', function() {
+      const termsModal = new bootstrap.Modal(document.getElementById('termsModal'), { backdrop: 'static' });
+      termsModal.show();
+    });
+  </script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Script to Display Booking Details -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo'));
+      console.log('Retrieved bookingInfo:', bookingInfo);
+      if (bookingInfo) {
+        document.getElementById('thankYouName').textContent = bookingInfo.name || 'Not provided';
+        document.getElementById('thankYouEmail').textContent = bookingInfo.email || 'Not provided';
+        document.getElementById('thankYouPhone').textContent = bookingInfo.phone || 'Not provided';
+        document.getElementById('thankYouRoomType').textContent = bookingInfo.roomType || 'Not provided';
+        document.getElementById('thankYouCheckin').textContent = bookingInfo.checkin || 'Not provided';
+        document.getElementById('thankYouCheckout').textContent = bookingInfo.checkout || 'Not provided';
+        document.getElementById('thankYouAdults').textContent = bookingInfo.adults || 'Not provided';
+        document.getElementById('thankYouChildren').textContent = bookingInfo.children || 'Not provided';
+        document.getElementById('thankYouTotalCost').textContent = bookingInfo.totalCost || 'Not provided';
+        document.getElementById('thankYouBookingId').textContent = bookingInfo.bookingId || 'Not provided';
+        document.getElementById('thankYouBookingIdRepeat').textContent = bookingInfo.bookingId || 'Not provided';
+
+        localStorage.removeItem('bookingInfo');
+      } else {
+        document.getElementById('bookingDetails').innerHTML = '<p class="text-danger text-center">No booking information found. Please contact us if you believe this is an error.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
