@@ -155,8 +155,10 @@ const bookingConfirmationModalHTML = `
             <input type="hidden" id="confirmChildren" name="children">
             <input type="hidden" id="confirmTotalCost" name="totalCost">
             <input type="hidden" name="_next" value="https://butterworth-bnb-sandy.vercel.app/booking_info.html">
-            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_captcha" value="true">
             <input type="hidden" name="_template" value="box">
+            <!-- Add auto-response for the client -->
+            <input type="hidden" name="_autoresponse" value="Thank you for booking with Bibby's B&B! Your reservation has been received. To complete your reservation, please make payment within 48 hours to:\nStandard Bank\nAccount Number: 54477881\nPlease use your booking ID as the payment reference. Alternatively, call us at 047 491 0299 to arrange payment on arrival.\n\nPlease see your booking details below.">
             <p><strong>Room Type:</strong> <span id="displayRoomType"></span></p>
             <p><strong>Check-in:</strong> <span id="displayCheckin"></span></p>
             <p><strong>Check-out:</strong> <span id="displayCheckout"></span></p>
@@ -176,7 +178,7 @@ const bookingConfirmationModalHTML = `
               <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <button type="submit" class="btn btn-success">Make Booking</button>
-          </form>
+      </form>
         </div>
       </div>
     </div>
