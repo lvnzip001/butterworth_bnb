@@ -43,10 +43,6 @@
   <link href="assets/css/loader.css" rel="stylesheet">
   <!-- Lightbox2 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
-
-
-
-
 </head>
 
 <body>
@@ -54,11 +50,9 @@
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-center justify-content-md-between">
-
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-chat-square-text align-items-center fs-8"><span> bibbys.gh@gmail.com</span></i>
       </div>
-
       <div class="languages d-none d-md-flex align-items-center">
         <ul>
           <li>Your Home Away From Home</li>
@@ -87,14 +81,12 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
             <li><a class="nav-link scrollto" href="index.html">Home</a></li>
-            
             <li class="dropdown"><a href="rooms.html"><span>Our Rooms</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <li><a href="room_standard.html">Standard Room</a></li>
                 <li><a href="room_shared.html">Sharing Room</a></li>
                 <li><a href="room_family.html">Family Room</a></li>
               </ul>  
-            <!--li><a class="nav-link scrollto" href="#about1">Attractions</a></li-->
             <li><a class="nav-link scrollto active" href="gallery.html">Gallery</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
             <li><a class="nav-link scrollto" href="FAQ.html">FAQ</a></li>
@@ -115,571 +107,80 @@
   </section><!-- End Hero -->
 
   <main id="main">
-
-
-        <!-- ======= About Potine Section ======= -->
-           <!-- Loader (optional, simplified) -->
-        <div class="loader">
-          <div class="loader-content">
-            <img src="assets/img/icons/bibbys-logo-small.png" alt="Bibby's BnB Logo" class="loader-logo">
-            <p class="loader-text">Bibby's B&B</p>
-          </div>
-        </div>
-         
-
-
-        <section class="reservationsection">
-          <div class="limiter">
-            <form id="reservations" method="get">
-              <div class="form-item">
-                <input type="text" id="checkin" name="startdate" placeholder="Check in" aria-label="Check in date" class="flatpickr-input" readonly>
-                <i class="icon-calendar fas fa-calendar-alt"></i>
-              </div>
-              <div class="form-item">
-                <input type="text" id="checkout" name="enddate" placeholder="Check out" aria-label="Check out date" class="flatpickr-input" readonly>
-                <i class="icon-calendar fas fa-calendar-alt"></i>
-              </div>
-              <div class="form-item">
-                <select name="adults" aria-label="Number of adults">
-                  <option value="1">1 Adult</option>
-                  <option value="2">2 Adults</option>
-                  <option value="3">3 Adults</option>
-                  <option value="4">4 Adults</option>
-                </select>
-              </div>
-              <div class="form-item">
-                <select name="children" aria-label="Number of children">
-                  <option value="0">0 Children</option>
-                  <option value="1">1 Child</option>
-                  <option value="2">2 Children</option>
-                  <option value="3">3 Children</option>
-                </select>
-              </div>
-              <div class="form-item submit">
-                <button class="btn-book" type="submit" data-room-type="">Book Online</button>
-              </div>
-            </form>
-          </div>
-        </section>
-
-        
-        <!-- ======= Rooms Listing Section ======= -->
-        <section id="portfolio" class="portfolio section">
-
-          <!-- Section Title ->
-          <div class="container section-title" data-aos="fade-up">
-            <h2>Gallery</h2>
-            <h3>WHERE EVERY STAY FEELS LIKE HOME.</h3>
-     
-          </div><!- End Section Title ->
-    
-          <div class="container">
-            <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-              <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-          
-                <!-- Pool Area ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/gallery/bibby_outside.jpg" class="img-fluid" alt="Relaxing Pool Area">
-                    <div class="portfolio-info">
-                      <h4>Pool Area</h4>
-                      <p>Unwind by our serene pool, perfect for a refreshing dip and relaxing under the sun.</p>
-                      <a href="assets/img/gallery/guestHouse_bibby.jpg" title="Relaxing Pool Area" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!- End Portfolio Item -->
-          
-                <!-- Cozy Room 1 ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/bibby's6.jpg" class="img-fluid" alt="Cozy Double Room">
-                    <div class="portfolio-info">
-                      <h4>Family Room</h4>
-                      <p>Rest in a spacious rooms.</p>
-                      <a href="assets/img/bibby's6.jpg" title="Cozy Double Room" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item >
-          
-               
-          
-                <!-- Family Room ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/bibby's20.jpg" class="img-fluid" alt="Family-Friendly Room">
-                    <div class="portfolio-info">
-                      <h4>Double Room</h4>
-                      <p>Spacious double room for your friends and family.</p>
-                      <a href="assets/img/bibby's20.jpg" title="Family-Friendly Room" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item ->
-          
-                <!-- Deluxe Room ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/gallery/double_room.jpg" class="img-fluid" alt="Deluxe Room">
-                    <div class="portfolio-info">
-                      <h4>Double Room</h4>
-                      <p>Spacious double room for your friends and family.</p>
-                      <a href="assets/img/gallery/double_room.jpg" title="Deluxe Room" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item -->
-          
-                <!-- King Bed Room ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/gallery/bedroom_king_suite.jpg" class="img-fluid" alt="King Bed Room">
-                    <div class="portfolio-info">
-                      <h4>King Bed Room</h4>
-                      <p>Relax in style with a luxurious king-sized bed and elegant decor.</p>
-                      <a href="assets/img/gallery/bedroom_king_suite.jpg" title="King Bed Room" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item ->
-
-                 <!-- King Bed Suite ->
-                 <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/gallery/king_bed.jpg" class="img-fluid" alt="King Bed Suite">
-                    <div class="portfolio-info">
-                      <h4>King Bed Suite</h4>
-                      <p>Experience ultimate comfort in our spacious king bed suite.</p>
-                      <a href="assets/img/gallery/king_bed.jpg" title="King Bed Suite" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item -->
-
-                <!-- Double Room ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/gallery/bathroom/bathroom3.jpg" class="img-fluid" alt="Clean bathroom to help you relax at the end of the day">
-                    <div class="portfolio-info">
-                      <h4>Bathroom Suite</h4>
-                      <p>Clean bathroom to help you relax at the end of the day</p>
-                      <a href="assets/img/gallery/bathroom/bathroom3.jpg" title="Clean bathroom to help you relax at the end of the day" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item -->
-
-                <!-- Outdoor Patio ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/gallery/bathroom/bathroom6.jpg" class="img-fluid" alt="Outdoor Patio">
-                    <div class="portfolio-info">
-                      <h4>Bathroom Suite</h4>
-                      <p>Clean bathroom to help you relax at the end of the day</p>
-                      <a href="assets/img/gallery/bathroom/bathroom6.jpg" title="Outdoor Patio" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item >
-
-                      <!-- Outdoor Patio ->
-                      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                        <div class="portfolio-content h-100">
-                          <img src="assets/img/gallery/bathroom/bathroom7.jpg" class="img-fluid" alt="Outdoor Patio">
-                          <div class="portfolio-info">
-                            <h4>Bathroom Suite</h4>
-                            <p>Clean bathroom to help you relax at the end of the day</p>
-                            <a href="assets/img/gallery/bathroom/bathroom7.jpg" title="Outdoor Patio" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                          </div>
-                        </div>
-                      </div><!-- End Portfolio Item -->
-          
-                <!-- Outdoor Patio ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/gallery/outside_1.jpg" class="img-fluid" alt="Outdoor Patio">
-                    <div class="portfolio-info">
-                      <h4>Reception Office</h4>
-                      <p>Reception area to handle all the administration</p>
-                      <a href="assets/img/gallery/outside_1.jpg" title="Outdoor Patio" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item -->
-          
-                <!-- Pool Area ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/gallery/outside/outside_pool_area_1.jpg" class="img-fluid" alt="Relaxing Pool Area">
-                    <div class="portfolio-info">
-                      <h4>Pool Area</h4>
-                      <p>Unwind by our serene pool, perfect for a refreshing dip and relaxing under the sun.</p>
-                      <a href="assets/img/gallery/outside/outside_pool_area_1.jpg" title="Relaxing Pool Area" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item -->
-          
-                
-                <!-- Garden View ->
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-                  <div class="portfolio-content h-100">
-                    <img src="assets/img/bibby_garden1.jpg" class="img-fluid" alt="Garden View">
-                    <div class="portfolio-info">
-                      <h4>Garden View</h4>
-                      <p>Enjoy the tranquility of our lush garden, perfect for a peaceful retreat.</p>
-                      <a href="assets/img/bibby_garden1.jpg" title="Garden View" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                      <a href="portfolio-details.html" title="More Details" class="details-link"></a>
-                    </div>
-                  </div>
-                </div><!-- End Portfolio Item -->
-          
-              </div><!-- End Portfolio Container ->
-            </div>
-          </div-->
-
-        
-    
-        </section>
-
-        <section class="gallery">
-          <h2>Gallery</h2>
-          <div class="gallery-grid">
-            <a href="assets/img/gallery/garden/bibby''s bed_standard.jpg" data-lightbox="bnb-gallery" data-title="Spacious Standard Room">
-              <img src="assets/img/gallery/garden/bibby''s bed_standard.jpg" alt="Room 1">
-            </a>
-
-            <a href="assets/img/kichenette.jpeg" data-lightbox="bnb-gallery" data-title="Kitchenette">
-              <img src="assets/img/kichenette.jpeg" alt="Room 2">
-            </a>  
-
-            <a href="assets/img/gallery/bathroom/bibby's 3Sharing.jpg" data-lightbox="bnb-gallery" data-title="Spacious Standard Room">
-              <img src="assets/img/gallery/bathroom/bibby's 3Sharing.jpg" alt="Room 1">
-            </a>
-
-            <a href="assets/img/gallery/bathroom/bibby's_bath.jpg" data-lightbox="bnb-gallery" data-title="Bathroom Suite">
-              <img src="assets/img/gallery/bathroom/bibby's_bath.jpg" alt="Room 2">
-            </a>
-
-            <a href="assets/img/gallery/garden/balcony_bibby's.jpg" data-lightbox="bnb-gallery" data-title="Balcony">
-              <img src="assets/img/gallery/garden/balcony_bibby's.jpg" alt="Room 2">
-            </a>
-        
-
-            <a href="assets/img/gallery/garden/bibby_garden7.jpg" data-lightbox="bnb-gallery" data-title="Relaxing Garden Area">
-              <img src="assets/img/gallery/garden/bibby_garden7.jpg" alt="Lounge">
-            </a>
-
-            <a href="assets/img/gallery/garden/bibby_garden2.jpg" data-lightbox="bnb-gallery" data-title="Relaxing Garden">
-              <img src="assets/img/gallery/garden/bibby_garden2.jpg" alt="Garden">
-            </a>
-
-            <a href="assets/img/gallery/bibby_garden3.jpg" data-lightbox="bnb-gallery" data-title="Relaxing Garden">
-              <img src="assets/img/gallery/bibby_garden3.jpg" alt="Garden">
-            </a>
-
-          </div>
-        </section>
-        
-<!-- End Rooms Listing Section -->
-
-
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact section-contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Book Your Next Vacation</h2>
-          <h3>Contact Us</h3>
-        </div>
-      </div>
-
-      
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="row mt-5">
-
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location 1:</h4>
-                <p>61 King Street,  <br>
-                  Butterworth, 4960
-                 </p>
-                 <br>
-                 <h4>Location 2:</h4>
-                 <p>3 Fennel Street,  <br>
-                   Butterworth, 4960
-                  </p>
-                  
-              </div>
-          
-              <div class="open-hours">
-                <i class="bi bi-clock"></i>
-                <h4>Front Desk:</h4>
-                <p>
-                  Monday-Friday: <br>
-                  8AM - 10PM (SAST)
-                </p>
-<p>
-                  Saturday-Sunday: <br>
-                  8AM - 7PM (SAST)
-                </p>
-              </div>
-          
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>bibbys.gh@gmail.com</p>
-              </div>
-          
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p><span>Tel :</span> +27 47 491 0299</p>
-                <p><span>Cel :</span> +27 64 513 9755</p>
-              </div>
-              
-          
-              <div class="social-media ">
-                <h4>See Us On</h4>
-                <p>
-                  
-                  <a href="https://www.facebook.com/profile.php?id=61573652679363" target="_blank" aria-label="Facebook" class="me-3">
-                    <img src="assets/img/icons/facebook.ico" alt="Facebook" class="social-icon">
-                  </a>
-                  <a href="https://www.safarinow.com/go/bibbysguesthouseeastlondon/" target="_blank" aria-label="Instagram" class="me-3">
-                    <img src="assets/img/icons/safarinow.png" alt="Instagram" class="social-icon">
-                  </a>
-                  <a href="https://heybedbreakfast.co.za/01138509/Bibby's_B&B" target="_blank" aria-label="Pinterest">
-                    <img src="assets/img/icons/heybedbreakfast.png" alt="Pinterest" class="social-icon">
-                  </a>
-                </p>
-              </div>
-          
-            </div>
-          </div>
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <!-- <form action="https://formsubmit.co/bibbys.gh@gmail.com" method="POST" role="form" class="php-email-form"> -->
-            <form action="https://formsubmit.co/zluvuno@gmail.com" method="POST" role="form" class="php-email-form">
-
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name (required)" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email (required)" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="Phone Number" required>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="8" placeholder="Message" required></textarea>
-              </div>
-              <div class="form-group mt-3">
-                <input type="hidden" class="form-control" name="_subject" value="Bibby’s B&B - Accommodation Query" required>
-                <input type="hidden" name="_autoresponse" value="Thank you for contacting Bibby’s B&B, a team member will reach out to you soon">
-                <input type="hidden" name="_next" value="https://butterworth-bnb-sandy.vercel.app/thank_you.html">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="box">
-              </div>
-              
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
-          </div>
-
-        </div>
-
-      </div>
-      <br>
-      <br>
-
-      <div id = 'map' class="embed-map-fixed"><div class="embed-map-container"><iframe class="embed-map-frame" loading="lazy" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=61+King+Street%2C+Butterworth%2C+4960&output=embed"></iframe><a href="https://sprunkiretake.net" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:1px;overflow:hidden">sprunki retake</a></div><style>.embed-map-fixed{position:relative;text-align:right;width:100%;height:350px;}.embed-map-container{overflow:hidden;background:none!important;width:100%;height:350px;}.embed-map-frame{width:100%!important;height:350px!important;}</style></div>
-    </section><!-- End Contact Section -->
-
-
-
-
-    
-
-
-
-    <!-- Booking Confirmation Modal -->
-    <!-- <div class="modal fade" id="bookingConfirmationModal" tabindex="-1" aria-labelledby="bookingConfirmationModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="bookingConfirmationModalLabel">Confirm Your Booking</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="bookingForm" action="https://formsubmit.co/your-email@example.com" method="POST">
-              <input type="hidden" id="confirmRoomType" name="roomType">
-              <input type="hidden" id="confirmRoomPrice" name="roomPrice">
-              <input type="hidden" id="confirmCheckin" name="checkin">
-              <input type="hidden" id="confirmCheckout" name="checkout">
-              <input type="hidden" id="confirmAdults" name="adults">
-              <input type="hidden" id="confirmChildren" name="children">
-              <input type="hidden" id="confirmTotalCost" name="totalCost">
-              <p><strong>Room Type:</strong> <span id="displayRoomType"></span></p>
-              <p><strong>Check-in:</strong> <span id="displayCheckin"></span></p>
-              <p><strong>Check-out:</strong> <span id="displayCheckout"></span></p>
-              <p><strong>Adults:</strong> <span id="displayAdults"></span></p>
-              <p><strong>Children:</strong> <span id="displayChildren"></span></p>
-              <p><strong>Total Cost:</strong> R<span id="displayTotalCost"></span></p>
-              <button type="submit" class="btn btn-success">Confirm Booking</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-  <!-- <div class="modal fade" id="bookingInfoModal" tabindex="-1" aria-labelledby="bookingInfoModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="bookingInfoModalLabel">Your Booking Information</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p><strong>Room Type:</strong> <span id="infoRoomType"></span></p>
-          <p><strong>Check-in Date:</strong> <span id="infoCheckin"></span></p>
-          <p><strong>Check-out Date:</strong> <span id="infoCheckout"></span></p>
-          <p><strong>Adults:</strong> <span id="infoAdults"></span></p>
-          <p><strong>Children:</strong> <span id="infoChildren"></span></p>
-          <p><strong>Total Cost:</strong> R<span id="infoTotalCost"></span></p>
-          <hr>
-          <h5>Payment Instructions</h5>
-          <p>Please make your payment to the following bank account within the next 24 hours:</p>
-          <p><strong>Bank:</strong> Example Bank</p>
-          <p><strong>Account Number:</strong> 123456789</p>
-          <p><strong>Account Name:</strong> Butterwork B&B</p>
-          <p><strong>Reference:</strong> Your Booking ID (provided upon confirmation)</p>
-          <hr>
-          <p><strong>Payment Confirmation Pending</strong></p>
-          <p>Your booking will be confirmed once we receive your payment.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
+    <!-- ======= Loader ======= -->
+    <div class="loader">
+      <div class="loader-content">
+        <img src="assets/img/icons/bibbys-logo-small.png" alt="Bibby's BnB Logo" class="loader-logo">
+        <p class="loader-text">Bibby's B&B</p>
       </div>
     </div>
-  </div> -->
 
-
-  <!-- JavaScript for reservation.js -->
-
-
-
+    <section class="reservationsection">
+      <div class="limiter">
+        <form id="reservations" method="get">
+          <div class="form-item">
+            <input type="text" id="checkin" name="startdate" placeholder="Check in" aria-label="Check in date" class="flatpickr-input" readonly>
+            <i class="icon-calendar fas fa-calendar-alt"></i>
+          </div>
+          <div class="form-item">
+            <input type="text" id="checkout" name="enddate" placeholder="Check out" aria-label="Check out date" class="flatpickr-input" readonly>
+            <i class="icon-calendar fas fa-calendar-alt"></i>
+          </div>
+          <div class="form-item">
+            <select name="adults" aria-label="Number of adults">
+              <option value="1">1 Adult</option>
+              <option value="2">2 Adults</option>
+              <option value="3">3 Adults</option>
+              <option value="4">4 Adults</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <select name="children" aria-label="Number of children">
+              <option value="0">0 Children</option>
+              <option value="1">1 Child</option>
+              <option value="2">2 Children</option>
+              <option value="3">3 Children</option>
+            </select>
+          </div>
+          <div class="form-item submit">
+            <button class="btn-book" type="submit" data-room-type="">Book Online</button>
+          </div>
+        </form>
+      </div>
+    </section>
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>Bibby’s B&B</h3>
-              <p>
-                61 King Street,  <br>
-                  Butterworth, 4960
-                  </p>
-                  <br>
-                  <p>
-                    3 Fennel Street,  <br>
-                    Butterworth, 4960
-                      </p>
-                  
-                <!-- <strong>Phone:</strong> 047 491 5187<br>
-                <strong>Cell:</strong> 064 513 9755<br>
-                <strong>Fax:</strong> 047 491 5187<br>
-                <strong>Email:</strong> bibbys.gh@gmail.com<br> -->
-              <!-- </p>
-              <div class="social-links mt-3">
-                <a href="https://www.facebook.com/profile.php?id=61573652679363" class="facebook" target="_blank" aria-label="Instagram" class="me-2" style="box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);"><i class="bx bxl-facebook"></i></a>
-      
-              </div> -->
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html#team">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="rooms.html">Our Rooms</a></li>
-            </ul>
-          </div>
-
-
-          
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Bibby’s B&B</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by <a href="https://www.e-funda.com/">E-Funda Web</E-Funda></a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <!-- <div id="preloader"></div> -->
   <a href="https://api.whatsapp.com/send/?phone=27639119193&text&app_absent=0" 
-   class="whatsapp-chat d-flex align-items-center justify-content-center" 
-   data-bs-toggle="tooltip" 
-   data-bs-placement="top" 
-   title="Chat on WhatsApp">
-   <i class="bi bi-whatsapp"></i>
-</a>
+     class="whatsapp-chat d-flex align-items-center justify-content-center" 
+     data-bs-toggle="tooltip" 
+     data-bs-placement="top" 
+     title="Chat on WhatsApp">
+     <i class="bi bi-whatsapp"></i>
+  </a>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-   <!--Start of the Booking Widget script-->
-
-<!--    
-
-   -->
-    <!-- JavaScript for main.js (Flatpickr initialization) -->
-
-
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Supabase ESM Dependency -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm"></script>
 
   <!-- Template Main JS File -->
+
   <script src="assets/js/main.js"></script>
   <script src="assets/js/reservation.js"></script>
+  <script type="module" src="assets/js/supabase-client.js"></script>
+  <script type="module" src="assets/js/booking.js"></script>
   <script src="assets/js/all-rooms.js"></script>
-  
   <script src="assets/js/loader.js"></script>
   <!-- Lightbox2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
 </body>
 
 </html>

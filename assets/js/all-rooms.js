@@ -1,4 +1,3 @@
-// Room data (single source of truth)
 const roomsData = [
   {
     type: "Standard Room",
@@ -7,8 +6,10 @@ const roomsData = [
     size: "40 m²",
     capacity: "max. 2 pers.",
     amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
-    images: ["assets/img/standard_room.jpeg","assets/img/bibby's1.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
-    detailsLink: "room_standard.html"
+    images: ["assets/img/standard_room.jpeg", "assets/img/bibby's1.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
+    detailsLink: "room_standard.html",
+    bnb_id: "1b523c66-72c4-4a13-a6fa-3ed2531de7a2",
+    room_type_id: "cf4de15d-56fc-4e50-82d4-9baea09daccc"
   },
   {
     type: "Sharing Room",
@@ -18,7 +19,9 @@ const roomsData = [
     capacity: "max. 4 pers.",
     amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
     images: ["assets/img/two_single_bed.jpeg", "assets/img/bibby's19.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
-    detailsLink: "room_shared.html"
+    detailsLink: "room_shared.html",
+    bnb_id: "1b523c66-72c4-4a13-a6fa-3ed2531de7a2",
+    room_type_id: "240809c2-82c4-4fe2-8019-f030e5b604f8"
   },
   {
     type: "Family Room",
@@ -28,11 +31,46 @@ const roomsData = [
     capacity: "max. 5 pers.",
     amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
     images: ["assets/img/gallery/double_room.jpg", "assets/img/gallery/king_bed.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
-    detailsLink: "room_family.html"
+    detailsLink: "room_family.html",
+    bnb_id: "1b523c66-72c4-4a13-a6fa-3ed2531de7a2",
+    room_type_id: "e6cc4a87-8cee-48f0-9263-9d7956338714"
   }
 ];
 
-// Function to generate room card HTML
+function showRoomSelectionModal(roomType = null) {
+  console.log('showRoomSelectionModal called with roomType:', roomType);
+  removeExistingModal('roomSelectionModal');
+  document.body.insertAdjacentHTML('beforeend', generateRoomSelectionModal(roomType));
+  const roomSelectionModal = new bootstrap.Modal(document.getElementById('roomSelectionModal'), { backdrop: 'static' });
+  roomSelectionModal.show();
+
+function generateRoomSelectionModal(roomFilter = null) {
+  const filteredRooms = roomFilter ? roomsData.filter(room => room.type === roomFilter) : roomsData;
+  return `
+    <div class="modal fade" id="roomSelectionModal" tabindex="-1" aria-labelledby="roomSelectionModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content custom-room-modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="roomSelectionModalLabel" style="color: black; font-weight: 600;">SELECT A ROOM${roomFilter ? ` - ${roomFilter}` : ''}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="l-wrapper">
+              <div class="rooms-listing__wrap">
+                <div class="rooms-listing js-filter__load-box">
+                  <div class="rooms-listing__holder row">
+                    ${filteredRooms.map((room, index) => generateRoomCard(room, index)).join('')}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function generateRoomCard(room, index) {
   return `
     <div class="col-12 col-lg-12 mb-4 room-item-card__padding">
@@ -97,7 +135,11 @@ function generateRoomCard(room, index) {
                 <span class="text">Details</span>
                 <span class="bi bi-arrow-right ms-2"></span>
               </a>
-              <button class="btn btn-success book-btn" data-room-type="${room.type}" data-room-price="${room.price}">
+              <button class="btn btn-success book-btn" 
+                data-room-type="${room.type}" 
+                data-room-price="${room.price}" 
+                data-bnb-id="${room.bnb_id}" 
+                data-room-type-id="${room.room_type_id}">
                 <span class="text">Book</span>
               </button>
             </div>
@@ -108,35 +150,12 @@ function generateRoomCard(room, index) {
   `;
 }
 
-// Function to generate the room selection modal HTML
-function generateRoomSelectionModal(roomFilter = null) {
-  const filteredRooms = roomFilter ? roomsData.filter(room => room.type === roomFilter) : roomsData;
-  return `
-    <div class="modal fade" id="roomSelectionModal" tabindex="-1" aria-labelledby="roomSelectionModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content custom-room-modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="roomSelectionModalLabel" style="color: black; font-weight: 600;">SELECT A ROOM${roomFilter ? ` - ${roomFilter}` : ''}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="l-wrapper">
-              <div class="rooms-listing__wrap">
-                <div class="rooms-listing js-filter__load-box">
-                  <div class="rooms-listing__holder row">
-                    ${filteredRooms.map((room, index) => generateRoomCard(room, index)).join('')}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+  document.querySelectorAll('.book-btn').forEach(button => {
+    button.removeEventListener('click', handleBookButtonClick);
+    button.addEventListener('click', handleBookButtonClick, { once: true });
+  });
 }
 
-// Booking Confirmation Modal HTML
 const bookingConfirmationModalHTML = `
   <div class="modal fade" id="bookingConfirmationModal" tabindex="-1" aria-labelledby="bookingConfirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -154,7 +173,9 @@ const bookingConfirmationModalHTML = `
             <input type="hidden" id="confirmAdults" name="adults">
             <input type="hidden" id="confirmChildren" name="children">
             <input type="hidden" id="confirmTotalCost" name="totalCost">
-            <input type="hidden" name="_next" value="https://butterworth-bnb-sandy.vercel.app/booking_info.html">
+            <input type="hidden" id="confirmBnbId" name="bnbId">
+            <input type="hidden" id="confirmRoomTypeId" name="roomTypeId">
+            <input type="hidden" name="_next" value="http://127.0.0.1:5501/booking_info.html">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="box">
             <p><strong>Room Type:</strong> <span id="displayRoomType"></span></p>
@@ -183,24 +204,11 @@ const bookingConfirmationModalHTML = `
   </div>
 `;
 
-// Function to show Room Selection Modal
-function showRoomSelectionModal(roomType = null) {
-  console.log('showRoomSelectionModal called with roomType:', roomType); // Debug log
-  removeExistingModal('roomSelectionModal');
-  document.body.insertAdjacentHTML('beforeend', generateRoomSelectionModal(roomType));
-  const roomSelectionModal = new bootstrap.Modal(document.getElementById('roomSelectionModal'), { backdrop: 'static' });
-  roomSelectionModal.show();
-
-  document.querySelectorAll('.book-btn').forEach(button => {
-    button.removeEventListener('click', handleBookButtonClick);
-    button.addEventListener('click', handleBookButtonClick, { once: true });
-  });
-}
-
-// Function to handle "Book" button click
 function handleBookButtonClick(event) {
   const roomType = this.getAttribute('data-room-type');
   const roomPrice = this.getAttribute('data-room-price');
+  const bnbId = this.getAttribute('data-bnb-id');
+  const roomTypeId = this.getAttribute('data-room-type-id');
   const checkin = document.getElementById('checkin')?.value || '';
   const checkout = document.getElementById('checkout')?.value || '';
   const adults = document.querySelector('select[name="adults"]')?.value || '1';
@@ -233,6 +241,8 @@ function handleBookButtonClick(event) {
   document.getElementById('confirmAdults').value = adults;
   document.getElementById('confirmChildren').value = children;
   document.getElementById('confirmTotalCost').value = totalCost.toFixed(2);
+  document.getElementById('confirmBnbId').value = bnbId;
+  document.getElementById('confirmRoomTypeId').value = roomTypeId;
 
   document.getElementById('displayRoomType').textContent = roomType;
   document.getElementById('displayCheckin').textContent = checkin;
@@ -248,8 +258,7 @@ function handleBookButtonClick(event) {
   bookingForm.addEventListener('submit', handleBookingFormSubmit, { once: true });
 }
 
-// Function to handle booking form submission
-function handleBookingFormSubmit(event) {
+async function handleBookingFormSubmit(event) {
   event.preventDefault();
 
   const form = event.target;
@@ -262,20 +271,44 @@ function handleBookingFormSubmit(event) {
   const adults = form.querySelector('#confirmAdults').value;
   const children = form.querySelector('#confirmChildren').value;
   const totalCost = form.querySelector('#confirmTotalCost').value;
+  const bnbId = form.querySelector('#confirmBnbId').value;
+  const roomTypeId = form.querySelector('#confirmRoomTypeId').value;
+
+  const bookingData = {
+    bnbId,
+    roomTypeId,
+    checkin,
+    checkout,
+    name,
+    email,
+    phone,
+    totalCost: parseFloat(totalCost),
+    adults: parseInt(adults),
+    children: parseInt(children)
+  };
+
+  try {
+    console.log('Calling window.submitBooking with:', bookingData);
+    await window.submitBooking(bookingData);
+    console.log('Booking saved to Supabase');
+  } catch (error) {
+    console.error('Error saving to Supabase:', error);
+    alert('Failed to save booking: ' + error.message);
+    return;
+  }
 
   const bookingId = 'B' + Math.random().toString(36).substr(2, 9).toUpperCase();
-
   const bookingInfo = {
-    name: name,
-    email: email,
-    phone: phone,
-    roomType: roomType,
-    checkin: checkin,
-    checkout: checkout,
-    adults: adults,
-    children: children,
-    totalCost: totalCost,
-    bookingId: bookingId
+    name,
+    email,
+    phone,
+    roomType,
+    checkin,
+    checkout,
+    adults,
+    children,
+    totalCost,
+    bookingId
   };
   console.log('Captured bookingInfo:', bookingInfo);
   localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
@@ -290,7 +323,6 @@ function handleBookingFormSubmit(event) {
   form.submit();
 }
 
-// Helper function to remove existing modals
 function removeExistingModal(modalId) {
   const existingModal = document.getElementById(modalId);
   if (existingModal) {
@@ -300,9 +332,8 @@ function removeExistingModal(modalId) {
   }
 }
 
-// Initialize Flatpickr and attach form submission handler
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOMContentLoaded fired'); // Debug log
+  console.log('DOMContentLoaded fired');
   const checkinInput = document.getElementById('checkin');
   const checkoutInput = document.getElementById('checkout');
 
@@ -351,9 +382,8 @@ function handleReservationsSubmit(event) {
   event.preventDefault();
   const submitButton = event.target.querySelector('button[type="submit"]');
   const roomType = submitButton ? submitButton.getAttribute('data-room-type') : null;
-  console.log('Form submitted, roomType:', roomType); // Debug log
+  console.log('Form submitted, roomType:', roomType);
   showRoomSelectionModal(roomType);
 }
 
-// Expose the showRoomSelectionModal function globally
 window.showRoomSelectionModal = showRoomSelectionModal;
