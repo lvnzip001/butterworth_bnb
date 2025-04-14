@@ -106,7 +106,7 @@ const bookingConfirmationModalHTML = `
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="bookingForm" action="https://formsubmit.co/zluvuno@gmail.com" method="POST">
+          <form id="bookingForm" action="https://formsubmit.co/bibbys.gh@gmail.com" method="POST">
             <input type="hidden" id="confirmRoomType" name="roomType">
             <input type="hidden" id="confirmRoomPrice" name="roomPrice">
             <input type="hidden" id="confirmCheckin" name="checkin">
