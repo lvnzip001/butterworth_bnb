@@ -2,7 +2,7 @@
 const roomsData = [
   {
     type: "Standard Room",
-    price: 600,
+    price: 650,
     location: "Butterwork B&B",
     size: "40 m²",
     capacity: "max. 2 pers.",
@@ -12,7 +12,7 @@ const roomsData = [
   },
   {
     type: "Sharing Room",
-    price: 700,
+    price: 750,
     location: "Butterwork B&B",
     size: "45 m²",
     capacity: "max. 4 pers.",
@@ -22,7 +22,7 @@ const roomsData = [
   },
   {
     type: "Family Room",
-    price: 800,
+    price: 850,
     location: "Butterwork B&B",
     size: "60 m²",
     capacity: "max. 5 pers.",

@@ -43,7 +43,7 @@ const roomSelectionModalHTML = `
                             <div class="room-item-card__price-hld">
                               <div class="room-item-card__price">
                                 <span class="from">from</span>
-                                <span class="value text-primary">R700</span>
+                                <span class="value text-primary">R750</span>
                                 <span class="rate">/night</span>
                               </div>
                             </div>
