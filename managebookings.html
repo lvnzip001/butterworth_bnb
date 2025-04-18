@@ -1,86 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BnB Admin Dashboard</title>
+
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="/assets/css/style_admin.css">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/managebookings.css">
+  <link rel="stylesheet" href="/assets/css/reservation.css">
+
+  <!-- FullCalendar CSS -->
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+
 <body>
   <header class="header">
     <div class="logo-container d-flex flex-column align-items-center">
-      <a href="index.html" class="logo me-auto me-lg-0">
-        <img src="assets/img/icons/bibbys-logo-small.png"
-          style="background-color: rgba(253, 253, 253, 0.521); border-radius: 15px; padding: 2px;" alt="Bibby's BnB Logo"
-          class="header-img">
+      <a href="index.html" class="logo">
+        <img src="assets/img/icons/bibbys-logo-small.png" alt="Logo"
+          style="background-color: rgba(253,253,253,0.52); border-radius:15px; padding:2px;">
       </a>
-      <h4 class="logo-text phone-off">
-        <a href="index.html">BIBBY'S BnB</a>
-      </h4>
+      <h4 class="logo-text phone-off"><a href="index.html">BIBBY'S BnB</a></h4>
     </div>
   </header>
+
   <main class="bnb-container">
-    <section class="dashboard-section">
-      <h1>Manage Bookings</h1>
-      <div class="kpi-container">
-        <div class="kpi-card">
-          <h3>Monthly Revenue</h3>
-          <p id="monthly-revenue">$0</p>
-        </div>
-        <div class="kpi-card">
-          <h3>Days Booked</h3>
-          <p id="days-booked">0</p>
-        </div>
+    <!-- Tabs -->
+    <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
+      <li class="nav-item flex-fill"><button class="nav-link active w-100" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-justified" type="button" role="tab" aria-controls="bookings" aria-selected="true">Bookings</button></li>
+      <li class="nav-item flex-fill"><button class="nav-link w-100" id="checkin-tab" data-bs-toggle="tab" data-bs-target="#checkin-justified" type="button" role="tab" aria-controls="checkin" aria-selected="false">Guest Check-in</button></li>
+      <li class="nav-item flex-fill"><button class="nav-link w-100" id="customers-tab" data-bs-toggle="tab" data-bs-target="#customers-justified" type="button" role="tab" aria-controls="customers" aria-selected="false">Customers</button></li>
+      <li class="nav-item flex-fill"><button class="nav-link w-100" id="prices-tab" data-bs-toggle="tab" data-bs-target="#prices-justified" type="button" role="tab" aria-controls="prices" aria-selected="false">Pricing</button></li>
+      <li class="nav-item flex-fill"><button class="nav-link w-100" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats-justified" type="button" role="tab" aria-controls="stats" aria-selected="false">Stats</button></li>
+    </ul>
+
+    <div class="tab-content pt-2" id="myTabjustifiedContent">
+
+      <!-- BOOKINGS -->
+      <div class="tab-pane fade show active" id="bookings-justified" role="tabpanel" aria-labelledby="bookings-tab">
+        <section class="dashboard-section">
+          <h2>Booking List</h2>
+          <table id="bookings-table" class="elegant-table">
+            <thead>
+              <tr>
+                <th>Guest</th><th>Email</th><th>Phone</th><th>Check-in</th><th>Check-out</th>
+                <th>Type</th><th>Cost</th><th>Status</th><th>Date</th><th>Time</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="bookings-body"></tbody>
+          </table>
+        </section>
+        <hr class="divider">
+        <section class="dashboard-section">
+          <h2>Booking Calendar</h2>
+          <div id="calendar" class="calendar-container"></div>
+        </section>
       </div>
-      <h2>Accommodation Usage</h2>
-      <table class="elegant-table">
-        <thead>
-          <tr>
-            <th>Month</th>
-            <th>Accommodation Type</th>
-            <th>Revenue</th>
-          </tr>
-        </thead>
-        <tbody id="accommodation-body"></tbody>
-      </table>
-    </section>
-    <hr class="divider">
-    <section class="dashboard-section">
-      <h2>Booking List</h2>
-      <div class="col-lg-12">
-        <table id="bookings-table" class="elegant-table">
-          <thead>
-            <tr>
-              <th>Guest Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Check-in</th>
-              <th>Check-out</th>
-              <th>Accommodation Type</th>
-              <th>Total Cost</th>
-              <th>Status</th>
-              <th>Date Created</th>
-              <th>Time</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="bookings-body"></tbody>
-        </table>
+
+      <!-- GUEST CHECK-IN -->
+      <div class="tab-pane fade" id="checkin-justified" role="tabpanel" aria-labelledby="checkin-tab">
+        <section class="dashboard-section"><h2>Guest Check-in</h2><!-- UI here --></section>
       </div>
-    </section>
-    <hr class="divider">
-    <section class="dashboard-section">
-      <h2>Booking Calendar</h2>
-      <div id="calendar" class="calendar-container"></div>
-    </section>
-    <button onclick="logout()" class="logout-btn">Logout</button>
+
+      <!-- CUSTOMERS -->
+      <div class="tab-pane fade" id="customers-justified" role="tabpanel" aria-labelledby="customers-tab">
+        <section class="dashboard-section"><h2>Customers</h2><!-- UI here --></section>
+      </div>
+
+      <!-- PRICING -->
+      <div class="tab-pane fade" id="prices-justified" role="tabpanel" aria-labelledby="prices-tab">
+        <section class="dashboard-section">
+          <h2>Room Types & Pricing</h2>
+          <table class="table">
+            <thead>
+              <tr><th>Type</th><th>Price/n</th><th>Qty</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="room-types-body"></tbody>
+          </table>
+        </section>
+      </div>
+
+      <!-- STATS -->
+      <div class="tab-pane fade" id="stats-justified" role="tabpanel" aria-labelledby="stats-tab">
+        <section class="dashboard-section">
+          <h1>Live KPIs</h1>
+          <div class="kpi-container">
+            <div class="kpi-card"><h3>Monthly Revenue</h3><p id="monthly-revenue">R0.00</p></div>
+            <div class="kpi-card"><h3>Days Booked</h3><p id="days-booked">0</p></div>
+          </div>
+          <h2>Accommodation Usage</h2>
+          <table class="elegant-table">
+            <thead><tr><th>Month</th><th>Type</th><th>Revenue</th></tr></thead>
+            <tbody id="accommodation-body"></tbody>
+          </table>
+        </section>
+        <hr class="divider">
+        <section class="dashboard-section">
+          <h2>Archive Bookings</h2>
+          <table class="table">
+            <thead>
+              <tr><th>Guest</th><th>Email</th><th>Type</th><th>Check-in</th><th>Check-out</th><th>Cost</th></tr>
+            </thead>
+            <tbody id="archive-bookings-body"></tbody>
+          </table>
+          <h4>Monthly Archive Summary</h4>
+          <table class="table">
+            <thead><tr><th>Month</th><th>#</th><th>Revenue</th></tr></thead>
+            <tbody id="archive-summary-body"></tbody>
+          </table>
+        </section>
+
+        <section class="dashboard-section">
+          <h2>Charts</h2>
+          <div class="row">
+            <div class="col-md-6"><canvas id="revenueChart"></canvas></div>
+            <div class="col-md-6"><canvas id="archiveSummaryChart"></canvas></div>
+          </div>
+        </section>
+      </div>
+
+    </div>
   </main>
 
-  <script type="module" src="/assets/js/supabase-client.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<script type="module" src="/assets/js/supabase-client.js"></script>
+  <script type="module" src="/assets/js/main_admin.js"></script>
   <script type="module" src="/assets/js/admin.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
 </body>
+
 </html>
