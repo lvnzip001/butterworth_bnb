@@ -7,7 +7,7 @@
   <title>BnB Admin Dashboard</title>
 
   <!-- Project CSS -->
-  <link rel="stylesheet" href="/assets/css/style_admin.css">
+  <!-- <link rel="stylesheet" href="/assets/css/style_admin.css"> -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/managebookings.css">
@@ -33,7 +33,7 @@
 
   <main class="bnb-container">
     <!-- Tabs -->
-    <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
+    <ul class="nav nav-tabs d-flex custom-nav-tabs" id="myTabjustified" role="tablist">
       <li class="nav-item flex-fill"><button class="nav-link active w-100" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-justified" type="button" role="tab" aria-controls="bookings" aria-selected="true">Bookings</button></li>
       <li class="nav-item flex-fill"><button class="nav-link w-100" id="checkin-tab" data-bs-toggle="tab" data-bs-target="#checkin-justified" type="button" role="tab" aria-controls="checkin" aria-selected="false">Guest Check-in</button></li>
       <li class="nav-item flex-fill"><button class="nav-link w-100" id="customers-tab" data-bs-toggle="tab" data-bs-target="#customers-justified" type="button" role="tab" aria-controls="customers" aria-selected="false">Customers</button></li>
@@ -50,7 +50,7 @@
           <table id="bookings-table" class="elegant-table">
             <thead>
               <tr>
-                <th>Guest</th><th>Email</th><th>Phone</th><th>Check-in</th><th>Check-out</th>
+                <th>Booking ID</th><th>Guest</th><th>Email</th><th>Phone</th><th>Check-in</th><th>Check-out</th>
                 <th>Type</th><th>Cost</th><th>Status</th><th>Date</th><th>Time</th><th>Actions</th>
               </tr>
             </thead>
@@ -66,19 +66,149 @@
 
       <!-- GUEST CHECK-IN -->
       <div class="tab-pane fade" id="checkin-justified" role="tabpanel" aria-labelledby="checkin-tab">
-        <section class="dashboard-section"><h2>Guest Check-in</h2><!-- UI here --></section>
+        <section class="dashboard-section">
+        
+
+          <!-- Accordion for Check-in Sections -->
+          <div class="accordion checkin-accordion" id="checkinAccordion">
+            <!-- Room Availability Section -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingAvailability">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAvailability" aria-expanded="true" aria-controls="collapseAvailability">
+                  Room Availability
+                </button>
+              </h2>
+              <div id="collapseAvailability" class="accordion-collapse collapse show" aria-labelledby="headingAvailability">
+                <div class="accordion-body">
+                  <div class="availability-container">
+                    <!-- Pagination Controls -->
+                    <div id="availability-pagination" class="d-flex justify-content-center gap-2 mb-3">
+                      <button class="btn-primary" id="availability-prev">&lt;&lt; Previous Week</button>
+                      <button class="btn-primary" id="availability-next">Next Week &gt;&gt;</button>
+                    </div>
+                    <table id="availability-table">
+                      <thead id="availability-header"></thead>
+                      <tbody id="availability-body"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Check-in Guest Section -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingCheckin">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCheckin" aria-expanded="true" aria-controls="collapseCheckin">
+                  Check-in Guest
+                </button>
+              </h2>
+              <div id="collapseCheckin" class="accordion-collapse collapse show" aria-labelledby="headingCheckin">
+                <div class="accordion-body">
+                  <div id="checkin-alert" class="alert alert-success d-none" role="alert"></div>
+                  <div class="checkin-form-container">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="booking-id" class="form-label">Booking ID</label>
+                          <select class="form-control" id="booking-id" required>
+                            <option value="">Select a Booking ID</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="guest-name" class="form-label">Guest Name</label>
+                          <input type="text" class="form-control" id="guest-name" placeholder="Guest Name" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="id-number" class="form-label">ID/Passport Number</label>
+                          <input type="text" class="form-control" id="id-number" placeholder="ID or Passport Number">
+                        </div>
+                        <div class="form-group">
+                          <label for="emergency-contact" class="form-label">Emergency Contact</label>
+                          <input type="tel" class="form-control" id="emergency-contact" placeholder="Phone Number">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="checkin-time" class="form-label">Check-in Time</label>
+                          <input type="datetime-local" class="form-control" id="checkin-time" required>
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">Operational Checks</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="key-handed-over">
+                            <label class="form-check-label" for="key-handed-over">Key Handed Over</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rules-acknowledged">
+                            <label class="form-check-label" for="rules-acknowledged">Rules Read & Acknowledged</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="payment-confirmed">
+                            <label class="form-check-label" for="payment-confirmed">Payment Confirmed</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="room-inspected">
+                            <label class="form-check-label" for="room-inspected">Room Inspected</label>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="notes" class="form-label">Notes</label>
+                          <textarea class="form-control" id="notes" rows="3" placeholder="Any special requests or comments"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <button id="submit-checkin" class="btn-primary">Submit Check-in</button>
+                    <button id="undo-checkin" class="btn-primary d-none">Undo Last Check-in</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Check-in History Section -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingHistory">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHistory" aria-expanded="true" aria-controls="collapseHistory">
+                  Check-in History
+                </button>
+              </h2>
+              <div id="collapseHistory" class="accordion-collapse collapse show" aria-labelledby="headingHistory">
+                <div class="accordion-body">
+                  <table id="checkin-history-table" class="elegant-table" style="border-radius: 0px;">
+                    <thead>
+                      <tr>
+                        <th>Check-in Time</th>
+                        <th>Guest Name</th>
+                        <th>ID Number</th>
+                        <th>Emergency Contact</th>
+                        <th>Key Handed</th>
+                        <th>Rules Ack.</th>
+                        <th>Payment</th>
+                        <th>Room Inspected</th>
+                        <th>Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody id="checkin-history-body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <!-- CUSTOMERS -->
       <div class="tab-pane fade" id="customers-justified" role="tabpanel" aria-labelledby="customers-tab">
-        <section class="dashboard-section"><h2>Customers</h2><!-- UI here --></section>
+        <section class="dashboard-section">
+          <h2>Customers</h2>
+          <p>View and manage customer information here.</p>
+        </section>
       </div>
 
       <!-- PRICING -->
       <div class="tab-pane fade" id="prices-justified" role="tabpanel" aria-labelledby="prices-tab">
         <section class="dashboard-section">
           <h2>Room Types & Pricing</h2>
-          <table class="table">
+          <table class="elegant-table">
             <thead>
               <tr><th>Type</th><th>Price/n</th><th>Qty</th><th>Actions</th></tr>
             </thead>
@@ -92,40 +222,82 @@
         <section class="dashboard-section">
           <h1>Live KPIs</h1>
           <div class="kpi-container">
-            <div class="kpi-card"><h3>Monthly Revenue</h3><p id="monthly-revenue">R0.00</p></div>
-            <div class="kpi-card"><h3>Days Booked</h3><p id="days-booked">0</p></div>
+            <div class="kpi-card">
+              <i class="bi bi-currency-exchange kpi-icon"></i>
+              <h3>Monthly Revenue</h3>
+              <p id="monthly-revenue">R0.00</p>
+            </div>
+            <div class="kpi-card">
+              <i class="bi bi-calendar-check kpi-icon"></i>
+              <h3>Days Booked</h3>
+              <p id="days-booked">0</p>
+            </div>
+            <div class="kpi-card">
+              <i class="bi bi-clock kpi-icon"></i>
+              <h3>Avg Stay Duration</h3>
+              <p id="avg-duration">0 days</p>
+            </div>
           </div>
           <h2>Accommodation Usage</h2>
           <table class="elegant-table">
-            <thead><tr><th>Month</th><th>Type</th><th>Revenue</th></tr></thead>
+            <thead><tr><th>Month</th><th>Type</th><th>Revenue</th><th>Occupancy</th></tr></thead>
             <tbody id="accommodation-body"></tbody>
           </table>
         </section>
         <hr class="divider">
         <section class="dashboard-section">
           <h2>Archive Bookings</h2>
-          <table class="table">
+          <table class="elegant-table">
             <thead>
               <tr><th>Guest</th><th>Email</th><th>Type</th><th>Check-in</th><th>Check-out</th><th>Cost</th></tr>
             </thead>
             <tbody id="archive-bookings-body"></tbody>
           </table>
-          <h4>Monthly Archive Summary</h4>
-          <table class="table">
-            <thead><tr><th>Month</th><th>#</th><th>Revenue</th></tr></thead>
-            <tbody id="archive-summary-body"></tbody>
-          </table>
+          <div id="archive-pagination" class="mt-3 d-flex justify-content-center gap-2">
+            <button class="btn-primary" id="archive-prev" disabled>Previous</button>
+            <button class="btn-primary" id="archive-next">Next</button>
+          </div>
         </section>
-
         <section class="dashboard-section">
           <h2>Charts</h2>
           <div class="row">
-            <div class="col-md-6"><canvas id="revenueChart"></canvas></div>
-            <div class="col-md-6"><canvas id="archiveSummaryChart"></canvas></div>
+            <div class="col-md-6">
+              <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="chart-container">
+                <canvas id="archiveSummaryChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 text-center">
+            <button class="btn-primary" id="view-archive-table-btn" data-bs-toggle="modal" data-bs-target="#archive-summary-modal">View Table</button>
           </div>
         </section>
-      </div>
 
+        <!-- Modal for Monthly Archive Summary -->
+        <div class="modal fade archive-summary-modal" id="archive-summary-modal" tabindex="-1" aria-labelledby="archive-summary-modal-label" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="archive-summary-modal-label">Monthly Archive Summary</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <table class="elegant-table">
+                  <thead><tr><th>Month</th><th>#</th><th>Revenue</th></tr></thead>
+                  <tbody id="archive-summary-body"></tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-primary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -133,12 +305,11 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-<script type="module" src="/assets/js/supabase-client.js"></script>
-  <script type="module" src="/assets/js/main_admin.js"></script>
-  <script type="module" src="/assets/js/admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+  <script type="module" src="/assets/js/supabase-client.js"></script>
+  <script type="module" src="/assets/js/admin.js"></script>
+  <script type="module" src="/assets/js/checkin.js"></script>
 </body>
 
 </html>

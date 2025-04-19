@@ -273,6 +273,7 @@ async function handleBookingFormSubmit(event) {
   const totalCost = form.querySelector('#confirmTotalCost').value;
   const bnbId = form.querySelector('#confirmBnbId').value;
   const roomTypeId = form.querySelector('#confirmRoomTypeId').value;
+  const bookingId = 'B' + Math.random().toString(36).substr(2, 9).toUpperCase();
 
   const bookingData = {
     bnbId,
@@ -284,7 +285,8 @@ async function handleBookingFormSubmit(event) {
     phone,
     totalCost: parseFloat(totalCost),
     adults: parseInt(adults),
-    children: parseInt(children)
+    children: parseInt(children),
+    bookingId
   };
 
   try {
@@ -297,7 +299,7 @@ async function handleBookingFormSubmit(event) {
     return;
   }
 
-  const bookingId = 'B' + Math.random().toString(36).substr(2, 9).toUpperCase();
+  
   const bookingInfo = {
     name,
     email,

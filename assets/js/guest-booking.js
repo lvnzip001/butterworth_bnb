@@ -1,8 +1,8 @@
 import supabase from './supabase-client.js';
 
-console.log('booking.js loaded');
+console.log('guest-bookings.js loaded');
 
-window.submitBooking = async (bookingData) => {
+export async function submitBooking(bookingData) {
   console.log('submitBooking called with:', bookingData);
 
   // Validation
@@ -36,9 +36,12 @@ window.submitBooking = async (bookingData) => {
         total_cost: bookingData.totalCost,
         adults: bookingData.adults,
         children: bookingData.children,
-        status: 'pending'
+        status: 'pending',
+        booking_id: bookingData.bookingId,
       }])
+      
       .select();
+      console.log('Booking data:', bookingData);
 
     if (error) throw error;
     console.log('Booking Created in Supabase:', data);
@@ -47,6 +50,11 @@ window.submitBooking = async (bookingData) => {
     console.error('Error saving booking:', error);
     throw error;
   }
-};
+}
+
+// Maintain backward compatibility for global access
+// bookingData.bookingId = bookingId;
+
+window.submitBooking = submitBooking;
 
 console.log('window.submitBooking defined:', typeof window.submitBooking);

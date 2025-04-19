@@ -1,232 +1,691 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f6f5;
-    color: #000;
-    margin: 0;
-  }
-  
-  .header {
-    background-color: #6AAAAA;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .bnb-container {
-    max-width: 1900px;
-    margin: 0 auto;
-    padding: 30px;
-  }
-  
-  .logo-container {
-    margin-left: 30px;
-  }
-  
-  .logo-text a {
-    color: #005e5e;
-    text-decoration: none;
-    font-weight: 600;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
-  }
-  
-  h1, h2 {
-    color: #005e5e;
-    font-weight: 700;
-    margin-bottom: 20px;
-    font-family: "Poppins",sans-serif ;
-  }
-  
-  h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  .dashboard-section {
-    margin-bottom: 20px;
-    padding: 20px 0px;
-  }
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f6f5;
+  color: #000;
+  margin: 0;
+}
 
-  #calendar {
-    font-family: Arial, sans-serif;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  .fc-button {
-    background-color: #005e5e !important;
-    border: none !important;
-    padding: 6px 12px !important;
-  }
-  .fc-button:hover {
-    background-color: #004d4d !important;
-  }
-  .fc-daygrid-day-number {
-    font-weight: bold;
-  }
-  
-  .calendar-container {
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  .divider {
-    border: 0;
-    height: 1px;
-    background: #6AAAAA;
-    margin: 30px 0;
-  }
-  
-  .elegant-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
-  
-  .elegant-table th, .elegant-table td {
-    font-size: 14px;
-    padding: 12px 15px;
-    text-align: left;
-  }
-  
-  .elegant-table th {
-    background-color: #005e5e;
-    color: white;
-    font-weight: 600;
-  }
-  
-  .elegant-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .elegant-table tr:hover {
-    background-color: #e6ecec;
-    transition: background-color 0.3s ease;
-  }
-  
-  button, select {
-    background-color: #005e5e;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover, select:hover {
-    background-color: #004d4d;
-  }
+.header {
+  background-color: #6AAAAA;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    select.pending-status {
-    background-color: orange;
-    }
-    select.pending-status:hover {
-    background-color: #e59400; /* Darker orange */
-    }
-    select.complete-status {
-    background-color: #005e5e;
-    }
-    select.complete-status:hover {
-    background-color: #004d4d;
-    }
-  
-  
-  .logout-btn {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    font-size: 1rem;
-  }
-  
-  @media (max-width: 768px) {
-    .bnb-container {
-      padding: 15px;
-    }
-  
-    .elegant-table {
-      display: block;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-  
-    h1 {
-      font-size: 1.5rem;
-    }
-  
-    h2 {
-      font-size: 1.2rem;
-    }
-  }
+.bnb-container {
+  max-width: 1900px;
+  margin: 0 auto;
+  padding: 30px;
+}
 
+.logo-container {
+  margin-left: 30px;
+}
 
-  
+.logo-text a {
+  color: #005e5e;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+}
+
+h1, h2, h4 {
+  color: #005e5e;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+.dashboard-section {
+  margin-bottom: 20px;
+  padding: 20px 0;
+}
+
+#calendar {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.fc-button {
+  background-color: #005e5e !important;
+  border: none !important;
+  padding: 6px 12px !important;
+}
+
+.fc-button:hover {
+  background-color: #004d4d !important;
+}
+
+.fc-daygrid-day-number {
+  font-weight: bold;
+}
+
+.calendar-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.chart-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #6AAAAA;
+  margin: 30px 0;
+}
+
+.elegant-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.elegant-table th, .elegant-table td {
+  font-size: 14px;
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.elegant-table th {
+  background-color: #005e5e;
+  color: white;
+  font-weight: 600;
+}
+
+.elegant-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.elegant-table tr:hover {
+  background-color: #e6ecec;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #005e5e;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #004d4d;
+}
+
+.btn-primary:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+select.pending-status {
+  background-color: orange;
+}
+
+select.pending-status:hover {
+  background-color: #e59400;
+}
+
+select.complete-status {
+  background-color: #005e5e;
+}
+
+select.complete-status:hover {
+  background-color: #004d4d;
+}
+
+.logout-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
 .kpi-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-  }
-  
-  .kpi-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    min-width: 200px;
-    flex: 1;
-  }
-  
-  .kpi-card h3 {
-    color: #005e5e;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-family: "Poppins",sans-serif ;
-  }
-  
-  .kpi-card p {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #000;
-  }
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
 
+.kpi-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  min-width: 220px;
+  flex: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-  @media (max-width: 768px) {
-    .bnb-container {
+.kpi-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.kpi-card h3 {
+  color: #005e5e;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  font-family: "Poppins", sans-serif;
+}
+
+.kpi-card p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.kpi-icon {
+  font-size: 2rem;
+  color: #005e5e;
+  margin-bottom: 10px;
+}
+
+/* Custom Nav Tabs */
+.custom-nav-tabs {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.custom-nav-tabs .nav-item {
+  flex: 1;
+  text-align: center;
+}
+
+.custom-nav-tabs .nav-link {
+  color: #666;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+}
+
+.custom-nav-tabs .nav-link:hover {
+  color: #004d4d;
+  background-color: #e6ecec;
+}
+
+.custom-nav-tabs .nav-link.active {
+  background-color: #005e5e;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Archive Summary Modal */
+.archive-summary-modal .modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.archive-summary-modal .modal-header {
+  background-color: #005e5e;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 15px 20px;
+}
+
+.archive-summary-modal .modal-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.archive-summary-modal .btn-close {
+  filter: invert(1);
+}
+
+.archive-summary-modal .modal-body {
+  padding: 20px;
+}
+
+.archive-summary-modal .modal-footer {
+  padding: 15px 20px;
+  border-top: none;
+}
+
+/* Check-in Specific Styles */
+.availability-container {
+  overflow-x: auto;
+  padding: 0px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Modern Availability Table Styling */
+#availability-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95em;
+  background-color: #ffffff;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+#availability-table thead tr {
+  background-color: #005e5e; /* Dark slate blue for header */
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#availability-table th,
+#availability-table td {
+  padding: 12px 16px;
+  text-align: center;
+  border-right: 1px solid #e0e4e8;
+  border-bottom: 1px solid #e0e4e8;
+  transition: background-color 0.3s ease;
+  color: #ffffff; /* Dark text for readability */
+}
+
+#availability-table th:last-child,
+#availability-table td:last-child {
+  border-right: none;
+}
+
+#availability-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#availability-table th {
+  font-weight: 600;
+}
+
+#availability-table td {
+  position: relative; /* For tooltip positioning */
+  background-color: #6AAAAA;
+}
+
+#availability-table .empty-cell {
+  background-color: #e8f5e9; /* Light green for empty */
+  color: #2e7d32; /* Dark green text */
+}
+
+#availability-table .booked-cell {
+  background-color: #ffede7; /* Light peach for booked */
+  color: #d32f2f; /* Dark red text */
+  cursor: pointer;
+}
+
+#availability-table .booked-cell:hover {
+  background-color: #ffe0d6; /* Slightly darker peach on hover */
+}
+
+/* Modern Tooltip Styling */
+#availability-table .booked-cell .tooltip-text {
+  visibility: hidden;
+  width: 220px;
+  background-color: #34495e; /* Dark slate */
+  color: #ffffff;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the cell */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+#availability-table .booked-cell .tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #34495e transparent transparent transparent;
+}
+
+#availability-table .booked-cell:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Availability Pagination Styling */
+#availability-pagination {
+  background-color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Modern Check-in Form Styling */
+.checkin-form-container {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.checkin-form-container .form-label {
+  font-family: "Poppins", sans-serif;
+  color: #005e5e;
+  font-weight: 500;
+  font-size: 0.95em;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.checkin-form-container .form-label::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #005e5e;
+  transition: width 0.3s ease;
+}
+
+.checkin-form-container .form-label:hover::after {
+  width: 100%;
+}
+
+.checkin-form-container .form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.checkin-form-container .form-control {
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 0.9em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: #f9fafb;
+  color: #2c3e50; /* Dark text for inputs */
+}
+
+.checkin-form-container .form-control:focus {
+  border-color: #1976d2; /* Bright blue on focus */
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+  outline: none;
+  background-color: #ffffff;
+  transform: scale(1.02);
+}
+
+.checkin-form-container .form-check {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.checkin-form-container .form-check-input {
+  width: 1.2em;
+  height: 1.2em;
+  border: 1px solid #d1d9e0;
+  border-radius: 4px;
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.checkin-form-container .form-check-input:checked {
+  background-color: #1976d2;
+  border-color: #1976d2;
+  transform: scale(1.1);
+}
+
+.checkin-form-container .form-check-label {
+  color: #455a64; /* Darker gray for labels */
+  font-size: 0.9em;
+  margin-left: 8px;
+  transition: color 0.3s ease;
+}
+
+.checkin-form-container .form-check-input:checked + .form-check-label {
+  color: #1976d2;
+}
+
+.checkin-form-container textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Check-in Form Button Styling */
+.checkin-form-container .btn-primary {
+  background-color: #1976d2; /* Bright blue */
+  color: #ffffff;
+  margin-right: 10px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.checkin-form-container .btn-primary:hover {
+  background-color: #1565c0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+}
+
+.checkin-form-container .btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.checkin-form-container #undo-checkin {
+  background-color: #607d8b; /* Muted blue-gray */
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.checkin-form-container #undo-checkin:hover {
+  background-color: #546e7a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(84, 110, 122, 0.3);
+}
+
+.checkin-form-container #undo-checkin:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Check-in History Table */
+#checkin-history-table th,
+#checkin-history-table td {
+  white-space: nowrap;
+}
+
+/* Accordion Styling */
+.checkin-accordion .accordion-item {
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.checkin-accordion .accordion-header {
+  background-color: #f8f9fa;
+}
+
+.checkin-accordion .accordion-button {
+  background-color: #f8f9fa;
+  color: #005e5e;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.checkin-accordion .accordion-button:not(.collapsed) {
+  background-color: #e6ecec;
+  color: #004d4d;
+  box-shadow: none;
+}
+
+.checkin-accordion .accordion-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.checkin-accordion .accordion-body {
+  background-color: white;
+  padding: 10px 0px 0px 0px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .bnb-container {
       padding: 15px;
-    }
-  
-    .kpi-container {
+  }
+
+  .kpi-container {
       flex-direction: column;
       align-items: center;
-    }
-  
-    .elegant-table {
+  }
+
+  .kpi-card {
+      min-width: 100%;
+  }
+
+  .elegant-table {
       display: block;
       overflow-x: auto;
       white-space: nowrap;
-    }
-  
-    h1 {
-      font-size: 1.5rem;
-    }
-  
-    h2 {
-      font-size: 1.2rem;
-    }
   }
-  
+
+  .chart-container {
+      margin-bottom: 30px;
+  }
+
+  .custom-nav-tabs {
+      padding: 5px;
+  }
+
+  .custom-nav-tabs .nav-item {
+      flex: none;
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .custom-nav-tabs .nav-link {
+      display: block;
+      margin: 0;
+      border-radius: 5px;
+  }
+
+  .archive-summary-modal .modal-dialog {
+      margin: 10px;
+  }
+
+  .checkin-form-container {
+      padding: 15px;
+  }
+
+  .checkin-form-container .btn-primary,
+  .checkin-form-container #undo-checkin {
+      width: 100%;
+      margin-bottom: 10px;
+      margin-right: 0;
+  }
+
+  #checkin-history-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+  }
+
+  #availability-table th,
+  #availability-table td {
+      padding: 8px 10px;
+      font-size: 0.85em;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  h2 {
+      font-size: 1.2rem;
+  }
+
+  h4 {
+      font-size: 1rem;
+  }
+
+  .checkin-accordion .accordion-button {
+      font-size: 1rem;
+      padding: 12px 15px;
+  }
+
+  .checkin-accordion .accordion-body {
+      padding: 15px;
+  }
+}
