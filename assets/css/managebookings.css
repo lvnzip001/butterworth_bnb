@@ -6,7 +6,8 @@ body {
 }
 
 .header {
-  background-color: #6AAAAA;
+  background: #80c4c4;
+background: radial-gradient(circle, rgba(128, 196, 196, 1) 0%, rgba(0, 94, 94, 1) 100%);
   padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -22,7 +23,7 @@ body {
 }
 
 .logo-text a {
-  color: #005e5e;
+  color: #cde327;
   text-decoration: none;
   font-weight: 600;
   font-family: 'Courier New', Courier, monospace;
@@ -96,7 +97,7 @@ h4 {
   border: 0;
   height: 1px;
   background: #6AAAAA;
-  margin: 30px 0;
+  margin: 15px 0;
 }
 
 .elegant-table {
@@ -104,31 +105,69 @@ h4 {
   border-collapse: separate;
   border-spacing: 0;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 12px; /* Slightly larger radius */
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer, more diffused shadow */
   animation: fadeIn 0.5s ease-in;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif; /* Modern font stack */
+  color: #333; /* Better contrast than pure black */
 }
 
 .elegant-table th, .elegant-table td {
-  font-size: 14px;
-  padding: 14px 16px;
+  font-size: 14px; /* Slightly larger for readability */
+  padding: 16px 10px; /* Adjusted padding */
   text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Subtle bottom border */
 }
 
 .elegant-table th {
-  background-color: #005e5e;
+  background-color: #006666; /* Slightly lighter teal */
   color: white;
   font-weight: 600;
+  letter-spacing: 0.5px; /* Improves header readability */
+  position: sticky;
+  top: 0; /* Makes headers sticky if table scrolls */
+}
+
+.elegant-table td {
+  vertical-align: middle; /* Better vertical alignment */
+}
+
+.elegant-table tr:last-child td {
+  border-bottom: none; /* Remove border from last row */
 }
 
 .elegant-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f8fafa; /* Lighter, more elegant shade */
 }
 
 .elegant-table tr:hover {
-  background-color: #e6ecec;
-  transition: background-color 0.3s ease;
+  background-color: #e0f0f0; /* Softer hover color */
+  transition: all 0.2s ease; /* Smoother transition */
+  transform: translateX(2px); /* Slight movement effect */
+  box-shadow: inset 0 0 8px rgba(0, 100, 100, 0.05); /* Inner glow */
+}
+
+/* Add subtle animation to cells */
+.elegant-table td {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add responsive behavior */
+@media (max-width: 768px) {
+  .elegant-table {
+    border-radius: 8px;
+  }
+  .elegant-table th, .elegant-table td {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Add focus states for accessibility */
+.elegant-table tr:focus-within {
+  background-color: #e0f0f0;
+  outline: 2px solid #009999;
 }
 
 .btn-primary {
@@ -688,4 +727,167 @@ select.complete-status:hover {
   .checkin-accordion .accordion-body {
       padding: 15px;
   }
+}
+
+/* Calendar-specific styles (won't affect other elements) */
+.bnb-calendar-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Modal styles with specific prefix */
+.bnb-booking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.bnb-booking-modal__content {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.bnb-booking-modal__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.bnb-booking-modal__close:hover {
+  color: #333;
+}
+
+.bnb-booking-modal__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.bnb-booking-modal__row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.bnb-booking-modal__label {
+  font-weight: 600;
+  color: #555;
+}
+
+.bnb-booking-modal__value {
+  text-align: right;
+}
+
+.bnb-booking-modal__status--pending {
+  color: rgb(213, 138, 0);
+  background-color: rgba(255, 166, 0, 0.513);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: 500;
+}
+
+.bnb-booking-modal__status--complete {
+  color: #005e5e;
+  background-color: #6aaaaa95;
+  border-radius: 5px;
+  padding: 5px 10px;  
+  font-weight: 500;
+}
+
+.bnb-booking-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.bnb-booking-modal__btn--edit,
+.bnb-booking-modal__btn--close {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.bnb-booking-modal__btn--edit {
+  background-color: #005e5e;
+  color: white;
+  border: none;
+}
+
+.bnb-booking-modal__btn--edit:hover {
+  background-color: #004a4a;
+}
+
+.bnb-booking-modal__btn--close {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.bnb-booking-modal__btn--close:hover {
+  background-color: #e9e9e9;
+}
+
+
+
+/* Calendar event status indicator */
+.bnb-calendar-container .bnb-calendar-event-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.bnb-calendar-container .bnb-calendar-event-status-text {
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* FullCalendar event styling - properly scoped */
+.bnb-calendar-container .fc-event {
+  color: #333 !important; /* Default text color */
+  transition: all 0.2s ease;
+}
+
+.bnb-calendar-container .fc-event:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Status-specific text colors */
+.bnb-calendar-container .fc-event.pending-event {
+  color: #a36200 !important; /* Darker orange for text */
+}
+
+.bnb-calendar-container .fc-event.confirmed-event {
+  color: #003d3d !important; /* Darker teal for text */
 }

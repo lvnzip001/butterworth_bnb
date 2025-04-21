@@ -34,7 +34,7 @@ async function loadStatsData() {
 
 // Load KPIs: Monthly Revenue, Days Booked, Avg Booking Duration
 async function loadKPIs() {
-  const currentDate = new Date();
+  const currentDate = new Date('2025-04-19'); // Current date
   const currentMonth = currentDate.getMonth() + 1; // 1-based
   const currentYear = currentDate.getFullYear();
   const startDate = `${currentYear}-${currentMonth.toString().padStart(2, '0')}-01`;
@@ -275,7 +275,7 @@ async function loadCharts() {
   data.forEach(booking => {
     const month = new Date(booking.checkin_date).toLocaleString('default', { month: 'short', year: 'numeric' });
     if (!monthlyData[month]) {
-      monthlyData[month] = { revenue: 0, count: 0, totalDays: 0 };
+      monthlyData[month] = { revenue: 0, count: 0, totalDays: 0, daysBooked: 0 };
     }
     monthlyData[month].revenue += Number(booking.total_cost) || 0;
     monthlyData[month].count++;
@@ -283,6 +283,7 @@ async function loadCharts() {
     const checkout = new Date(booking.checkout_date);
     const days = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
     monthlyData[month].totalDays += days;
+    monthlyData[month].daysBooked += days; // Total days booked in the month
   });
 
   cachedChartData = monthlyData; // Cache data for table
@@ -291,6 +292,7 @@ async function loadCharts() {
   const revenueData = labels.map(month => monthlyData[month].revenue);
   const bookingCountData = labels.map(month => monthlyData[month].count);
   const avgDurationData = labels.map(month => monthlyData[month].count ? (monthlyData[month].totalDays / monthlyData[month].count).toFixed(1) : 0);
+  const daysBookedData = labels.map(month => monthlyData[month].daysBooked);
 
   // Revenue Line Chart
   const revenueCtx = document.getElementById('revenueChart')?.getContext('2d');
@@ -354,7 +356,7 @@ async function loadCharts() {
     });
   }
 
-  // Booking Count Bar Chart
+  // Booking Count Bar Chart with Days Booked Line
   const bookingCtx = document.getElementById('archiveSummaryChart')?.getContext('2d');
   if (bookingCtx) {
     if (archiveChart) archiveChart.destroy();
@@ -362,15 +364,32 @@ async function loadCharts() {
       type: 'bar',
       data: {
         labels,
-        datasets: [{
-          label: 'Number of Bookings',
-          data: bookingCountData,
-          backgroundColor: 'rgba(0, 110, 110, 0.7)',
-          borderColor: '#006e6e',
-          borderWidth: 1,
-          hoverBackgroundColor: '#006e6e',
-          hoverBorderColor: '#004d4d'
-        }]
+        datasets: [
+          {
+            label: 'Number of Bookings',
+            data: bookingCountData,
+            backgroundColor: 'rgba(0, 110, 110, 0.7)',
+            borderColor: '#006e6e',
+            borderWidth: 1,
+            hoverBackgroundColor: '#006e6e',
+            hoverBorderColor: '#004d4d',
+            yAxisID: 'y'
+          },
+          {
+            label: 'Days Booked',
+            type: 'line',
+            data: daysBookedData,
+            borderColor: '#FFD700', // Gold color
+            borderWidth: 2,
+            fill: false, // No fill under the line
+            tension: 0.3, // Smooth the line
+            pointBackgroundColor: '#FFD700',
+            pointBorderColor: '#FFD700',
+            pointHoverBackgroundColor: '#FFD700',
+            pointHoverBorderColor: '#FFD700',
+            yAxisID: 'y1'
+          }
+        ]
       },
       options: {
         responsive: true,
@@ -382,24 +401,44 @@ async function loadCharts() {
             padding: 10,
             callbacks: {
               title: context => context[0].label,
-              label: context => [
-                `Bookings: ${context.parsed.y}`,
-                `Avg Duration: ${avgDurationData[context.dataIndex]} days`
-              ]
+              label: context => {
+                if (context.dataset.label === 'Number of Bookings') {
+                  return [
+                    `Bookings: ${context.parsed.y}`,
+                    `Avg Duration: ${avgDurationData[context.dataIndex]} days`
+                  ];
+                } else {
+                  return `Days Booked: ${context.parsed.y}`;
+                }
+              }
             }
           },
           datalabels: {
             anchor: 'end',
             align: 'top',
             color: '#000',
-            font: { weight: 'bold', size: 12 }
+            font: { weight: 'bold', size: 12 },
+            formatter: (value, context) => {
+              // Only show labels for the bar dataset
+              if (context.dataset.label === 'Number of Bookings') {
+                return value;
+              }
+              return '';
+            }
           }
         },
         scales: {
           y: {
             beginAtZero: true,
             title: { display: true, text: 'Bookings', font: { size: 12 } },
-            grid: { color: 'rgba(0, 0, 0, 0.1)', borderDash: [5, 5] }
+            grid: { color: 'rgba(0, 0, 0, 0.1)', borderDash: [5, 5] },
+            position: 'left'
+          },
+          y1: {
+            beginAtZero: true,
+            title: { display: true, text: 'Days Booked', font: { size: 12 } },
+            grid: { display: false },
+            position: 'right'
           },
           x: {
             title: { display: true, text: 'Month', font: { size: 12 } },
