@@ -1,6 +1,6 @@
 import { initBookings } from './admin-bookings.js';
 import { initCheckin } from './checkin.js';
-import { initCustomers } from './customers.js';
+import { initCustomerManagement } from './customers.js';
 import { initPricing } from './pricing.js';
 import { initStats } from './stats.js';
 
@@ -152,7 +152,7 @@ import { initStats } from './stats.js';
       await Promise.all([
         initBookings(),
         initCheckin(),
-        initCustomers(),
+        initCustomerManagement(),
         initPricing(),
         initStats()
       ]);

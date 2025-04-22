@@ -36,7 +36,7 @@
     <ul class="nav nav-tabs d-flex custom-nav-tabs" id="myTabjustified" role="tablist">
       <li class="nav-item flex-fill"><button class="nav-link active w-100" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-justified" type="button" role="tab" aria-controls="bookings" aria-selected="true">Bookings</button></li>
       <li class="nav-item flex-fill"><button class="nav-link w-100" id="checkin-tab" data-bs-toggle="tab" data-bs-target="#checkin-justified" type="button" role="tab" aria-controls="checkin" aria-selected="false">Guest Check-in</button></li>
-      <li class="nav-item flex-fill"><button class="nav-link w-100" id="customers-tab" data-bs-toggle="tab" data-bs-target="#customers-justified" type="button" role="tab" aria-controls="customers" aria-selected="false">Customers</button></li>
+      <li class="nav-item flex-fill"><button class="nav-link w-100" id="customers-tab" data-bs-toggle="tab" data-bs-target="#customers-justified" type="button" role="tab" aria-controls="customers" aria-selected="false">Customer Contact</button></li>
       <li class="nav-item flex-fill"><button class="nav-link w-100" id="prices-tab" data-bs-toggle="tab" data-bs-target="#prices-justified" type="button" role="tab" aria-controls="prices" aria-selected="false">Pricing</button></li>
       <li class="nav-item flex-fill"><button class="nav-link w-100" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats-justified" type="button" role="tab" aria-controls="stats" aria-selected="false">Stats</button></li>
     </ul>
@@ -196,15 +196,27 @@
         </section>
       </div>
 
-      <!-- CUSTOMERS -->
-      <div class="tab-pane fade" id="customers-justified" role="tabpanel" aria-labelledby="customers-tab">
-        <section class="dashboard-section">
-          <h2>Customers</h2>
-          <p>View and manage customer information here.</p>
-        </section>
-      </div>
+      
+         <!-- CUSTOMERS -->
+         <div class="tab-pane fade" id="customers-justified" role="tabpanel" aria-labelledby="customers-tab">
+          <section class="dashboard-section">
+            <h2>Customer Contacts</h2>
+            <table class="customer-mgmt-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="customer-mgmt-body">
+                <tr><td colspan="4">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-      <!-- PRICING -->
+                <!-- PRICING -->
       <div class="tab-pane fade" id="prices-justified" role="tabpanel" aria-labelledby="prices-tab">
         <section class="dashboard-section">
           <h2>Room Types & Pricing</h2>
@@ -298,6 +310,15 @@
           </div>
         </div>
       </div>
+
+   
+      </div>
+
+        </section>
+      </div>
+
+
+
     </div>
   </main>
 
