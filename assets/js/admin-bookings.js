@@ -157,7 +157,7 @@ function showBookingDetails(details) {
     <div class="bnb-booking-modal">
       <div class="bnb-booking-modal__content">
         <span class="bnb-booking-modal__close">&times;</span>
-        <h3>Booking Details</h3>
+        <h4>Booking Details</h4>
         <div class="bnb-booking-modal__grid">
           <div class="bnb-booking-modal__row">
             <span class="bnb-booking-modal__label">Booking ID:</span>
