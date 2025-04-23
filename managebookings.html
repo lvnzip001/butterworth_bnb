@@ -7,7 +7,6 @@
   <title>BnB Admin Dashboard</title>
 
   <!-- Project CSS -->
-  <!-- <link rel="stylesheet" href="/assets/css/style_admin.css"> -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/managebookings.css">
@@ -18,6 +17,9 @@
 
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Poppins Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -42,7 +44,6 @@
     </ul>
 
     <div class="tab-content pt-2" id="myTabjustifiedContent">
-
       <!-- BOOKINGS -->
       <div class="tab-pane fade show active" id="bookings-justified" role="tabpanel" aria-labelledby="bookings-tab">
         <section class="dashboard-section">
@@ -67,10 +68,8 @@
       <!-- GUEST CHECK-IN -->
       <div class="tab-pane fade" id="checkin-justified" role="tabpanel" aria-labelledby="checkin-tab">
         <section class="dashboard-section">
-        
-
           <!-- Accordion for Check-in Sections -->
-          <div class="accordion checkin-accordion" id="checkinAccordion">
+          <div class="accordion custom-accordion" id="checkinAccordion">
             <!-- Room Availability Section -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingAvailability">
@@ -83,8 +82,8 @@
                   <div class="availability-container">
                     <!-- Pagination Controls -->
                     <div id="availability-pagination" class="d-flex justify-content-center gap-2 mb-3">
-                      <button class="btn-primary" id="availability-prev">&lt;&lt; Previous Week</button>
-                      <button class="btn-primary" id="availability-next">Next Week &gt;&gt;</button>
+                      <button class="btn-primary" id="availability-prev"><< Previous Week</button>
+                      <button class="btn-primary" id="availability-next">Next Week >></button>
                     </div>
                     <table id="availability-table">
                       <thead id="availability-header"></thead>
@@ -196,27 +195,27 @@
         </section>
       </div>
 
-      
-         <!-- CUSTOMERS -->
-         <div class="tab-pane fade" id="customers-justified" role="tabpanel" aria-labelledby="customers-tab">
-          <section class="dashboard-section">
-            <h2>Customer Contacts</h2>
-            <table class="customer-mgmt-table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="customer-mgmt-body">
-                <tr><td colspan="4">Loading...</td></tr>
-              </tbody>
-            </table>
-          </div>
+      <!-- CUSTOMERS -->
+      <div class="tab-pane fade" id="customers-justified" role="tabpanel" aria-labelledby="customers-tab">
+        <section class="dashboard-section">
+          <h2>Customer Contacts</h2>
+          <table class="customer-mgmt-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="customer-mgmt-body">
+              <tr><td colspan="4">Loading...</td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
 
-                <!-- PRICING -->
+      <!-- PRICING -->
       <div class="tab-pane fade" id="prices-justified" role="tabpanel" aria-labelledby="prices-tab">
         <section class="dashboard-section">
           <h2>Room Types & Pricing</h2>
@@ -232,60 +231,103 @@
       <!-- STATS -->
       <div class="tab-pane fade" id="stats-justified" role="tabpanel" aria-labelledby="stats-tab">
         <section class="dashboard-section">
-          <h1>Live KPIs</h1>
-          <div class="kpi-container">
-            <div class="kpi-card">
-              <i class="bi bi-currency-exchange kpi-icon"></i>
-              <h3>Monthly Revenue</h3>
-              <p id="monthly-revenue">R0.00</p>
+          <!-- Accordion for Stats Sections -->
+          <div class="accordion custom-accordion" id="statsAccordion">
+            <!-- Live KPIs Section -->
+            <div class="accordion-item-no accordion-background">
+              <h2 class="accordion-header" id="headingKPIs">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseKPIs" aria-expanded="true" aria-controls="collapseKPIs">
+                  Live KPIs
+                </button>
+              </h2>
+        
+                  <div class="kpi-container">
+                    <div class="kpi-card">
+                      <i class="bi bi-currency-exchange kpi-icon"></i>
+                      <h3>Monthly Revenue</h3>
+                      <p id="monthly-revenue">R0.00</p>
+                    </div>
+                    <div class="kpi-card">
+                      <i class="bi bi-calendar-check kpi-icon"></i>
+                      <h3>Days Booked</h3>
+                      <p id="days-booked">0</p>
+                    </div>
+                    <div class="kpi-card">
+                      <i class="bi bi-clock kpi-icon"></i>
+                      <h3>Avg Stay Duration</h3>
+                      <p id="avg-duration">0 days</p>
+                    </div>
+                  </div>
+           
             </div>
-            <div class="kpi-card">
-              <i class="bi bi-calendar-check kpi-icon"></i>
-              <h3>Days Booked</h3>
-              <p id="days-booked">0</p>
-            </div>
-            <div class="kpi-card">
-              <i class="bi bi-clock kpi-icon"></i>
-              <h3>Avg Stay Duration</h3>
-              <p id="avg-duration">0 days</p>
-            </div>
-          </div>
-          <h2>Accommodation Usage</h2>
-          <table class="elegant-table">
-            <thead><tr><th>Month</th><th>Type</th><th>Revenue</th><th>Occupancy</th></tr></thead>
-            <tbody id="accommodation-body"></tbody>
-          </table>
-        </section>
-        <hr class="divider">
-        <section class="dashboard-section">
-          <h2>Archive Bookings</h2>
-          <table class="elegant-table">
-            <thead>
-              <tr><th>Guest</th><th>Email</th><th>Type</th><th>Check-in</th><th>Check-out</th><th>Cost</th></tr>
-            </thead>
-            <tbody id="archive-bookings-body"></tbody>
-          </table>
-          <div id="archive-pagination" class="mt-3 d-flex justify-content-center gap-2">
-            <button class="btn-primary" id="archive-prev" disabled>Previous</button>
-            <button class="btn-primary" id="archive-next">Next</button>
-          </div>
-        </section>
-        <section class="dashboard-section">
-          <h2>Charts</h2>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="chart-container">
-                <canvas id="revenueChart"></canvas>
+
+            <!-- Accommodation Usage Section -->
+            <div class="accordion-item-no">
+              <h2 class="accordion-header" id="headingAccommodation">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAccommodation" aria-expanded="true" aria-controls="collapseAccommodation">
+                  Accommodation Usage
+                </button>
+              </h2>
+              <div id="collapseAccommodation" class="accordion-collapse collapse show" aria-labelledby="headingAccommodation">
+                <div class="accordion-body-no accordion-background">
+                  <table class="elegant-table">
+                    <thead><tr><th>Month</th><th>Type</th><th>Revenue</th><th>Occupancy</th></tr></thead>
+                    <tbody id="accommodation-body"></tbody>
+                  </table>
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="chart-container">
-                <canvas id="archiveSummaryChart"></canvas>
+
+            <!-- Archive Bookings Section -->
+            <div class="accordion-item-no">
+              <h2 class="accordion-header" id="headingArchive">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArchive" aria-expanded="true" aria-controls="collapseArchive">
+                  Archive Bookings
+                </button>
+              </h2>
+              <div id="collapseArchive" class="accordion-collapse collapse show" aria-labelledby="headingArchive">
+                <div class="accordion-body-no accordion-background">
+                  <table class="elegant-table">
+                    <thead>
+                      <tr><th>Guest</th><th>Email</th><th>Type</th><th>Check-in</th><th>Check-out</th><th>Cost</th></tr>
+                    </thead>
+                    <tbody id="archive-bookings-body"></tbody>
+                  </table>
+                  <div id="archive-pagination" class="mt-3 d-flex justify-content-center gap-2">
+                    <button class="btn-primary" id="archive-prev" disabled>Previous</button>
+                    <button class="btn-primary" id="archive-next">Next</button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="mt-3 text-center">
-            <button class="btn-primary" id="view-archive-table-btn" data-bs-toggle="modal" data-bs-target="#archive-summary-modal">View Table</button>
+
+            <!-- Charts Section -->
+            <div class="accordion-item-no">
+              <h2 class="accordion-header" id="headingCharts">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCharts" aria-expanded="true" aria-controls="collapseCharts">
+                  Charts
+                </button>
+              </h2>
+              <div id="collapseCharts" class="accordion-collapse collapse show " aria-labelledby="headingCharts">
+                <div class="accordion-body-no accordion-background">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="chart-container">
+                        <canvas id="archiveSummaryChart"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-3 text-center">
+                    <button class="btn-primary" id="view-archive-table-btn" data-bs-toggle="modal" data-bs-target="#archive-summary-modal">View Table</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -310,15 +352,6 @@
           </div>
         </div>
       </div>
-
-   
-      </div>
-
-        </section>
-      </div>
-
-
-
     </div>
   </main>
 

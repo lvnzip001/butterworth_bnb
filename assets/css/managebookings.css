@@ -218,7 +218,7 @@ select.complete-status:hover {
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .kpi-card {
@@ -593,7 +593,8 @@ select.complete-status:hover {
 }
 
 /* Accordion Styling */
-.checkin-accordion .accordion-item {
+/* Shared Accordion Styling for Both Check-in and Stats */
+.custom-accordion .accordion-item {
   border: none;
   border-radius: 8px;
   margin-bottom: 30px;
@@ -601,12 +602,16 @@ select.complete-status:hover {
   overflow: hidden;
 }
 
-.checkin-accordion .accordion-header {
-  background-color: #f8f9fa;
+.custom-accordion .accordion-item-no {
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: none;
+  overflow: hidden;
 }
 
-.checkin-accordion .accordion-button {
-  background-color: #f8f9fa;
+.custom-accordion .accordion-button {
+  background-color: #e6ecec;
   color: #005e5e;
   font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
@@ -617,20 +622,34 @@ select.complete-status:hover {
   transition: background-color 0.3s ease;
 }
 
-.checkin-accordion .accordion-button:not(.collapsed) {
+.custom-accordion .accordion-button:not(.collapsed) {
   background-color: #e6ecec;
   color: #004d4d;
-  box-shadow: none;
 }
 
-.checkin-accordion .accordion-button:focus {
+.custom-accordion .accordion-button:focus {
   box-shadow: none;
   outline: none;
 }
 
-.checkin-accordion .accordion-body {
+.custom-accordion .accordion-body {
   background-color: white;
   padding: 10px 0px 0px 0px;
+}
+
+.custom-accordion .accordion-body-no {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px 0px 0px 0px;
+}
+
+.accordion-background {
+  background-color: #f8f9fa00;
+
+}
+
+.custom-accordion .accordion-header {
+  background-color: #f8f9fa00 !important;
+  box-shadow: none !important;
 }
 
 /* Animations */
@@ -648,6 +667,7 @@ select.complete-status:hover {
   .kpi-container {
       flex-direction: column;
       align-items: center;
+      margin-top: 10px;
   }
 
   .kpi-card {
