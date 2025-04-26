@@ -17,8 +17,8 @@ function initCalendar() {
   if (!el) return;
   
   // Container styling (better to use CSS classes)
-  el.style.width = '90%';
-  el.style.maxWidth = '1200px';
+  el.style.width = '100%';
+  el.style.maxWidth = '1600px';
   el.style.margin = '0 auto';
   el.style.borderRadius = '12px';
   el.style.overflow = 'hidden';
