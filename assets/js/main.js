@@ -306,8 +306,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sticky Sidebar Logic
   const bookingBox = document.getElementById('bookingBox');
+  if (!bookingBox) return; // Exit if bookingBox doesn't exist
+
   const sidebar = document.querySelector('.l-sidebar');
-  const footer = document.querySelector('footer'); // Assume there's a footer; adjust if needed
+  const footer = document.querySelector('footer');
   const initialTop = bookingBox.getBoundingClientRect().top + window.scrollY;
 
   function updateSidebarPosition() {
