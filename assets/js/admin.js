@@ -4,6 +4,37 @@ import { initCustomerManagement } from './customers.js';
 import { initPricing } from './pricing.js';
 import { initStats } from './stats.js';
 
+(async () => {
+  const token = localStorage.getItem('supabase.auth.token');
+  if (!token) {
+    window.location.href = 'login.html';
+    return;
+  }
+
+  const { data: { user }, error } = await supabase.auth.getUser(token);
+  if (error || !user) {
+    localStorage.removeItem('supabase.auth.token');
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Check if the user is approved in the admins table
+  const { data: adminData, error: adminError } = await supabase
+    .from('admins')
+    .select('approved')
+    .eq('id', user.id)
+    .single();
+
+  if (adminError || !adminData || !adminData.approved) {
+    localStorage.removeItem('supabase.auth.token');
+    window.location.href = 'login.html?message=account_not_approved';
+    return;
+  }
+
+  console.log('User authenticated and approved:', user.email);
+  // ... (rest of your admin.js logic here)
+})();
+
 (function() {
   "use strict";
 

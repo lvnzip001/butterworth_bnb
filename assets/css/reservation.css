@@ -91,7 +91,7 @@
   }
   
   /* Button styling */
-  button {
+  .reservation-btn {
     padding: 10px 20px;
     background-color: #007bff; /* Professional blue */
     color: white;

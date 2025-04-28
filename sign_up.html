@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Sign-Up - Bibby’s BnB</title>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/managebookings.css">
+</head>
+<body>
+  <main class="bnb-container">
+    <section class="dashboard-section">
+      <h2>Admin Sign-Up</h2>
+      <div class="alert alert-danger d-none" id="signup-error" role="alert"></div>
+      <div class="alert alert-success d-none" id="signup-success" role="alert"></div>
+      <div class="checkin-form-container">
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+        </div>
+        <button id="signup-btn" class="btn-primary">Sign Up</button>
+        <p class="mt-3">Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="/assets/js/register.js"></script>
+</body>
+</html>

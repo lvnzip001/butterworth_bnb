@@ -1074,3 +1074,21 @@ select.complete-status:hover {
     margin: 0; /* Remove any margin since there's no text */
   }
 }
+
+
+.signout-btn {
+  position: fixed;
+  color: white;
+  opacity: 1;
+  left: -1px;
+  bottom: 15px;
+  z-index: 996;
+  width: 36px;
+  height: 36px;
+  border:none;
+  border-radius: 0px;
+  transition: all 0.4s;
+  background-color: #005e5e;
+}
+
+
