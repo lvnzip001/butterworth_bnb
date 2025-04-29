@@ -110,10 +110,20 @@ async function populateBookingIdDropdown() {
 
 // Load Room Availability Table
 async function loadRoomAvailability() {
-  const today = new Date('2025-04-19'); // Current date (April 19, 2025)
+  // Get current date
+  const now = new Date();
+  
+  // Calculate first day of current week (Monday)
+  const firstDayInWeek = new Date(now);
+  const dayOfWeek = firstDayInWeek.getDay(); // 0 (Sunday) to 6 (Saturday)
+  const diffToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // Adjust to get Monday
+  firstDayInWeek.setDate(firstDayInWeek.getDate() + diffToMonday);
+  
   // Calculate the start date based on the current week offset
-  const startDate = new Date(today);
-  startDate.setDate(today.getDate() + currentWeekOffset * DAYS_PER_WEEK);
+  const startDate = new Date(firstDayInWeek);
+  startDate.setDate(firstDayInWeek.getDate() + currentWeekOffset * DAYS_PER_WEEK);
+  
+  // Generate dates for the week
   const dates = [];
   for (let i = 0; i < DAYS_PER_WEEK; i++) {
     const date = new Date(startDate);
