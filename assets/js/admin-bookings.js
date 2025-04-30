@@ -275,35 +275,172 @@ function renderBookingsTable(bookings) {
   }
 }
 
-
-// Update status with availability handling
+// Update status with availability handling and fraud detection
 async function updateStatus(id, newStatus) {
-  try {
-    const { data: b, error: fetchError } = await supabase
-      .from('bookings')
-      .select('status, checkin_date, checkout_date, bnb_id, room_type_id')
-      .eq('id', id)
-      .single();
-    if (fetchError) throw new Error('Fetch booking error: ' + fetchError.message);
-    if (!b) throw new Error('Booking not found');
-
-    const { error: updateError } = await supabase
-      .from('bookings')
-      .update({ status: newStatus })
-      .eq('id', id);
-    if (updateError) throw new Error('Update status error: ' + updateError.message);
-
-    if (b.status === 'pending' && newStatus === 'complete') {
-      await adjustAvailability(b, -1);
-    } else if (b.status === 'complete' && newStatus === 'pending') {
-      await adjustAvailability(b, 1);
-    }
-
-    await loadDashboard();
-  } catch (error) {
-    console.error('Error updating status:', error.message);
-    alert('Failed to update booking status: ' + error.message);
+  // Check if Bootstrap is available
+  if (typeof bootstrap === 'undefined' || !bootstrap.Modal) {
+    console.error('Bootstrap Modal is not available. Ensure bootstrap.bundle.min.js is loaded.');
+    alert('Error: Modal functionality is not available. Please ensure Bootstrap is loaded correctly.');
+    return;
   }
+
+  // Fetch the current booking details to determine the status change
+  const { data: booking, error: fetchError } = await supabase
+    .from('bookings')
+    .select('status, checkin_date, checkout_date, bnb_id, room_type_id, booking_id, guest_name')
+    .eq('id', id)
+    .single();
+  if (fetchError) {
+    console.error('Fetch booking error:', fetchError.message);
+    alert('Failed to fetch booking details: ' + fetchError.message);
+    return;
+  }
+  if (!booking) {
+    console.error('Booking not found for id:', id);
+    alert('Booking not found. Please refresh the page and try again.');
+    return;
+  }
+
+  // Determine if we need to show a modal (only for pending <-> complete changes)
+  const isPendingToComplete = booking.status === 'pending' && newStatus === 'complete';
+  const isCompleteToPending = booking.status === 'complete' && newStatus === 'pending';
+
+  if (!isPendingToComplete && !isCompleteToPending) {
+    // No modal needed; proceed with the update
+    try {
+      const { error: updateError } = await supabase
+        .from('bookings')
+        .update({ status: newStatus })
+        .eq('id', id);
+      if (updateError) throw new Error('Update status error: ' + updateError.message);
+
+      await loadDashboard();
+    } catch (error) {
+      console.error('Error updating status (no modal):', error.message);
+      alert('Failed to update booking status: ' + error.message);
+    }
+    return;
+  }
+
+  // Get the modal element
+  const modalElement = document.getElementById('statusChangeModal');
+  if (!modalElement) {
+    console.error('Status Change Modal element not found in the DOM.');
+    alert('Error: Status Change Modal not found. Please check your HTML.');
+    return;
+  }
+
+  // Initialize the modal
+  let modal;
+  try {
+    modal = new bootstrap.Modal(modalElement, {
+      backdrop: 'static', // Prevent closing by clicking outside
+      keyboard: false // Prevent closing with the Escape key
+    });
+  } catch (error) {
+    console.error('Error initializing modal:', error.message);
+    alert('Error: Failed to open the status change modal. Please try again.');
+    return;
+  }
+
+  // Show the appropriate modal content
+  const bookingDetails = document.getElementById('bookingDetails');
+  const pendingToCompleteContent = document.getElementById('pendingToCompleteContent');
+  const completeToPendingContent = document.getElementById('completeToPendingContent');
+  const paymentAttestationInput = document.getElementById('paymentAttestation');
+  const statusChangeReasonInput = document.getElementById('statusChangeReason');
+  const confirmButton = document.getElementById('confirmStatusChange');
+
+  if (!bookingDetails || !pendingToCompleteContent || !completeToPendingContent || !confirmButton) {
+    console.error('Modal elements not found:', {
+      bookingDetails: !!bookingDetails,
+      pendingToCompleteContent: !!pendingToCompleteContent,
+      completeToPendingContent: !!completeToPendingContent,
+      confirmButton: !!confirmButton
+    });
+    alert('Error: Modal elements not found. Please check the modal HTML.');
+    return;
+  }
+
+  if (isPendingToComplete && !paymentAttestationInput) {
+    console.error('Payment attestation input not found in the modal.');
+    alert('Error: Payment attestation input not found. Please check the modal HTML.');
+    return;
+  }
+
+  if (isCompleteToPending && !statusChangeReasonInput) {
+    console.error('Status change reason input not found in the modal.');
+    alert('Error: Status change reason input not found. Please check the modal HTML.');
+    return;
+  }
+
+  // Populate booking details
+  bookingDetails.textContent = `Booking ID: ${booking.booking_id}, Guest: ${booking.guest_name}`;
+
+  // Reset inputs
+  if (paymentAttestationInput) paymentAttestationInput.checked = false;
+  if (statusChangeReasonInput) statusChangeReasonInput.value = '';
+
+  // Show the appropriate content
+  if (isPendingToComplete) {
+    pendingToCompleteContent.classList.remove('d-none');
+    completeToPendingContent.classList.add('d-none');
+  } else if (isCompleteToPending) {
+    pendingToCompleteContent.classList.add('d-none');
+    completeToPendingContent.classList.remove('d-none');
+  }
+
+  modal.show();
+
+  const statusChangeHandler = async () => {
+    try {
+      // Validate inputs based on the change direction
+      let updateData = { status: newStatus };
+
+      if (isPendingToComplete) {
+        if (!paymentAttestationInput.checked) {
+          alert('You must confirm the payment is correct to proceed.');
+          return;
+        }
+        updateData.payment_checked = true;
+      } else if (isCompleteToPending) {
+        const statusChangeReason = statusChangeReasonInput.value.trim();
+        if (!statusChangeReason) {
+          alert('Please provide a reason for changing the status to pending.');
+          return;
+        }
+        updateData.status_change_reason = statusChangeReason;
+        // Do NOT update payment_checked; it should remain TRUE if already set
+      }
+
+      // Update the booking with the new status and additional fields
+      const { error: updateError } = await supabase
+        .from('bookings')
+        .update(updateData)
+        .eq('id', id);
+      if (updateError) throw new Error('Update status error: ' + updateError.message);
+
+      // Adjust availability
+      if (isPendingToComplete) {
+        await adjustAvailability(booking, -1);
+      } else if (isCompleteToPending) {
+        await adjustAvailability(booking, 1);
+      }
+
+      // Reload the dashboard
+      await loadDashboard();
+
+      // Hide the modal
+      modal.hide();
+    } catch (error) {
+      console.error('Error updating status (modal flow):', error.message);
+      alert('Failed to update booking status: ' + error.message);
+    }
+  };
+
+  // Attach the handler to the confirm button (remove previous listeners to avoid duplicates)
+  confirmButton.removeEventListener('click', statusChangeHandler);
+  confirmButton.addEventListener('click', statusChangeHandler);
 }
 
 // Update room type
@@ -321,25 +458,150 @@ async function updateBookingRoom(id, newRoom) {
   }
 }
 
-// Delete booking
+// Delete booking with modal for reason
 async function deleteBooking(id) {
-  if (!confirm('Delete booking?')) return;
-  try {
-    const { data: b, error: fetchError } = await supabase
-      .from('bookings')
-      .select('status, checkin_date, checkout_date, bnb_id, room_type_id')
-      .eq('id', id)
-      .single();
-    if (fetchError) throw new Error('Fetch booking error: ' + fetchError.message);
-    if (b.status === 'complete') await adjustAvailability(b, 1);
-    const { error: deleteError } = await supabase
-      .from('bookings')
-      .delete()
-      .eq('id', id);
-    if (deleteError) throw new Error('Delete error: ' + deleteError.message);
-    await loadDashboard();
-  } catch (error) {
-    console.error('Error deleting booking:', error.message);
-    alert('Failed to delete booking: ' + error.message);
+  // Check if Bootstrap is available
+  if (typeof bootstrap === 'undefined' || !bootstrap.Modal) {
+    console.error('Bootstrap Modal is not available. Ensure bootstrap.bundle.min.js is loaded.');
+    alert('Error: Modal functionality is not available. Please ensure Bootstrap is loaded.');
+    return;
   }
+
+  // Get the modal element
+  const modalElement = document.getElementById('deleteBookingModal');
+  if (!modalElement) {
+    console.error('Delete Booking Modal element not found in the DOM.');
+    alert('Error: Delete Booking Modal not found. Please check your HTML.');
+    return;
+  }
+
+  // Initialize the modal
+  let modal;
+  try {
+    modal = new bootstrap.Modal(modalElement, {
+      backdrop: 'static', // Prevent closing by clicking outside
+      keyboard: false // Prevent closing with the Escape key
+    });
+  } catch (error) {
+    console.error('Error initializing modal:', error.message);
+    alert('Error: Failed to open the deletion modal. Please try again.');
+    return;
+  }
+
+  // Fetch the booking to determine its status
+  const { data: booking, error: fetchError } = await supabase
+    .from('bookings')
+    .select('status')
+    .eq('id', id)
+    .single();
+  if (fetchError) {
+    console.error('Fetch booking error:', fetchError.message);
+    alert('Failed to fetch booking: ' + fetchError.message);
+    return;
+  }
+
+  // Show the modal and adjust its content based on status
+  const refundStatusGroup = document.getElementById('refundStatusGroup');
+  const refundStatusInput = document.getElementById('refundStatus');
+  const reasonInput = document.getElementById('deletionReason');
+  const confirmButton = document.getElementById('confirmDeleteBooking');
+
+  if (!reasonInput || !confirmButton) {
+    console.error('Modal elements not found.');
+    alert('Error: Modal elements not found. Please check the modal HTML.');
+    return;
+  }
+
+  // Reset inputs
+  reasonInput.value = '';
+  if (refundStatusInput) refundStatusInput.value = '';
+
+  // Show/hide refund status based on booking status
+  if (booking.status === 'complete') {
+    refundStatusGroup.classList.remove('d-none');
+  } else {
+    refundStatusGroup.classList.add('d-none');
+  }
+
+  modal.show();
+
+  const deleteHandler = async () => {
+    try {
+      // Validate the reason
+      const cancellationReason = reasonInput.value.trim();
+      if (!cancellationReason) {
+        alert('Please provide a reason for deleting the booking.');
+        return;
+      }
+
+      // Validate refund status for complete bookings
+      let refundStatus = null;
+      if (booking.status === 'complete') {
+        refundStatus = refundStatusInput.value;
+        if (!refundStatus) {
+          alert('Please select a refund status.');
+          return;
+        }
+      }
+
+      // Fetch the full booking details
+      const { data: fullBooking, error: fetchFullError } = await supabase
+        .from('bookings')
+        .select('*')
+        .eq('id', id)
+        .single();
+      if (fetchFullError) throw new Error('Fetch booking error: ' + fetchFullError.message);
+
+      // Adjust availability if the booking status is 'complete'
+      if (fullBooking.status === 'complete') {
+        await adjustAvailability(fullBooking, 1);
+      }
+
+      // Delete from bookings first
+      const { error: deleteError } = await supabase
+        .from('bookings')
+        .delete()
+        .eq('id', id);
+      if (deleteError) throw new Error('Delete error: ' + deleteError.message);
+
+      // Handle based on status
+      if (fullBooking.status === 'complete') {
+        // Insert into archive_refunds for complete bookings
+        const archivedBooking = {
+          ...fullBooking,
+          cancellation_reason: cancellationReason,
+          refund_status: refundStatus
+        };
+        const { error: insertError } = await supabase
+          .from('archive_refunds')
+          .insert(archivedBooking);
+        if (insertError) throw new Error('Insert into archive_refunds error: ' + insertError.message);
+      } else if (fullBooking.status === 'pending') {
+        // Insert into archive_cancelled_no_payment for pending bookings
+        const cancelledBooking = {
+          ...fullBooking,
+          cancellation_reason: cancellationReason
+        };
+        const { error: insertError } = await supabase
+          .from('archive_cancelled_no_payment')
+          .insert(cancelledBooking);
+        if (insertError) throw new Error('Insert into archive_cancelled_no_payment error: ' + insertError.message);
+      } else {
+        throw new Error('Invalid booking status: ' + fullBooking.status);
+      }
+
+      // Reload the dashboard
+      await loadDashboard();
+
+      // Hide the modal
+      modal.hide();
+    } catch (error) {
+      console.error('Error deleting booking:', error.message);
+      alert('Failed to delete booking: ' + error.message);
+    }
+  };
+
+  // Attach the handler to the confirm button (remove previous listeners to avoid duplicates)
+  confirmButton.removeEventListener('click', deleteHandler);
+  confirmButton.addEventListener('click', deleteHandler);
 }
