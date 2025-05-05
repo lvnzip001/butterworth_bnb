@@ -49,7 +49,7 @@ const roomSelectionModalHTML = `
                             </div>
                             <div class="room-item-card__room-location-hld text-muted">
                               <span class="bi bi-geo-alt me-2"></span>
-                              <p class="room-item-card__room-location-value">Butterwork B&B</p>
+                              <p class="room-item-card__room-location-value">Butterworth B&B</p>
                             </div>
                             <div class="room-item-card__title-hld">
                               <h2 class="room-item-card__title">Sharing Room</h2>

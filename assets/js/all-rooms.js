@@ -3,7 +3,7 @@ const roomsData = [
   {
     type: "Standard Room",
     price: 700,
-    location: "Butterwork B&B",
+    location: "Butterworth B&B",
     size: "40 m²",
     capacity: "max. 2 pers.",
     amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
@@ -13,7 +13,7 @@ const roomsData = [
   {
     type: "Sharing Room",
     price: 800,
-    location: "Butterwork B&B",
+    location: "Butterworth B&B",
     size: "45 m²",
     capacity: "max. 4 pers.",
     amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
@@ -23,7 +23,7 @@ const roomsData = [
   {
     type: "Family Room",
     price: 900,
-    location: "Butterwork B&B",
+    location: "Butterworth B&B",
     size: "60 m²",
     capacity: "max. 5 pers.",
     amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
