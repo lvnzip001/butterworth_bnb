@@ -90,7 +90,12 @@
                       <thead id="availability-header"></thead>
                       <tbody id="availability-body"></tbody>
                     </table>
+                   
                   </div>
+
+                 
+
+
                 </div>
               </div>
             </div>
@@ -173,22 +178,28 @@
               </h2>
               <div id="collapseHistory" class="accordion-collapse collapse show" aria-labelledby="headingHistory">
                 <div class="accordion-body-no accordion-background">
-                  <table id="checkin-history-table" class="elegant-table">
-                    <thead>
-                      <tr>
-                        <th>Check-in Time</th>
-                        <th>Guest Name</th>
-                        <th>ID Number</th>
-                        <th>Emergency Contact</th>
-                        <th>Key Handed</th>
-                        <th>Rules Ack.</th>
-                        <th>Payment</th>
-                        <th>Room Inspected</th>
-                        <th>Notes</th>
-                      </tr>
-                    </thead>
-                    <tbody id="checkin-history-body"></tbody>
-                  </table>
+                  <div class="history-container">
+                    <table id="checkin-history-table" class="elegant-table">
+                      <thead>
+                        <tr>
+                          <th>Check-in Time</th>
+                          <th>Guest Name</th>
+                          <th>ID Number</th>
+                          <th>Emergency Contact</th>
+                          <th>Key Handed</th>
+                          <th>Rules Ack.</th>
+                          <th>Payment</th>
+                          <th>Room Inspected</th>
+                          <th>Notes</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody id="checkin-history-body"></tbody>
+                    </table>
+                    <div style="margin-top: 20px; text-align: center;">
+                      <button id="show-checkout-btn" class="btn-elegant">Show Checkout Table</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -437,6 +448,8 @@
   </main>
 
   <!-- Scripts -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -446,6 +459,8 @@
   <script type="module" src="/assets/js/admin.js"></script>
   <script type="module" src="/assets/js/checkin.js"></script>
   <script type="module" src="/assets/js/signout.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  
 </body>
 
 </html>

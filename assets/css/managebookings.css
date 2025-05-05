@@ -1092,3 +1092,186 @@ select.complete-status:hover {
 }
 
 
+
+.availability-container {
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#availability-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+#availability-table th,
+#availability-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
+
+#availability-table th {
+  background-color: #eeeeee;
+  font-weight: 600;
+  color: #444;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#availability-table th:last-child,
+#availability-table td:last-child {
+  border-right: none;
+}
+
+#availability-table tr:last-child td {
+  border-bottom: none;
+}
+
+.current-date {
+  background-color: #e0f7fa;
+  font-weight: 600;
+  color: #00796b;
+}
+
+.booked-cell-confirmed {
+  background-color: #d32f2f;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  /* Gradient for check-in/check-out indication */
+  background: linear-gradient(
+    135deg,
+    rgb(204, 90, 61) 0%,    /* Warm light red */
+    rgb(101, 1, 1) 100%   /* Modern coral */
+  );
+  color: white;
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* rgb(204, 93, 42) 0%,  
+rgb(177, 56, 0) 100%    */
+
+.booked-cell-confirmed:hover {
+  background-color: #b71c1c;
+}
+
+.conflict-cell {
+  background-color: #f4511e;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.conflict-cell:hover {
+  background-color: #d84315;
+}
+
+.empty-cell {
+  background-color: #ffffff;
+  color: #757575;
+}
+
+.booked-cell-confirmed .tooltip-text,
+.conflict-cell .tooltip-text {
+  visibility: hidden;
+  width: 220px;
+  background-color: #2a2a2a;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.booked-cell-confirmed:hover .tooltip-text,
+.conflict-cell:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+#availability-pagination {
+  margin-bottom: 20px;
+}
+
+#availability-pagination button {
+  background-color: #00796b;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#availability-pagination button:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+}
+
+#availability-pagination button:hover:not(:disabled) {
+  background-color: #004d40;
+}
+
+
+.btn-elegant {
+  background-color: #00796b;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-elegant:hover {
+  background-color: #004d40;
+}
+
+.checkout-modal-btn {
+  background-color: #0288d1;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-modal-btn:hover {
+  background-color: #01579b;
+}
+
+.checkout-modal-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.checkout-modal-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.checkout-modal-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  color: #444;
+}
