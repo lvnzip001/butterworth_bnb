@@ -3,6 +3,7 @@ import { initCheckin } from './checkin.js';
 import { initCustomerManagement } from './customers.js';
 import { initPricing } from './pricing.js';
 import { initStats } from './stats.js';
+import supabase from './supabase-client.js';
 
 (async () => {
   const token = localStorage.getItem('supabase.auth.token');
