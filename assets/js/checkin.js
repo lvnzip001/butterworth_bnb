@@ -1,4 +1,5 @@
 import supabase from './supabase-client.js';
+import { getBnbIdByName, getRoomTypesWithColumns } from './utils.js';
 
 // Pagination state
 let currentWeekOffset = 0; // Number of weeks from the current date (0 = current week)
@@ -139,16 +140,10 @@ async function loadRoomAvailability() {
     nextButton.disabled = currentWeekOffset >= MAX_WEEK_OFFSET;
   
     // Fetch room types
-    const { data: roomTypes, error: roomError } = await supabase
-      .from('bnb_room_type')
-      .select('id, accomodation_type');
-  
-    if (roomError) {
-      console.error('Room types fetch error:', roomError);
-      alert('Failed to load room types: ' + roomError.message);
-      return;
-    }
-  
+    let roomTypes = [];
+    const bnbId = await getBnbIdByName(); // Replace with actual BnB name
+    roomTypes = await getRoomTypesWithColumns(bnbId, 'id, accomodation_type');   
+      
     // Filter room types based on selection
     const roomFilter = document.getElementById('room-filter')?.value || '';
     const filteredRoomTypes = roomFilter
