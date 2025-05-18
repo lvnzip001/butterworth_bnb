@@ -1,16 +1,65 @@
 import supabase from './supabase-client.js';
 
+
+export async function getBnb() {
+  const { data, error } = await supabase
+    .from('bnb')
+    .select('id, name,description, address, contact_email, contact_phone');
+  if (error) {
+    console.error('Bnb error:', error);
+    alert('Failed to load available bnb');
+    return [];
+  }
+  return data;
+}
+
+// Fetch bnb_id by bnbName
+export async function getBnbIdByName(bnbName) {
+  bnbName = 'Bibbys BnB Butterworth'; // Hardcoded for testing
+  const bnbData = await getBnb();
+  const bnb = bnbData.find(b => b.name === bnbName);
+  if (!bnb) {
+    console.error(`Bnb not found for name: ${bnbName}`);
+    alert(`B&B "${bnbName}" not found. Please try again.`);
+    return null;
+  }
+  console.log(`Bnb ID for ${bnbName}:`, bnb.id);
+  return bnb.id;
+}
+
 // Fetch room types (shared across Bookings and Pricing)
-export async function getRoomTypes() {
+export async function getRoomTypes(bnbId) {
   const { data, error } = await supabase
     .from('bnb_room_type')
-    .select('id, accomodation_type, price_per_night, quantity')
+    .select('id, bnb_id, accomodation_type, description, price_per_night, quantity, amenities, photos')
+    .eq('bnb_id', bnbId)
     .order('accomodation_type');
+    
   if (error) {
     console.error('Room types error:', error);
     alert('Failed to load room types');
     return [];
   }
+  return data;
+}
+
+// Fetch room types with specified columns
+export async function getRoomTypesWithColumns(bnbId, columns) {
+  // Convert columns to string if provided as an array
+  const selectColumns = Array.isArray(columns) ? columns.join(', ') : columns;
+  
+  const { data, error } = await supabase
+    .from('bnb_room_type')
+    .select(selectColumns)
+    .eq('bnb_id', bnbId)
+    .order('accomodation_type');
+    
+  if (error) {
+    console.error(`Room types error for columns "${selectColumns}":`, error);
+    alert('Failed to load room types');
+    return [];
+  }
+  console.log(`Fetched Room Types with columns "${selectColumns}":`, data);
   return data;
 }
 

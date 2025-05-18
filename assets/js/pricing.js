@@ -1,8 +1,9 @@
 import supabase from './supabase-client.js';
-import { getRoomTypes } from './utils.js';
+import { getRoomTypes, getBnbIdByName } from './utils.js';
 
 export async function initPricing() {
-  const roomTypes = await getRoomTypes();
+  const bnbID = await getBnbIdByName(); // Hardcoded for testing
+  const roomTypes = await getRoomTypes(bnbID);
   const tbody = document.getElementById('room-types-body');
   if (tbody) {
     tbody.innerHTML = roomTypes.map(r => `

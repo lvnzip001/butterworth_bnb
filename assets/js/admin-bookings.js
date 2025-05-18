@@ -1,5 +1,5 @@
 import supabase from './supabase-client.js';
-import { adjustAvailability, getRoomTypes } from './utils.js';
+import { adjustAvailability, getRoomTypes, getBnb, getBnbIdByName } from './utils.js';
 
 let calendar;
 let roomTypeOptions = [];
@@ -7,7 +7,18 @@ let roomTypeOptions = [];
 // Initialize bookings and calendar
 export async function initBookings() {
   initCalendar();
-  roomTypeOptions = await getRoomTypes();
+  // Fetch bnb data to get the id for the specified B&B
+  
+  const bnbId = await getBnbIdByName();
+  if (!bnbId) {
+    roomTypeOptions = [];
+    return;
+  }
+
+  console.log('Bnb ID for', bnbId);
+
+  // Fetch room types filtered by bnb_id
+  roomTypeOptions = await getRoomTypes(bnbId);
   await loadDashboard();
 }
 
