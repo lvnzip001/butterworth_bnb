@@ -1,50 +1,106 @@
-const roomsData = [
-  {
-    type: "Standard Room",
-    price: 600,
-    location: "Butterwork B&B",
-    size: "40 m²",
-    capacity: "max. 2 pers.",
-    amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
-    images: ["assets/img/standard_room.jpeg", "assets/img/bibby's1.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
-    detailsLink: "room_standard.html",
-    bnb_id: "1b523c66-72c4-4a13-a6fa-3ed2531de7a2",
-    room_type_id: "cf4de15d-56fc-4e50-82d4-9baea09daccc"
+import { getRoomTypes, getBnb } from './utils.js';
+import supabase from './supabase-client.js';
+// Static mappings for fields not in the database
+const roomDetailsMap = {
+  'Standard Room': {
+    size: '40 m²',
+    capacity: 'max. 2 pers.',
+    detailsLink: 'room_standard.html',
+    images: ['assets/img/standard_room.jpeg', 'assets/img/bibby\'s1.jpg', 'assets/img/gallery/bathroom/bibbys_bath_1.jpg']
   },
-  {
-    type: "Sharing Room",
-    price: 700,
-    location: "Butterwork B&B",
-    size: "45 m²",
-    capacity: "max. 4 pers.",
-    amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
-    images: ["assets/img/two_single_bed.jpeg", "assets/img/bibby's19.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
-    detailsLink: "room_shared.html",
-    bnb_id: "1b523c66-72c4-4a13-a6fa-3ed2531de7a2",
-    room_type_id: "240809c2-82c4-4fe2-8019-f030e5b604f8"
+  'Sharing Room': {
+    size: '45 m²',
+    capacity: 'max. 4 pers.',
+    detailsLink: 'room_shared.html',
+    images: ['assets/img/two_single_bed.jpeg', 'assets/img/bibby\'s19.jpg', 'assets/img/gallery/bathroom/bibbys_bath_1.jpg']
   },
-  {
-    type: "Family Room",
-    price: 800,
-    location: "Butterwork B&B",
-    size: "60 m²",
-    capacity: "max. 5 pers.",
-    amenities: ["Free Wi-Fi", "TV", "Bathroom with Shower"],
-    images: ["assets/img/gallery/double_room.jpg", "assets/img/gallery/king_bed.jpg", "assets/img/gallery/bathroom/bibbys_bath_1.jpg"],
-    detailsLink: "room_family.html",
-    bnb_id: "1b523c66-72c4-4a13-a6fa-3ed2531de7a2",
-    room_type_id: "e6cc4a87-8cee-48f0-9263-9d7956338714"
+  'Family Room': {
+    size: '60 m²',
+    capacity: 'max. 5 pers.',
+    detailsLink: 'room_family.html',
+    images: ['assets/img/gallery/double_room.jpg', 'assets/img/gallery/king_bed.jpg', 'assets/img/gallery/bathroom/bibbys_bath_1.jpg']
   }
-];
+};
+
+
+// Fetch room data from Supabase, filtered by bnb name
+async function fetchRoomsData() {
+  console.log('Fetching room data from Supabase...');
+  
+  // Fetch bnb data to get the id for the specified B&B
+  const bnbName = 'Bibbys BnB Butterworth';
+  const bnbData = await getBnb();
+  const bnb = bnbData.find(b => b.name === bnbName);
+  if (!bnb) {
+    console.error(`Bnb not found for name: ${bnbName}`);
+    alert(`B&B "${bnbName}" not found. Please try again.`);
+    return [];
+  }
+  const bnbId = bnb.id;
+  console.log('Bnb ID for', bnbName, ':', bnbId);
+
+  // Fetch room types filtered by bnb_id
+  const roomTypes = await getRoomTypes(bnbId);
+
+  console.log('Raw Room Types:', roomTypes);
+  const roomsData = roomTypes.map(room => ({
+    type: room.accomodation_type,
+    price: room.price_per_night,
+    location: bnbName,
+    size: roomDetailsMap[room.accomodation_type]?.size || 'Unknown',
+    capacity: roomDetailsMap[room.accomodation_type]?.capacity || 'Unknown',
+    amenities: room.amenities || ['Free Wi-Fi', 'TV', 'Bathroom with Shower'],
+    images: room.photos || roomDetailsMap[room.accomodation_type]?.images || ['assets/img/default_room.jpg'],
+    detailsLink: roomDetailsMap[room.accomodation_type]?.detailsLink || '#',
+    bnb_id: room.bnb_id,
+    room_type_id: room.id
+  }));
+  console.log('Fetched Rooms Data:', roomsData);
+  return roomsData;
+}
 
 function showRoomSelectionModal(roomType = null) {
   console.log('showRoomSelectionModal called with roomType:', roomType);
+  if (typeof bootstrap === 'undefined' || !bootstrap.Modal) {
+    console.error('Bootstrap Modal is not available. Check script inclusion.');
+    alert('Error: Unable to open room selection modal. Please try again later.');
+    return;
+  }
   removeExistingModal('roomSelectionModal');
-  document.body.insertAdjacentHTML('beforeend', generateRoomSelectionModal(roomType));
-  const roomSelectionModal = new bootstrap.Modal(document.getElementById('roomSelectionModal'), { backdrop: 'static' });
-  roomSelectionModal.show();
+  generateRoomSelectionModal(roomType).then(modalHTML => {
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    // Wait for DOM update before initializing modal
+    setTimeout(() => {
+      const modalElement = document.getElementById('roomSelectionModal');
+      if (!modalElement) {
+        console.error('Modal element not found in DOM');
+        return;
+      }
+      try {
+        const roomSelectionModal = new bootstrap.Modal(modalElement, { backdrop: 'static' });
+        roomSelectionModal.show();
+        // Attach event listeners to book buttons
+        const bookButtons = modalElement.querySelectorAll('.book-btn');
+        console.log(`Found ${bookButtons.length} book buttons in modal`);
+        bookButtons.forEach(button => {
+          button.removeEventListener('click', handleBookButtonClick);
+          button.addEventListener('click', handleBookButtonClick, { once: true });
+        });
+      } catch (error) {
+        console.error('Failed to initialize modal:', error);
+        alert('Error: Unable to open modal. Please try again.');
+      }
+    }, 0);
+  }).catch(error => {
+    console.error('Failed to generate modal HTML:', error);
+    alert('Error: Unable to load room data. Please try again.');
+  });
+}
 
-function generateRoomSelectionModal(roomFilter = null) {
+async function generateRoomSelectionModal(roomFilter = null) {
+  console.log('Generating room selection modal...');
+  const roomsData = await fetchRoomsData();
+  console.log('Rooms Data for Modal:', roomsData);
   const filteredRooms = roomFilter ? roomsData.filter(room => room.type === roomFilter) : roomsData;
   return `
     <div class="modal fade" id="roomSelectionModal" tabindex="-1" aria-labelledby="roomSelectionModalLabel" aria-hidden="true">
@@ -148,12 +204,6 @@ function generateRoomCard(room, index) {
       </div>
     </div>
   `;
-}
-
-  document.querySelectorAll('.book-btn').forEach(button => {
-    button.removeEventListener('click', handleBookButtonClick);
-    button.addEventListener('click', handleBookButtonClick, { once: true });
-  });
 }
 
 const bookingConfirmationModalHTML = `
@@ -299,7 +349,6 @@ async function handleBookingFormSubmit(event) {
     return;
   }
 
-  
   const bookingInfo = {
     name,
     email,
